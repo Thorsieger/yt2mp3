@@ -10,7 +10,7 @@ const link = process.argv[2];
 if(link==undefined)return process.stdout.write("/!\\Le programme prend en argument le lien de la playlist/!\\\n");
 
 if(ytpl.validateURL(link)){
-    ytpl(link, { limit: Infinity } , function(err, playlist) {
+    ytpl(link, { limit: Infinity } , function (err, playlist) {
         if(err) return process.stdout.write(err.name + " : " + err.message + "\n");
         readline.cursorTo(process.stdout, 0);
         process.stdout.write("Téléchargement de la playlist : " + playlist.title + "\n");
