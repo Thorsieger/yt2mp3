@@ -10,13 +10,15 @@
 
   <section>
     <h1>Télécharger une playlist</h1>
-
+    
+    <p id="path_text">Path : undefined </p>
+    <button id="path-button" onclick="choose_path()" type="button">Choose Path</button>
     <p>Playlist link (or id) : </p>
 
     <textarea id="playlist-id">PLa-CMwYmsE0ZyAzcUpKe3b2kr_fSDwkuE</textarea>
     <br>
     <p id='text-out'></p>
-    <button id="dl-button" onclick="download()" type="button">Download</button>
+    <button id="dl-button" disabled="true" onclick="download()" type="button">Download</button>
   </section>
 
   <br>
