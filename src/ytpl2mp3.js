@@ -4,7 +4,8 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
 
-var path = undefined;
+var path = process.env.HOME;
+document.getElementById("path_text").innerHTML = "Path : " + path;
 var startTime;
 
 function download(){
