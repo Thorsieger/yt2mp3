@@ -5,23 +5,24 @@ const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
 
 var path = undefined;
+var startTime;
 
 function download(){
-  const startTime = Date.now();
+  startTime = Date.now();
   const link = document.getElementById('playlist-id').value;
 
   if(link==undefined)return document.getElementById('text-out').innerHTML ="/!\\Le programme prend en argument le lien de la playlist/!\\";
 
   if(ytpl.validateURL(link)){
     ytpl(link, { limit: Infinity } , function(err, playlist) {
-        if(err) return document.getElementById('text-out').innerHTML +=err.name + " : " + err.message + "<br>";
+        if(err) return document.getElementById('text-out').innerHTML =err.name + " : " + err.message + "<br>";
         document.getElementById('text-out').innerHTML ="Téléchargement de la playlist : " + playlist.title + "<br>";
         document.getElementById('text-out').innerHTML +="Nombre de piste audio à télécharger : " + playlist.total_items + "<br><br>";
         if (!fs.existsSync(path + '/' +playlist.title))fs.mkdirSync(path + "/"+ playlist.title);
         dl_track(playlist,0);
       });
   }else{
-    document.getElementById('text-out').innerHTML +="Erreur lien non valide<br>";
+    document.getElementById('text-out').innerHTML ="Erreur lien non valide<br>";
   }
   }
 
@@ -36,7 +37,7 @@ function dl_track(playlist,element)
     quality: 'highestaudio',
   });
   
-  stream.on('error', console.error).on('progress', onProgress);
+  stream.on('progress', onProgress);
   document.getElementById('text-out').innerHTML +="Téléchargement de : " + playlist.items[element].title;
   let start = Date.now();
   
@@ -51,6 +52,11 @@ function dl_track(playlist,element)
     .audioBitrate(128)
     .outputOptions(metadata)
     .save(`${path}/${playlist.title}/${playlist.items[element].title}.mp3`)
+    .on('error', function(err, stdout, stderr) {
+      document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
+      if(element<(playlist.total_items-1))dl_track(playlist,++element);
+      else   document.getElementById('text-out').innerHTML +=`Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`;
+    })
     .on('end', () => {
       document.getElementById('text-out').innerHTML +=` | Done - ${(Date.now() - start) / 1000}s - ${element+1}/${playlist.total_items} <br>`;
       if(element<(playlist.total_items-1))dl_track(playlist,++element);
@@ -73,4 +79,3 @@ function choose_path()
   else{ document.getElementById("dl-button").disabled = true;}
   document.getElementById("path_text").innerHTML = "Path : " + path;
 }
-
