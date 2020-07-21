@@ -17,7 +17,7 @@ Pour le lancer : node ytpl2mp3.js [playlist link | playlist id]
 License
 ----
 
-Apache 2.0
+MIT
 
 
 
