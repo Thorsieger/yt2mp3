@@ -4,27 +4,27 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
 
+//https://github.com/electron-userland/electron-installer-windows
+//https://github.com/electron-react-boilerplate/electron-react-boilerplate
+
 var path = process.env.HOME;
 document.getElementById("path_text").innerHTML = "Path : " + path;
 var startTime;
 
 function download(){
   startTime = Date.now();
-  const link = document.getElementById('playlist-id').value;
+  let  link = document.getElementById('playlist-id').value;
+  ytpl.getPlaylistID(link, (err, playlistID)=>{
+    if(err)return document.getElementById('text-out').innerHTML =`/!\\ERREUR : C'est pas une playlist/!\\`;
 
-  if(link==undefined)return document.getElementById('text-out').innerHTML ="/!\\Le programme prend en argument le lien de la playlist/!\\";
-
-  if(ytpl.validateURL(link)){
-    ytpl(link, { limit: Infinity } , function(err, playlist) {
-        if(err) return document.getElementById('text-out').innerHTML =err.name + " : " + err.message + "<br>";
-        document.getElementById('text-out').innerHTML ="Téléchargement de la playlist : " + playlist.title + "<br>";
-        document.getElementById('text-out').innerHTML +="Nombre de piste audio à télécharger : " + playlist.total_items + "<br><br>";
-        if (!fs.existsSync(path + '/' +playlist.title))fs.mkdirSync(path + "/"+ playlist.title);
-        dl_track(playlist,0);
+    ytpl(playlistID, { limit: Infinity } , function(err, playlist) {
+      if(err) return document.getElementById('text-out').innerHTML =err.name + " : " + err.message + "<br>";
+      document.getElementById('text-out').innerHTML ="Téléchargement de la playlist : " + playlist.title + "<br>";
+      document.getElementById('text-out').innerHTML +="Nombre de piste audio à télécharger : " + playlist.total_items + "<br><br>";
+      if (!fs.existsSync(path + '/' +playlist.title))fs.mkdirSync(path + "/"+ playlist.title);
+      dl_track(playlist,0);
       });
-  }else{
-    document.getElementById('text-out').innerHTML ="Erreur lien non valide<br>";
-  }
+  });
   }
 
 const onProgress = (chunkLength, downloaded, total) => {
