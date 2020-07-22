@@ -15,14 +15,17 @@ function download(){
   startTime = Date.now();
   let  link = document.getElementById('playlist-id').value;
   ytpl.getPlaylistID(link, (err, playlistID)=>{
-    if(err)return document.getElementById('text-out').innerHTML =`/!\\ERREUR : C'est pas une playlist/!\\`;
+    if(err){
+      if(ytdl.getVideoID(link))return download_track(link);
+      else return document.getElementById('text-out').innerHTML =`/!\\ERREUR : Aucune vidéo trouvé/!\\`;
+    }
 
     ytpl(playlistID, { limit: Infinity } , function(err, playlist) {
       if(err) return document.getElementById('text-out').innerHTML =err.name + " : " + err.message + "<br>";
       document.getElementById('text-out').innerHTML ="Téléchargement de la playlist : " + playlist.title + "<br>";
       document.getElementById('text-out').innerHTML +="Nombre de piste audio à télécharger : " + playlist.total_items + "<br><br>";
       if (!fs.existsSync(path + '/' +playlist.title))fs.mkdirSync(path + "/"+ playlist.title);
-      dl_track(playlist,0);
+      dl_track_from_playlist(playlist,0);
       });
   });
   }
@@ -32,7 +35,38 @@ const onProgress = (chunkLength, downloaded, total) => {
   document.getElementById('avancement').innerHTML =`${(percent * 100).toFixed(2)}% downloaded (${(downloaded / 1024 / 1024).toFixed(2)}MB of ${(total / 1024 / 1024).toFixed(2)}MB)`;
 };
 
-function dl_track(playlist,element)
+function download_track(link){
+  let stream = ytdl(link, {
+    quality: 'highestaudio',
+  });
+
+  stream.on('progress', onProgress).on('info', (info)=>{
+
+  document.getElementById('text-out').innerHTML +="Téléchargement de : " + info.videoDetails.title;
+  let start = Date.now();
+  
+  var metadata = [
+    `-metadata`,
+    `title=${info.videoDetails.title}  `,
+    `-metadata`,
+    `artist=${info.videoDetails.author.name}  `,
+  ];
+
+  ffmpeg(stream)
+    .audioBitrate(128)
+    .outputOptions(metadata)
+    .save(`${path}/${info.videoDetails.title}.mp3`)
+    .on('error', function(err, stdout, stderr) {
+      document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
+    })
+    .on('end', () => {
+      document.getElementById('text-out').innerHTML +=`Musique téléchargée en ${(Date.now() - startTime) / 1000}s<br>`;
+    });
+
+  });
+}
+
+function dl_track_from_playlist(playlist,element)
 {
   let stream = ytdl(playlist.items[element].url_simple, {
     quality: 'highestaudio',
@@ -60,7 +94,7 @@ function dl_track(playlist,element)
     })
     .on('end', () => {
       document.getElementById('text-out').innerHTML +=` | Done - ${(Date.now() - start) / 1000}s - ${element+1}/${playlist.total_items} <br>`;
-      if(element<(playlist.total_items-1))dl_track(playlist,++element);
+      if(element<(playlist.total_items-1))dl_track_from_playlist(playlist,++element);
       else   document.getElementById('text-out').innerHTML +=`Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`;
     });
 }
