@@ -4,7 +4,10 @@
   "description": "Download youtube playlist to mp3",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64  ",
+    "package-win": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 ",    
+    "package-linux": "electron-packager . --overwrite --asar --platform=linux --arch=x64"
   },
   "author": "Thorsieger",
   "license": "ISC",
