@@ -11,10 +11,9 @@
   },
   "build": {
     "appId": "com.electron.udownload",
-    "asar" : "false",
     "files": [
       "!ffmpeg/*",
-      "!dist/"
+      "!dist/*"
     ],
     "linux": {
       "target": "AppImage"
