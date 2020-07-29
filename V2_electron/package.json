@@ -7,7 +7,7 @@
     "start": "electron .",
     "package-mac": "rm -rf ./node_modules/ffmpeg-static && electron-builder build --mac",
     "package-linux": "rm -rf ./node_modules/ffmpeg-static && electron-builder build --linux",
-    "package-win": "rm -rf ./node_modules/ffmpeg-static && electron-builder build --win --x64"
+    "package-win": "electron-builder build --win --x64"
   },
   "build": {
     "appId": "com.electron.udownload",
@@ -24,8 +24,8 @@
     "ytpl": "^0.2.0"
   },
   "devDependencies": {
-    "yarn": "^1.22.4",
     "electron": "^9.1.1",
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^22.7.0",
+    "yarn": "^1.22.4"
   }
 }

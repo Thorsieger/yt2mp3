@@ -4,13 +4,14 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
 
-var pathToFfmpeg = require('ffmpeg-static');
+var pathToFfmpeg = require('ffmpeg-static').replace('app.asar', 'app.asar.unpacked');
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
 //https://github.com/electron-userland/electron-installer-windows
 //https://github.com/electron-react-boilerplate/electron-react-boilerplate
 
 var path = process.env.HOME;
+console.log(process.env)
 document.getElementById("path_text").innerHTML = "Path : " + path;
 var startTime;
 
@@ -58,7 +59,7 @@ function download_track(link){
   ffmpeg(stream)
     .audioBitrate(128)
     .outputOptions(metadata)
-    .save(`${path}/${info.videoDetails.title}.mp3`)
+    .save(path.normalize(`${path}/${info.videoDetails.title}.mp3`))
     .on('error', function(err, stdout, stderr) {
       document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
     })
