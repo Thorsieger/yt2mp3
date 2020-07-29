@@ -4,6 +4,9 @@ const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
 
+var pathToFfmpeg = require('ffmpeg-static');
+ffmpeg.setFfmpegPath(pathToFfmpeg);
+
 //https://github.com/electron-userland/electron-installer-windows
 //https://github.com/electron-react-boilerplate/electron-react-boilerplate
 
@@ -17,7 +20,7 @@ function download(){
   ytpl.getPlaylistID(link, (err, playlistID)=>{
     if(err){
       if(ytdl.getVideoID(link))return download_track(link);
-      else return document.getElementById('text-out').innerHTML =`/!\\ERREUR : Aucune vidéo trouvé/!\\`;
+      else return document.getElementById('text-out').innerHTML =`/!\\ERREUR : Aucune vidéo trouvé/!\\ `;
     }
 
     ytpl(playlistID, { limit: Infinity } , function(err, playlist) {
@@ -89,7 +92,7 @@ function dl_track_from_playlist(playlist,element)
     .save(`${path}/${playlist.title}/${playlist.items[element].title}.mp3`)
     .on('error', function(err, stdout, stderr) {
       document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
-      if(element<(playlist.total_items-1))dl_track(playlist,++element);
+      if(element<(playlist.total_items-1))dl_track_from_playlist(playlist,++element);
       else   document.getElementById('text-out').innerHTML +=`Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`;
     })
     .on('end', () => {
