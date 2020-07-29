@@ -5,12 +5,17 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-mac": "rm -rf ./node_modules/ffmpeg-static && electron-builder build --mac",
-    "package-linux": "rm -rf ./node_modules/ffmpeg-static && electron-builder build --linux",
+    "package-mac": "electron-builder build --mac",
+    "package-linux": "electron-builder build --linux",
     "package-win": "electron-builder build --win --x64"
   },
   "build": {
     "appId": "com.electron.udownload",
+    "asar" : "false",
+    "files": [
+      "!ffmpeg/*",
+      "!dist/"
+    ],
     "linux": {
       "target": "AppImage"
     }

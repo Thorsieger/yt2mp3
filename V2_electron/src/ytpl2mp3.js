@@ -7,11 +7,8 @@ const remote = require('electron').remote;
 var pathToFfmpeg = require('ffmpeg-static').replace('app.asar', 'app.asar.unpacked');
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
-//https://github.com/electron-userland/electron-installer-windows
-//https://github.com/electron-react-boilerplate/electron-react-boilerplate
 
-var path = process.env.HOME;
-console.log(process.env)
+var path = process.env.HOME || process.env.USERPROFILE;
 document.getElementById("path_text").innerHTML = "Path : " + path;
 var startTime;
 
