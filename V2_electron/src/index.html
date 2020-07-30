@@ -1,31 +1,254 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>YT2MP3</title>
-</head>
-
-<body>
-  <h1>Youtube to MP3</h1>
-
-  <section>
-    <h1>Télécharger une playlist</h1>
-    
-    <p id="path_text"></p>
-    <button id="path-button" onclick="choose_path()" type="button">Choose Path</button>
-    <p>Playlist link (or id) : </p>
-
-    <textarea id="playlist-id">PLa-CMwYmsE0ZyAzcUpKe3b2kr_fSDwkuE</textarea>
-    <br>
-    <p id='text-out'></p>
-    <p id='avancement'></p>
-    <button id="dl-button" onclick="download()" type="button">Download</button>
-  </section>
-
-  <br>
-  <br>
-  <button id="app-close" type="button">Fermer l'application</button>
-
-  <script src="./ytpl2mp3.js"></script>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Udownload</title>
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+  </head>
+  <body>
+    <header id="titlebar">
+      <div id="drag-region">
+        <div id="window-title"></div>
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="#7a87ac"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              class="icon icon-tabler icon-tabler-minus"
+              viewBox="0 0 24 24"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path d="M5 12h14" />
+            </svg>
+          </div>
+          <div class="button" id="close-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-x"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#7a87ac"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Barre de progression -->
+    <article class="z-priority abcenterbot hidden" id="progressBar">
+      <p id="progressText"></p>
+      <div id="myProgress" class="progress-wrapper">
+        <div id="myBar" class="progress-wrapper-inner"></div>
+      </div>
+    </article>
+    <!-- Parametres -->
+    <article id="paramModal" class="tr25 w-middle abcenter z-priority hidden">
+      <div class="card">
+        <div class="card-close" id="closeParams">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            overflow="visible"
+          >
+            <path
+              d="M8.4 7l5.3-5.3c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L7 5.6 1.7.3C1.3-.1.7-.1.3.3c-.4.4-.4 1 0 1.4L5.6 7 .3 12.3c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0L7 8.4l5.3 5.3c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L8.4 7z"
+              fill="#010202"
+            ></path>
+          </svg>
+        </div>
+        <div class="card-head">Paramètres</div>
+        <div class="card-body mt2">
+          <section>
+            <p>Format vidéo</p>
+            <ul>
+              <li>
+                <input id="r4" type="radio" name="radio" value="1" checked="" />
+                <label for="r4">Vidéo format MP3 (par défaut)</label>
+              </li>
+              <li>
+                <input
+                  id="r3"
+                  type="radio"
+                  name="radio"
+                  value="2"
+                  disabled=""
+                />
+                <label for="r3">Vidéo format MP4 (instable)</label>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <p>Chemin de fichiers téléchargés</p>
+            <div class="flex">
+              <input
+                type="text"
+                id = "path_text"
+                name=""
+                value="C:\Users\Downloads"
+                disabled=""
+              />
+              <button onclick="choose_path()" class="btn btn-purple ml dib">Ouvrir</button>
+            </div>
+          </section>
+          <section>
+            <p>Avancées</p>
+            <ul>
+              <li>
+                <input id="s3" type="checkbox" checked="" />
+                <!-- <input id="s3" type="checkbox" class="switch" checked="" /> -->
+                <label for="s3">Afficher le message de bienvenue</label>
+              </li>
+              <li>
+                <input id="themeSombre" type="checkbox" class="switch" />
+                <label for="themeSombre">Thème sombre</label>
+              </li>
+              <li>
+                <input id="checkDebug" type="checkbox" class="switch" />
+                <label for="checkDebug">Débogage</label>
+                <div class="tl mt" id="debugText" style="display: none;">
+                  <p>Attention vous avez activé le mode développeur.</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <div flex="" class="mt2">
+            <div flex="" class="jcfe">
+              <button class="btn btn-green ml">
+                Sauvegarder
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- Bouton parametres -->
+    <div class="param" id="btnParams">
+      <button class="btn btn-param square">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="none"
+          stroke="#2c3e50"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          class="icon icon-tabler icon-tabler-adjustments"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="6" cy="10" r="2"></circle>
+          <path d="M6 4v4M6 12v8"></path>
+          <circle cx="12" cy="16" r="2"></circle>
+          <path d="M12 4v10M12 18v2"></path>
+          <circle cx="18" cy="7" r="2"></circle>
+          <path d="M18 4v1M18 9v11"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="notif-wrapper">
+      <!-- <div class="card notif">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <span>3.5Mb</span>
+      </div>
+      <div class="card notif error">
+        <strong>Ooops !</strong>
+        <p>SKRILLEX LIVE @ ULTRA MUSIC FESTIVAL 2015.mp3</p>
+        <strong>ERR-DB01F5</strong>
+      </div> -->
+    </div>
+    <!-- Modal one -->
+    <article id="intro" class="w-middle abcenter z-priority">
+      <div class="card">
+        <div id="close-intro" class="card-close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            overflow="visible"
+          >
+            <path
+              d="M8.4 7l5.3-5.3c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L7 5.6 1.7.3C1.3-.1.7-.1.3.3c-.4.4-.4 1 0 1.4L5.6 7 .3 12.3c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0L7 8.4l5.3 5.3c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L8.4 7z"
+              fill="#010202"
+            />
+          </svg>
+        </div>
+        <div class="card-head">Bienvenue 🖐</div>
+        <div class="card-body mt2">
+          <p>
+            En utilisant cette application, vous confirmez avoir lu et compris
+            les conditions ci-dessous et par conséquent, les acceptez.
+          </p>
+          <div class="impt">
+            <div class="impt-inner">
+              <h4>ARTICLE 1: Objet</h4>
+              <p>
+                Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
+                ont pour objet l'encadrement juridique des modalités de mise à
+                disposition des services de l'application NOM D'APP et leur
+                utilisation par «&nbsp;l'Utilisateur&nbsp;».
+              </p>
+              <p>
+                Les conditions générales d'utilisation doivent être acceptées
+                par tout Utilisateur souhaitant accéder au site. Elles
+                constituent le contrat entre le site et l'Utilisateur. L'accès
+                au site par l'Utilisateur signifie son acceptation des présentes
+                conditions générales d'utilisation.
+              </p>
+            </div>
+          </div>
+          <div flex class="mt2">
+            <div class="flex aic">
+              <input id="c8" type="checkbox" checked />
+              <label for="c8" class="flex aic bold">
+                J'accepte les CGU
+              </label>
+            </div>
+            <div flex class="jcfe">
+              <button class="btn btn-blank">
+                Annuler
+              </button>
+              <button class="btn btn-blue ml">
+                Envoyer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- MAIN APP -->
+    <div class="container flex jcc aic">
+      <main class="app-main">
+        <div flex class="jcsb">
+          <input
+            type="text"
+            name=""
+            id="playlist-id"
+            placeholder="Playlist Link"
+          />
+          <p id='text-out'></p>
+          <p id='avancement'></p>
+          <button onclick="download()" class="btn btn-blue ml" id="dl-button">
+            Télécharger
+          </button>
+        </div>
+      </main>
+    </div>
+    <script src="./ytpl2mp3.js"></script>
+    <!--<script src="./renderer.js"></script>-->
+  </body>
 </html>

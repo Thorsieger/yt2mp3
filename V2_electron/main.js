@@ -7,7 +7,16 @@ let mainWindow
 
 function createWindow () {
   // Création d'une fenetre en résolution 800x600 
-  mainWindow = new BrowserWindow({width: 800, height: 600, webPreferences: {nodeIntegration: true}})
+  mainWindow = new BrowserWindow({
+    width: 1133,
+    height: 720,
+    frame: false,
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
+    }
+  });
 
   mainWindow.loadFile(`${__dirname}/src/index.html`) 
 
