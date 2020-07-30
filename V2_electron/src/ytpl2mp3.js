@@ -3,13 +3,14 @@ const ytpl = require('ytpl');
 const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const remote = require('electron').remote;
+const path = require('path');
 
 var pathToFfmpeg = require('ffmpeg-static').replace('app.asar', 'app.asar.unpacked');
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
 
-var path = process.env.HOME || process.env.USERPROFILE;
-document.getElementById("path_text").innerHTML = "Path : " + path;
+var chemin = process.env.HOME || process.env.USERPROFILE;
+document.getElementById("path_text").innerHTML = "Path : " + chemin;
 var startTime;
 
 function download(){
@@ -25,7 +26,7 @@ function download(){
       if(err) return document.getElementById('text-out').innerHTML =err.name + " : " + err.message + "<br>";
       document.getElementById('text-out').innerHTML ="Téléchargement de la playlist : " + playlist.title + "<br>";
       document.getElementById('text-out').innerHTML +="Nombre de piste audio à télécharger : " + playlist.total_items + "<br><br>";
-      if (!fs.existsSync(path + '/' +playlist.title))fs.mkdirSync(path + "/"+ playlist.title);
+      if (!fs.existsSync(chemin + '/' +playlist.title))fs.mkdirSync(chemin + '/' + playlist.title);
       dl_track_from_playlist(playlist,0);
       });
   });
@@ -56,7 +57,7 @@ function download_track(link){
   ffmpeg(stream)
     .audioBitrate(128)
     .outputOptions(metadata)
-    .save(path.normalize(`${path}/${info.videoDetails.title}.mp3`))
+    .save(path.normalize(`${chemin}/${info.videoDetails.title}.mp3`))
     .on('error', function(err, stdout, stderr) {
       document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
     })
@@ -87,7 +88,7 @@ function dl_track_from_playlist(playlist,element)
   ffmpeg(stream)
     .audioBitrate(128)
     .outputOptions(metadata)
-    .save(`${path}/${playlist.title}/${playlist.items[element].title}.mp3`)
+    .save(`${chemin}/${playlist.title}/${playlist.items[element].title}.mp3`)
     .on('error', function(err, stdout, stderr) {
       document.getElementById('text-out').innerHTML +=` | Erreur - ${err.message} <br>`;
       if(element<(playlist.total_items-1))dl_track_from_playlist(playlist,++element);
@@ -111,7 +112,7 @@ function choose_path()
   var data = remote.dialog.showOpenDialogSync(windows, {
     properties: ['openDirectory']
   });
-  if(data != undefined){path = data;document.getElementById("dl-button").disabled = false;}
+  if(data != undefined){chemin = data;document.getElementById("dl-button").disabled = false;}
   else{ document.getElementById("dl-button").disabled = true;}
-  document.getElementById("path_text").innerHTML = "Path : " + path;
+  document.getElementById("path_text").innerHTML = "Path : " + chemin;
 }
