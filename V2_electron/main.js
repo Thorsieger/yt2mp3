@@ -5,8 +5,8 @@ const BrowserWindow = electron.BrowserWindow
 
 let mainWindow
 
-function createWindow () {
-  // Création d'une fenetre en résolution 800x600 
+function createWindow() {
+  // Création d'une fenetre en résolution 800x600
   mainWindow = new BrowserWindow({
     width: 1133,
     height: 720,
@@ -14,11 +14,11 @@ function createWindow () {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true
-    }
-  });
+      enableRemoteModule: true,
+    },
+  })
 
-  mainWindow.loadFile(`${__dirname}/src/index.html`) 
+  mainWindow.loadFile(`${__dirname}/src/index.html`)
 
   mainWindow.on('closed', function () {
     mainWindow = null
@@ -27,7 +27,6 @@ function createWindow () {
 
 app.on('ready', createWindow)
 
-/
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
