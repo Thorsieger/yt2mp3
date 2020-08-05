@@ -1,0 +1,23 @@
+{
+  "liveServer.settings.port": 5501,
+  "liveSassCompile.settings.autoprefix": false,
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css/"
+    }
+  ],
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/tmp": true,
+    "**/css": true,
+    "**/README.md": true,
+    "**/LICENSE.md": true,
+    "**/package.json": true,
+    "**/documentation": true
+  }
+  // ...
+}

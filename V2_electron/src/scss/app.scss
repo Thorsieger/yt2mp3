@@ -1,0 +1,13 @@
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+$color-primary: #16498a;
+:root {
+  --color-primary: #{$color-primary};
+  --color-primary--rgb: #{hexToRGB($color-primary)};
+}
+
+p {
+  color: #000;
+}

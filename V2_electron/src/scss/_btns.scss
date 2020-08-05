@@ -1,0 +1,139 @@
+.btn {
+  text-decoration: none;
+  border-radius: var(--radius);
+  display: flex;
+  font-weight: 300;
+  font-size: var(--font-size);
+  line-height: 21px;
+  font-family: var(--ff);
+  align-items: center;
+  padding: 16px 42px;
+  line-height: 24px;
+  cursor: pointer;
+  background: $color-grey-gallery;
+  letter-spacing: 1px;
+  outline: none;
+  border: 0;
+  color: var(--blue-inner);
+  transition: 0.3s ease;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+    & + label {
+      cursor: not-allowed;
+    }
+  }
+  &.square {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-width: 62px;
+    min-height: 62px;
+    &.small {
+      padding: 10px 24px;
+      min-height: 48px;
+    }
+  }
+  i {
+    font-size: var(--icon-size);
+    color: var(--tcolor);
+  }
+
+  &:hover {
+    i {
+      color: var(--blue);
+    }
+  }
+  &.active {
+    i {
+      color: var(--blue);
+    }
+  }
+  @each $theme, $color in $ui-colors {
+    &-#{$theme} {
+      background-color: $color;
+    }
+    &-#{$theme}:hover {
+      background-color: darken($color, 10%);
+    }
+    &-#{$theme}:active {
+      background-color: darken($color, 20%);
+    }
+  }
+}
+
+// .btn-blue {
+//   background: var(--blue);
+//   &:hover {
+//     background: darken($color-blue-ribbon, 10%);
+//   }
+//   &:active {
+//     background: darken($color-blue-ribbon, 20%);
+//   }
+//   &:disabled {
+//     border: 1px solid var(--border);
+//     color: var(--border-color);
+//     --blue: var(--disabled-inner);
+//     &:hover {
+//       filter: none;
+//     }
+//   }
+// }
+// .btn-green {
+//   background: $green;
+//   &:hover {
+//     background: darken($green, 10%);
+//   }
+//   &:active {
+//     background: darken($green, 20%);
+//   }
+//   &:disabled {
+//     border: 1px solid var(--border);
+//     color: var(--border-color);
+//     --green: var(--disabled-inner);
+//   }
+// }
+// .btn-purple {
+//   background: $purple;
+//   &:hover {
+//     background: darken($purple, 10%);
+//   }
+//   &:active {
+//     background: darken($purple, 20%);
+//   }
+//   &:disabled {
+//     border: 1px solid var(--border);
+//     color: var(--border-color);
+//     --purple: var(--disabled-inner);
+//   }
+// }
+// .btn-default {
+//   background: var(--background);
+//   color: var(--tcolor);
+//   border: 1px solid var(--border);
+//   &:hover {
+//     background: lighten($grey, 5%);
+//   }
+//   &:disabled {
+//     border: 1px solid var(--border);
+//     color: var(--border-color);
+//     --background: var(--disabled-inner);
+//   }
+// }
+.btn-menu {
+  background: var(--background);
+  @include kit-ui-1;
+  transition: 0.25s ease;
+  border: 2px solid transparent;
+  &:hover {
+    border: 2px solid var(--blue);
+    @include kit-ui-2;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  &.active {
+    border: 2px solid var(--blue);
+    @include kit-ui-2;
+  }
+}

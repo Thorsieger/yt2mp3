@@ -1,0 +1,22 @@
+.progress-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--disabled);
+  border-radius: 10px;
+  position: relative;
+  .progress-wrapper-inner {
+    border-radius: 10px;
+    width: 0%;
+    height: 10px;
+    transition: width 0.25s cubic-bezier(0.47, 0.15, 0.13, 0.81);
+    background-color: $color-blue-ribbon;
+  }
+  .bar-indic {
+    color: var(--bc, var(--border));
+    position: absolute;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+    width: 100%;
+  }
+}
