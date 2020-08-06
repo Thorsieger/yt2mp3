@@ -13,7 +13,6 @@ var taille;
 var chemin;
 
 window.onload = ()=>{
-  console.log("test")
   let setting = JSON.parse(fs.readFileSync(__dirname + '/userSetting.json'));
 
   chemin = setting.path || process.env.HOME || process.env.USERPROFILE;
