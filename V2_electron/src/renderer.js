@@ -10,6 +10,10 @@ document.getElementById('close-button').addEventListener('click', function () {
   remote.getCurrentWindow().close();
 })
 
+document.getElementById('accepte-rule').addEventListener('click', function () {
+  document.getElementById('intro').classList.add('hidden');
+})
+
 function showPop() {
   document.getElementById('notifOne').classList.add('visible')
   setTimeout(() => {

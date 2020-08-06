@@ -8,10 +8,28 @@ const path = require('path');
 var pathToFfmpeg = require('ffmpeg-static').replace('app.asar','app.asar.unpacked');
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
-var chemin = process.env.HOME || process.env.USERPROFILE;
-document.getElementById('path_text').value = chemin;
 var startTime;
 var taille;
+var chemin;
+
+window.onload = ()=>{
+  console.log("test")
+  let setting = JSON.parse(fs.readFileSync(__dirname + '/userSetting.json'));
+
+  chemin = setting.path || process.env.HOME || process.env.USERPROFILE;
+  document.getElementById('path_text').value = chemin;
+
+  if(setting.welcomeMsg){document.getElementById('s3').checked = true;document.getElementById('intro').classList.remove('hidden');}
+  else {
+    document.getElementById('s3').checked = false;
+    
+  }
+
+  if(setting.debug)document.getElementById('checkDebug').checked = true;
+  else document.getElementById('checkDebug').checked = false;
+}
+
+
 
 function download() {
   startTime = Date.now()
@@ -130,4 +148,16 @@ function afficher_notif(text1,text2) {
   document.getElementById("notifp").textContent = text1;
   document.getElementById("notifs").textContent = text2;
   showPop();
+}
+
+function save_param() {
+  let setting = { 
+    "format": "mp3",
+    "path": document.getElementById('path_text').value,
+    "welcomeMsg": document.getElementById('s3').checked,
+    "debug": document.getElementById('checkDebug').checked
+};
+ 
+fs.writeFileSync(__dirname + '/userSetting.json', JSON.stringify(setting));
+
 }
