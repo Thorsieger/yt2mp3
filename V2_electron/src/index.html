@@ -79,7 +79,7 @@
                 type="text"
                 id="path_text"
                 name=""
-                value="C:\Users\Downloads"
+                value=""
                 disabled=""
               />
               <button onclick="choose_path()" class="btn btn-purple ml2 dib">
@@ -172,18 +172,16 @@
     </div>
 
     <!-- Notifications -->
-    <!-- TODO Back-end lorsque le téléchargement est terminé il faut afficher le titre
-    de la video téléchargé dans p, puis sont poid en mégabyte dans span -->
     <div class="notif-wrapper">
       <div class="hidden card notif tr25" id="notifOne">
-        <p><!-- Nom de la video --></p>
-        <span><!-- Poid de la vidéo --></span>
+        <p id="notifp"><!-- Nom de la video --></p>
+        <span id="notifs"><!-- Poid de la vidéo --></span>
       </div>
-      <!-- <div class="card notif error">
+       <div class="hidden card notif error" id="notifErr">
         <strong>Ooops !</strong>
-        <p>SKRILLEX LIVE @ ULTRA MUSIC FESTIVAL 2015.mp3</p>
-        <strong>ERR-DB01F5</strong>
-      </div> -->
+        <p id="errp"></p>
+        <strong id="errs"></strong>
+      </div>
     </div>
 
     <!-- Modal one -->

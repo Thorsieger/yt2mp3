@@ -1,68 +1,28 @@
-var title = document.title
-document.getElementById('window-title').innerHTML = title
-document.querySelector('.big-title').innerHTML = title
+document.getElementById('window-title').innerHTML = document.title;
+document.querySelector('.big-title').innerHTML = document.title;
 
-var win = remote.getCurrentWindow()
 
 document.getElementById('min-button').addEventListener('click', function () {
-  win.minimize()
+  remote.getCurrentWindow().minimize();
 })
 
 document.getElementById('close-button').addEventListener('click', function () {
-  win.close()
+  remote.getCurrentWindow().close();
 })
 
-var pl = 0
 function showPop() {
   document.getElementById('notifOne').classList.add('visible')
   setTimeout(() => {
     document.getElementById('notifOne').classList.remove('visible')
   }, 4000)
 }
-// function progress() {
-//   if (pl == 0) {
-//     pl = 1
-//     var elem = document.getElementById('myBar')
-//     var elem1 = document.getElementById('progressText')
-//     var width = 0
-//     var id = setInterval(frame, 10)
-//     function frame() {
-//       if (width >= 100) {
-//         clearInterval(id)
-//         pl = 0
-//       } else {
-//         width++
-//         elem.style.width = width + '%'
-//         elem1.innerHTML = width + '%'
-//         if (width == 100) {
-//           showPop()
-//           setTimeout(() => {
-//             elem1.innerHTML = 'Téléchargement terminé !'
-//           }, 500)
-//           setTimeout(() => {
-//             progressBar.classList.remove('visible')
-//           }, 4000)
-//         }
-//       }
-//     }
-//   }
-// }
 
-// Download
-// var btnDownload = document.getElementById('downloadPlaylist')
-// var progressBar = document.getElementById('progressBar')
-// btnDownload.onclick = function () {
-//   progressBar.classList.add('visible')
-//   progress()
-// }
-
-// Debug
-
-// var btnParams = document.getElementById('btnParams')
-// var paramModal = document.getElementById('paramModal')
-// btnParams.addEventListener('click', function () {
-//   paramModal.classList.add('visible')
-// })
+function showErr() {
+  document.getElementById('notifErr').classList.add('visible')
+  setTimeout(() => {
+    document.getElementById('notifErr').classList.remove('visible')
+  }, 4000)
+}
 
 var checkBox = document.getElementById('checkDebug')
 checkBox.addEventListener('click', function () {
@@ -74,39 +34,37 @@ checkBox.addEventListener('click', function () {
   }
 })
 
-// // Tabs
-// ;('use strict')
+// Tabs
+function Tabs() {
+  var bindAll = function () {
+    var menuElements = document.querySelectorAll('[data-tab]')
+    for (var i = 0; i < menuElements.length; i++) {
+      menuElements[i].addEventListener('click', change, false)
+      // console.log(menuElements[i])
+    }
+  }
 
-// function Tabs() {
-//   var bindAll = function () {
-//     var menuElements = document.querySelectorAll('[data-tab]')
-//     for (var i = 0; i < menuElements.length; i++) {
-//       menuElements[i].addEventListener('click', change, false)
-//       // console.log(menuElements[i])
-//     }
-//   }
+  var clear = function () {
+    var menuElements = document.querySelectorAll('[data-tab]')
+    for (var i = 0; i < menuElements.length; i++) {
+      menuElements[i].classList.remove('active')
+      var id = menuElements[i].getAttribute('data-tab')
+      document.getElementById(id).classList.remove('active')
+    }
+  }
 
-//   var clear = function () {
-//     var menuElements = document.querySelectorAll('[data-tab]')
-//     for (var i = 0; i < menuElements.length; i++) {
-//       menuElements[i].classList.remove('active')
-//       var id = menuElements[i].getAttribute('data-tab')
-//       document.getElementById(id).classList.remove('active')
-//     }
-//   }
+  var change = function (e) {
+    clear()
+    e.target.classList.add('active')
+    e.target.parentNode.classList.toggle('active')
+    var id = e.currentTarget.getAttribute('data-tab')
+    document.getElementById(id).classList.add('active')
+  }
 
-//   var change = function (e) {
-//     clear()
-//     e.target.classList.add('active')
-//     e.target.parentNode.classList.toggle('active')
-//     var id = e.currentTarget.getAttribute('data-tab')
-//     document.getElementById(id).classList.add('active')
-//   }
+  bindAll()
+}
 
-//   bindAll()
-// }
-
-// var connectTabs = new Tabs()
+var connectTabs = new Tabs()
 
 /**
  * Contextual menu right click
