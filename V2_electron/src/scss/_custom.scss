@@ -73,7 +73,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: calc(100% - 312px);
+  width: calc(100% - 310px);
   display: flex;
   align-items: center;
   background: #fff;
@@ -167,7 +167,7 @@
 }
 
 .sep {
-  margin: 25px auto;
+  margin: 35px auto;
   border-right: 0;
   border-left: 0;
   border-top: 1px solid var(--disabled-inner);
@@ -175,7 +175,7 @@
 }
 
 .sidebar-app {
-  width: 311px;
+  width: 310px;
   height: 100vh;
   background: #000;
   color: #fff;
@@ -320,5 +320,20 @@
         opacity: 1;
       }
     }
+  }
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 9;
+  background: rgba(#000, 0.5);
+  visibility: hidden;
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }

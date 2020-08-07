@@ -11,14 +11,11 @@ html {
   box-sizing: border-box;
 }
 
-// Center & dribbble
 body {
   font-family: var(--primary-ff), sans-serif;
   background: #fff;
   display: flex;
   flex-direction: column;
-  // display: grid;
-  // grid-template-rows: 40px 1fr;
 }
 
 * {
@@ -53,5 +50,22 @@ ul {
   li {
     margin: 14px 0;
     position: relative;
+  }
+}
+
+dl {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--disabled-inner);
+  margin: 0px;
+  padding-top: 0;
+  padding-bottom: 11px;
+  margin-bottom: 11px;
+  dd {
+    margin: 0;
+  }
+  dt {
+    margin: 0;
   }
 }

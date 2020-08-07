@@ -16,7 +16,7 @@
     </ul>
 
     <!-- Modal -->
-    <div class="overlay">
+    <div class="overlay active">
       <div class="card centered w-middle p25">
         <div class="dnone block">
           <div class="impt mb3">
@@ -282,7 +282,7 @@
         <section class="tab-pannel scroll">
           <article class="mx-auto w-middle">
             <div>
-              <p>Format vidéo</p>
+              <h4>Format vidéo</h4>
               <ul>
                 <li>
                   <input
@@ -317,24 +317,51 @@
               </div>
             </div>
             <div class="mt4">
-              <p>Avancées</p>
-              <ul>
-                <li>
-                  <input id="s3" type="checkbox" checked="" />
-                  <!-- <input id="s3" type="checkbox" class="switch" checked="" /> -->
-                  <label for="s3">Afficher le message de bienvenue</label>
-                </li>
-                <li>
-                  <input id="checkDebug" type="checkbox" class="switch" />
-                  <label for="checkDebug">Débogage</label>
-                  <div class="mt2" id="debugText" style="display: none;">
-                    <p>📣 Attention vous avez activé le mode développeur.</p>
-                  </div>
-                </li>
-              </ul>
+              <h4>Avancées</h4>
+              <!-- Message bienvenue -->
+              <dl>
+                <dt>
+                  <label for="s3">
+                    Toujours afficher le message de bienvenue
+                  </label>
+                </dt>
+                <dd>
+                  <input checked id="s3" type="checkbox" class="switch" />
+                </dd>
+              </dl>
+              <!-- Message bienvenue -->
+              <dl>
+                <dt>
+                  <label for="s5">
+                    Thème sombre
+                  </label>
+                </dt>
+                <dd>
+                  <input id="s5" type="checkbox" class="switch" />
+                </dd>
+              </dl>
+              <!-- Debug -->
+              <dl>
+                <dt>
+                  <label for="checkDebug">
+                    Debug mod
+                  </label>
+                </dt>
+                <dd>
+                  <input
+                    type="checkbox"
+                    id="checkDebug"
+                    name="checkDebug"
+                    class="switch"
+                  />
+                </dd>
+              </dl>
+              <div class="mb2" id="debugText" style="display: none;">
+                <p>📣 Attention vous avez activé le mode développeur.</p>
+              </div>
             </div>
-            <hr class="sep" />
-            <button class="show-more" id="cgu-see">Read CGU</button>
+            <!-- <hr class="sep" /> -->
+            <button class="show-more mt4" id="cgu-see">Read CGU</button>
             <div class="mt4 dnone" id="cgu-more">
               <h4>CGU</h4>
               <p>
