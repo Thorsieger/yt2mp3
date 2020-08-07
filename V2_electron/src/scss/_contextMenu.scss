@@ -3,7 +3,7 @@
   z-index: 10000;
   width: 230px;
   margin: 0;
-  background: #fff;
+  background: #1a1a1a;
   visibility: hidden;
   opacity: 0;
   padding: 8px;
@@ -17,21 +17,16 @@
     cursor: pointer;
     font-size: var(--font-size);
     border-radius: var(--radius);
-    color: #222;
+    color: white;
     display: flex;
     align-items: center;
-    i {
-      align-items: center;
-      display: flex;
-      color: var(--tcolor);
-    }
     &:hover {
-      background: rgba($color-blue-ribbon, 0.04);
+      background: #3a3a3a;
     }
   }
   hr {
     margin: 2px 0px;
-    border-color: #555;
+    border-color: #222;
   }
   &.active {
     visibility: visible;

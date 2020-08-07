@@ -529,11 +529,19 @@ ul li {
   background: var(--background);
   border-radius: 7px;
   position: relative;
-  box-shadow: 0px 0.5rem 0.8rem rgba(0, 102, 255, 0.1);
 }
 
 .card.progress {
   padding: 2rem 1.5rem;
+}
+
+.card.centered {
+  z-index: 9;
+  border: 1px solid var(--disabled-inner);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card.card-download .card-album {
@@ -542,7 +550,6 @@ ul li {
   height: 150px;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0px 0.5rem 0.8rem rgba(0, 102, 255, 0.1);
   background: var(--background);
   border-radius: 7px;
   overflow: hidden;
@@ -631,6 +638,45 @@ ul li {
   color: #0066ff;
 }
 
+.card .impt {
+  border-radius: var(--radius);
+  height: 330px;
+  text-align: center;
+  overflow-y: auto;
+  position: relative;
+}
+
+.card .impt .impt-inner {
+  padding: 0 24px;
+}
+
+.card .impt .impt-inner h4 {
+  font-size: var(--font-size);
+}
+
+.card .impt .impt-inner p {
+  font-size: calc(var(--font-size) - 2px);
+}
+
+.card .impt h4 {
+  color: var(--tcolor);
+  margin-top: 8px;
+}
+
+.card .impt::-webkit-scrollbar {
+  width: 10px;
+  z-index: 1;
+}
+
+.card .impt::-webkit-scrollbar-track {
+  background: var(--backgroundHome);
+}
+
+.card .impt::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: var(--disabled-inner);
+}
+
 .card-body {
   padding-left: var(--padding-side);
   padding-bottom: var(--padding);
@@ -666,76 +712,6 @@ ul li {
 
 .card-body.b-tab {
   display: none;
-}
-
-.card-body .impt {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  border-radius: var(--radius);
-  height: 190px;
-  text-align: center;
-  overflow-y: scroll;
-  background: #f7f9fd;
-  position: relative;
-}
-
-.card-body .impt .impt-inner {
-  padding: 0 24px;
-}
-
-.card-body .impt .impt-inner h4 {
-  font-size: var(--font-size);
-}
-
-.card-body .impt .impt-inner p {
-  font-size: var(--font-size);
-}
-
-.card-body .impt:before {
-  content: '';
-  height: 20px;
-  width: 100%;
-  display: block;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  position: sticky;
-  background-image: linear-gradient(to top, transparent, rgba(247, 249, 253, 0.8));
-}
-
-.card-body .impt:after {
-  content: '';
-  height: 20px;
-  width: 100%;
-  display: block;
-  z-index: 2;
-  bottom: 0;
-  left: 0;
-  position: sticky;
-  background-image: linear-gradient(to bottom, transparent, rgba(247, 249, 253, 0.8));
-}
-
-.card-body .impt h4 {
-  color: var(--tcolor);
-  margin-top: 8px;
-}
-
-.card-body .impt::-webkit-scrollbar {
-  width: 8px;
-  z-index: 1;
-}
-
-.card-body .impt::-webkit-scrollbar-track {
-  background: var(--disabled);
-}
-
-.card-body .impt::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: #8e9abd;
-}
-
-.card-body .impt::-webkit-scrollbar-thumb:hover {
-  background: var(--blue);
 }
 
 .card-body.active {
@@ -923,6 +899,7 @@ ul li {
   text-decoration: none;
   border-radius: var(--radius);
   display: flex;
+  min-height: 50px;
   font-weight: 300;
   font-size: var(--font-size);
   font-family: var(--primary-ff);
@@ -930,7 +907,7 @@ ul li {
   padding: 0 42px;
   line-height: 24px;
   cursor: pointer;
-  background: #eeeeee;
+  background: #d4d4d4;
   letter-spacing: 1px;
   outline: none;
   border: 0;
@@ -953,15 +930,15 @@ ul li {
 }
 
 .btn-default {
-  background-color: #eeeeee;
+  background-color: #d4d4d4;
 }
 
 .btn-default:hover {
-  background-color: #d5d5d5;
+  background-color: #bbbbbb;
 }
 
 .btn-default:active {
-  background-color: #bbbbbb;
+  background-color: #a1a1a1;
 }
 
 .btn-blue {
@@ -1409,12 +1386,29 @@ ul li {
   opacity: 1;
 }
 
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 #context-menu {
   position: fixed;
   z-index: 10000;
   width: 230px;
   margin: 0;
-  background: #fff;
+  background: #1a1a1a;
   visibility: hidden;
   opacity: 0;
   padding: 8px;
@@ -1430,24 +1424,18 @@ ul li {
   cursor: pointer;
   font-size: var(--font-size);
   border-radius: var(--radius);
-  color: #222;
+  color: white;
   display: flex;
   align-items: center;
-}
-
-#context-menu .item i {
-  align-items: center;
-  display: flex;
-  color: var(--tcolor);
 }
 
 #context-menu .item:hover {
-  background: rgba(0, 102, 255, 0.04);
+  background: #3a3a3a;
 }
 
 #context-menu hr {
   margin: 2px 0px;
-  border-color: #555;
+  border-color: #222;
 }
 
 #context-menu.active {

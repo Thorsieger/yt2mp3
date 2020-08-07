@@ -5,7 +5,72 @@
     <link rel="stylesheet" type="text/css" href="css/all.css" />
   </head>
   <body>
-    <!-- Custom titlebar -->
+    <!-- Context Menu -->
+    <ul id="context-menu">
+      <li class="item">
+        Copier
+      </li>
+      <li class="item">
+        Coller
+      </li>
+    </ul>
+
+    <!-- Modal -->
+    <div class="overlay">
+      <div class="card centered w-middle p25">
+        <div class="dnone block">
+          <div class="impt mb3">
+            <article class="impt-inner">
+              <h4>CGU &amp; RGPD</h4>
+              <p>
+                Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
+                ont pour objet l'encadrement juridique des modalités de mise à
+                disposition des services de l'application udownload et leur
+                utilisation par «&nbsp;l'Utilisateur&nbsp;».
+              </p>
+              <p>
+                Les conditions générales d'utilisation doivent être acceptées
+                par tout Utilisateur souhaitant accéder au site. Elles
+                constituent le contrat entre le site et l'Utilisateur. L'accès
+                au site par l'Utilisateur signifie son acceptation des présentes
+                conditions générales d'utilisation.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                blanditiis quam facere tenetur voluptatibus laborum, nihil dolor
+                nesciunt delectus laudantium maxime, repudiandae architecto
+                quia. Molestias culpa deleniti itaque accusamus quibusdam odio
+                consequuntur fugit nisi praesentium eius, sit soluta aut odit
+                autem repellendus expedita, ea asperiores explicabo unde
+                perferendis nobis facere sed. Saepe?
+              </p>
+              <div class="p-small w-small mx-auto mt2 mb2">
+                <p class="op-light mt2">
+                  All rights reserved to udownload © ‐ 2020
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="flex mt2 aic">
+            <div class="flex flex1 aic">
+              <input id="c8" type="checkbox" />
+              <label for="c8" class="flex aic">
+                J'accepte les CGU
+              </label>
+            </div>
+            <div class="flex jcfe aic">
+              <button id="reject-rule" class="btn btn-default">
+                Annuler
+              </button>
+              <button id="accepte-rule" class="btn btn-blue ml2">
+                Envoyer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header & Titlebar -->
     <header id="titlebar">
       <div id="drag-region">
         <div id="window-title"></div>
@@ -44,6 +109,8 @@
         </div>
       </div>
     </header>
+
+    <!-- Container -->
     <div class="container">
       <aside class="sidebar-app">
         <div class="sidebar-app-header">udownload</div>
@@ -143,7 +210,7 @@
         </ul>
       </aside>
 
-      <!-- Main app -->
+      <!-- Sections block -->
       <div class="content block">
         <section class="tab-pannel">
           <main class="flex jcsb">
@@ -269,7 +336,7 @@
             <hr class="sep" />
             <button class="show-more" id="cgu-see">Read CGU</button>
             <div class="mt4 dnone" id="cgu-more">
-              <h4>CGU & RGPD</h4>
+              <h4>CGU</h4>
               <p>
                 Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
                 ont pour objet l'encadrement juridique des modalités de mise à
@@ -283,6 +350,21 @@
                 au site par l'Utilisateur signifie son acceptation des présentes
                 conditions générales d'utilisation.
               </p>
+              <h4 class="mt4">RGPD</h4>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+                minima rerum mollitia non corporis numquam. Perspiciatis sit
+                dicta sapiente magni dignissimos ut? Aspernatur voluptatem eius
+                magni voluptate nam sit impedit?
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+                minima aliquam impedit voluptates quos, nesciunt fugiat maiores,
+                doloribus dolores consectetur aut illo ad. Repellendus
+                voluptatem asperiores porro distinctio sequi earum ad accusamus,
+                nam fugit perferendis, quasi, deserunt quis harum similique
+                ratione corporis. Perferendis, animi exercitationem?
+              </p>
             </div>
             <div class="p-small mx-auto mt4 mb4">
               <p class="op-light">
@@ -294,27 +376,14 @@
               <p class="op-light mt2">
                 All rights reserved to udownload &copy; &dash; 2020
               </p>
-          </div>
-          <div class="flex mt2 aic">
-            <div class="flex flex1 aic">
-              <input id="c8" type="checkbox" checked />
-              <label for="c8" class="flex aic bold">
-                J'accepte les CGU
-              </label>
-            </div>
-            <div class="flex jcfe aic">
-              <button class="btn btn-default">
-                Annuler
-              </button>
-              <button id="accepte-rule" class="btn btn-blue ml2">
-                Envoyer
-              </button>
             </div>
           </article>
         </section>
         <section class="tab-pannel"></section>
       </div>
     </div>
+
+    <!-- Footer -->
     <footer class="footerbar">
       <div class="icon">
         <svg
@@ -336,10 +405,11 @@
       </div>
       Up to date v2.0.0
     </footer>
-    <!-- Scripts -->
+
+    <!-- Main script -->
     <script src="./ytpl2mp3.js"></script>
 
     <!-- Coté front-end -->
-    <script src="./renderer.js"></script>
+    <script src="./front.js"></script>
   </body>
 </html>
