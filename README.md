@@ -1,18 +1,19 @@
-# yt2mp3
+# udownload
 
-yt2mp3 est un projet de logiciel de téléchargement de vidéo youtube. Personnellement je ne trouvais pas un outils en ligne pour télécharger facilement la totalité des bandes sonores de grosse playlist (>>100).
+**Udownload** est un projet de logiciel de téléchargement de vidéo youtube. Personnellement je ne trouvais pas un outils en ligne pour télécharger facilement la totalité des bandes sonores de grosse playlist (>>100). Le but est de disposer d'une version graphique propre et simple d'utilisation.
 
-### V1_CommandLine
-
-  - La première version de ce programme ne fonctionne qu'en ligne de commande et nécessite l'installation de node ainsi que de toutes les dépendances pour fonctionner
-  - Il n'est possible que de télécharger des playlists (et forcément la totalité)
-
-
-Pour le lancer : node ytpl2mp3.js [playlist link | playlist id]
-
-### V2_Electron
-
-- Le but est maintenant de disposer d'une version graphique tout cela en utilisant Electronjs.
+Ce projet se base sur electronjs et electron-builder pour créer l'app. Les dépendences ytdl-core, ytpl et ffmpeg permettent d'obtenir les fichiers demandées par l'utilisateur.
+### Installation et Test
+Pré-requis : Node.js
+- Copier les fichiers du repository
+- npm install
+- npm start
+### Build
+Pré-requis : yarn, linux (commande rm/cp)
+Il est possible de packager l'app vers les linux, osx et windows :
+- yarn package-linux 
+- yarn package-win
+- yarn package-mac
 
 License
 ----
