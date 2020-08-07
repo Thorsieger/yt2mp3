@@ -1,0 +1,72 @@
+#titlebar {
+  display: block;
+  position: fixed;
+  height: 40px;
+  width: calc(100% - 312px);
+  z-index: 4;
+  right: 0;
+  top: 0;
+  border-bottom: 1px solid #ececec;
+  #drag-region {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    -webkit-app-region: drag;
+  }
+  #window-title {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: var(--font-size);
+    font-family: var(--primary-ff);
+    margin-left: 32px;
+    overflow-x: hidden;
+  }
+  #window-controls {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    -webkit-app-region: no-drag;
+    .button {
+      grid-row: 1 / span 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      cursor: pointer;
+      i {
+        font-size: 20px;
+        transition: 0.2s ease;
+        color: black;
+      }
+      &:hover {
+        i {
+          opacity: 0.6;
+        }
+      }
+    }
+    #min-button {
+      grid-column: 1;
+      &:hover {
+        background: #eee;
+      }
+    }
+    #close-button {
+      grid-column: 2;
+      &:hover {
+        background: #e6293f;
+        svg path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.btn {
+  text-decoration: none;
+  border-radius: var(--radius);
+  display: flex;
+  font-weight: 300;
+  font-size: var(--font-size);
+  font-family: var(--primary-ff);
+  align-items: center;
+  padding: 0 42px;
+  line-height: 24px;
+  cursor: pointer;
+  background: $color-grey-gallery;
+  letter-spacing: 1px;
+  outline: none;
+  border: 0;
+  color: var(--blue-inner);
+  transition: 0.3s ease;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+    & + label {
+      cursor: not-allowed;
+    }
+  }
+  &.large {
+    padding: 0 35px;
+    height: 60px;
+  }
+  @each $theme, $color in $ui-colors {
+    &-#{$theme} {
+      background-color: $color;
+    }
+    &-#{$theme}:hover {
+      background-color: darken($color, 10%);
+    }
+    &-#{$theme}:active {
+      background-color: darken($color, 20%);
+    }
+  }
+}
+.show-more {
+  border: 0;
+  padding: 0 25px;
+  height: 35px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  outline: none;
+  border-radius: 5px;
+  background: #ededed;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}

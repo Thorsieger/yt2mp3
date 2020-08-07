@@ -1,0 +1,40 @@
+#context-menu {
+  position: fixed;
+  z-index: 10000;
+  width: 230px;
+  margin: 0;
+  background: #fff;
+  visibility: hidden;
+  opacity: 0;
+  padding: 8px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transform-origin: top left;
+  transition: opacity 0.25s ease-in-out;
+  .item {
+    padding: 8px 10px;
+    margin: 0;
+    cursor: pointer;
+    font-size: var(--font-size);
+    border-radius: var(--radius);
+    color: #222;
+    display: flex;
+    align-items: center;
+    i {
+      align-items: center;
+      display: flex;
+      color: var(--tcolor);
+    }
+    &:hover {
+      background: rgba($color-blue-ribbon, 0.04);
+    }
+  }
+  hr {
+    margin: 2px 0px;
+    border-color: #555;
+  }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
