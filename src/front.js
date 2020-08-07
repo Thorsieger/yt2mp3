@@ -9,7 +9,17 @@ document.getElementById('close-button').addEventListener('click', function () {
 })
 
 document.getElementById('accepte-rule').addEventListener('click', function () {
-  document.getElementById('intro').classList.add('hidden')
+  if(document.getElementById('c8').checked){
+    document.getElementById('intro').classList.add('hidden')
+    document.getElementById('page').classList.remove('overlay')
+  }
+  else {
+    //changer la couleurs d'accepter les cgu en rouge ?
+  }
+})
+
+document.getElementById('reject-rule').addEventListener('click', function () {
+  remote.getCurrentWindow().close()
 })
 
 function showPop() {
@@ -96,8 +106,6 @@ for (let i = 0; i < spans.length; i++) {
   }
 }
 
-var title = document.getElementById('window-title')
-
 function initTabNav() {
   const tabMenu = document.querySelectorAll('.sidebar-menu .nav-item')
   const tabContent = document.querySelectorAll('.content section')
@@ -122,7 +130,7 @@ function initTabNav() {
       itemMenu.addEventListener('click', function () {
         activeTab(index)
         var newTitle = itemMenu.dataset.title
-        title.innerText = newTitle
+        document.getElementById('window-title').innerText = newTitle
       })
     })
   }
