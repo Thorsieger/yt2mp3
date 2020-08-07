@@ -1,0 +1,331 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Download a playlist</title>
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+  </head>
+  <body>
+    <!-- Custom titlebar -->
+    <header id="titlebar">
+      <div id="drag-region">
+        <div id="window-title"></div>
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#000"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M0 0h24v24H0z" stroke="none" />
+              <path d="M5 12h14" />
+            </svg>
+          </div>
+          <div class="button" id="close-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#000"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <aside class="sidebar-app">
+        <div class="sidebar-app-header">udownload</div>
+        <ul class="sidebar-menu">
+          <li class="nav-item" data-title="Download a playlist">
+            <a>
+              <div class="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon-tabler"
+                  viewBox="0 0 24 24"
+                  stroke="#fff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+              </div>
+              <span>Let's go</span>
+            </a>
+          </li>
+          <li class="nav-item" data-title="History & Downloads">
+            <a>
+              <div class="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon-tabler"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  stroke="#fff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M0 0h24v24H0z" stroke="none" />
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <span>History</span>
+            </a>
+            <ul class="submenu">
+              <li class="active">Today</li>
+              <li>This week</li>
+              <li>Everytime</li>
+            </ul>
+          </li>
+          <li class="nav-item" data-title="Options">
+            <a>
+              <div class="icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  class="icon-tabler"
+                  viewBox="0 0 24 24"
+                  stroke="#fff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M0 0h24v24H0z" stroke="none" />
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="12" cy="19" r="1" />
+                  <circle cx="12" cy="5" r="1" />
+                </svg>
+              </div>
+              <span>Options</span>
+            </a>
+          </li>
+          <li class="nav-item" data-title="Inbox">
+            <a>
+              <div class="icon icon-notif">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon-tabler icon-notif"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M0 0h24v24H0z" stroke="none" />
+                  <path
+                    d="M10 5a2 2 0 014 0 7 7 0 014 6v3a4 4 0 002 3H4a4 4 0 002-3v-3a7 7 0 014-6M9 17v1a3 3 0 006 0v-1"
+                  />
+                </svg>
+              </div>
+              <span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main app -->
+      <div class="content block">
+        <section class="tab-pannel">
+          <main class="flex jcsb">
+            <div class="flex searchbar">
+              <input
+                class="input-main"
+                type="text"
+                name=""
+                id="playlist-id"
+                placeholder="Give me a link"
+                required
+              />
+              <!-- <p id="avancement"></p> -->
+              <button
+                onclick="download()"
+                class="btn btn-blue ml2 large"
+                id="dl-button"
+              >
+                Télécharger
+              </button>
+            </div>
+          </main>
+
+          <div class="top-playlist">
+            <div class="video-wrap">
+              <div
+                class="video-thumbnail"
+                style="
+                  background-image: url('assets/img/thumb.jpg');
+                  background-position: 50.4688% center;
+                "
+              >
+                <div class="artist-avatar">
+                  <img src="assets/img/dua.jpg" alt="" />
+                </div>
+              </div>
+              <div class="artist-informations">
+                <span class="artist-name">Dua Lipa</span>
+                <span class="artist-views">142m views</span>
+                <span class="share">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx="6" cy="12" r="3" />
+                    <circle cx="18" cy="6" r="3" />
+                    <circle cx="18" cy="18" r="3" />
+                    <line x1="8.7" y1="10.7" x2="15.3" y2="7.3" />
+                    <line x1="8.7" y1="13.3" x2="15.3" y2="16.7" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="tab-pannel">
+          <h1>Lorem ipsum dolor sit amet.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi atque
+            itaque corporis corrupti, necessitatibus, dolorem velit autem
+            similique facilis officiis placeat molestias. Ipsa voluptatibus,
+            fugit eum voluptates consequuntur nemo sequi?
+          </p>
+        </section>
+        <section class="tab-pannel scroll">
+          <article class="mx-auto w-middle">
+            <div>
+              <p>Format vidéo</p>
+              <ul>
+                <li>
+                  <input
+                    id="r4"
+                    type="radio"
+                    name="radio"
+                    value="1"
+                    checked=""
+                  />
+                  <label for="r4">Vidéo format MP3 (par défaut)</label>
+                </li>
+                <li>
+                  <input id="r3" type="radio" name="radio" value="2" />
+                  <label for="r3">Vidéo format MP4 (instable)</label>
+                </li>
+              </ul>
+            </div>
+            <div class="mt4">
+              <p>Chemin de fichiers téléchargés</p>
+              <div class="flex">
+                <input
+                  type="text"
+                  id="path_text"
+                  name=""
+                  value=""
+                  disabled
+                  style="max-width: 480px;"
+                />
+                <button onclick="choose_path()" class="btn btn-dark ml2 dib">
+                  Ouvrir
+                </button>
+              </div>
+            </div>
+            <div class="mt4">
+              <p>Avancées</p>
+              <ul>
+                <li>
+                  <input id="s3" type="checkbox" checked="" />
+                  <!-- <input id="s3" type="checkbox" class="switch" checked="" /> -->
+                  <label for="s3">Afficher le message de bienvenue</label>
+                </li>
+                <li>
+                  <input id="checkDebug" type="checkbox" class="switch" />
+                  <label for="checkDebug">Débogage</label>
+                  <div class="mt2" id="debugText" style="display: none;">
+                    <p>📣 Attention vous avez activé le mode développeur.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <hr class="sep" />
+            <button class="show-more" id="cgu-see">Read CGU</button>
+            <div class="mt4 dnone" id="cgu-more">
+              <h4>CGU & RGPD</h4>
+              <p>
+                Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
+                ont pour objet l'encadrement juridique des modalités de mise à
+                disposition des services de l'application udownload et leur
+                utilisation par «&nbsp;l'Utilisateur&nbsp;».
+              </p>
+              <p>
+                Les conditions générales d'utilisation doivent être acceptées
+                par tout Utilisateur souhaitant accéder au site. Elles
+                constituent le contrat entre le site et l'Utilisateur. L'accès
+                au site par l'Utilisateur signifie son acceptation des présentes
+                conditions générales d'utilisation.
+              </p>
+            </div>
+            <div class="p-small mx-auto mt4 mb4">
+              <p class="op-light">
+                Design by Asmir BELKIC - Core code by Thomas Mertz - this
+                software is under MIT License.
+                <br />
+                We are using ElectronJS & NodeJS
+              </p>
+              <p class="op-light mt2">
+                All rights reserved to udownload &copy; &dash; 2020
+              </p>
+            </div>
+          </article>
+        </section>
+        <section class="tab-pannel"></section>
+      </div>
+    </div>
+    <footer class="footerbar">
+      <div class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#000"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M0 0h24v24H0z" stroke="none" />
+          <path
+            d="M21 14l-3-3h-7a1 1 0 01-1-1V4a1 1 0 011-1h9a1 1 0 011 1v10M14 15v2a1 1 0 01-1 1H6l-3 3V11a1 1 0 011-1h2"
+          />
+        </svg>
+      </div>
+      Up to date v2.0.0
+    </footer>
+    <!-- Scripts -->
+    <script src="./ytpl2mp3.js"></script>
+
+    <!-- Coté front-end -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
