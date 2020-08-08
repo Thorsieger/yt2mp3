@@ -211,3 +211,56 @@ a {
   visibility: visible;
   transform: translate(-50%, -50%);
 }
+
+.p-tooltip {
+  /* Used to position the arrow */
+  position: relative;
+
+  &:hover {
+    .p-tooltip-arrow,
+    .p-tooltip-content {
+      opacity: 1;
+    }
+  }
+}
+
+/* Show the arrow and content when hovering the trigger element */
+
+.p-tooltip-arrow {
+  /* Invisible by default */
+  opacity: 0;
+
+  /* Border */
+  border: 8px solid transparent;
+  border-top-color: #00439e;
+
+  /* Position */
+  bottom: 100%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, 8px);
+
+  /* Zero size */
+  height: 0;
+  width: 0;
+
+  /* Displayed on top of other element */
+  z-index: 10;
+}
+
+.p-tooltip-content {
+  /* Invisible by default */
+  opacity: 0;
+  pointer-events: none;
+  /* Background color, must be the same as the border color of arrow */
+  background-color: #00439e;
+  border-radius: 2px;
+
+  /* Position */
+  bottom: 100%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -8px);
+
+  z-index: 10;
+}
