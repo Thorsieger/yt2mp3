@@ -948,6 +948,16 @@ dl dt {
   height: 60px;
 }
 
+.btn.small {
+  min-height: 35px;
+  padding: 0 25px;
+  border-radius: 5px;
+}
+
+.btn.small:hover {
+  opacity: 0.8;
+}
+
 .btn-default {
   background-color: #d4d4d4;
 }
@@ -1018,23 +1028,6 @@ dl dt {
 
 .btn-dark:active {
   background-color: black;
-}
-
-.show-more {
-  border: 0;
-  padding: 0 25px;
-  height: 35px;
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  outline: none;
-  border-radius: 5px;
-  background: #ededed;
-  cursor: pointer;
-}
-
-.show-more:hover {
-  opacity: 0.8;
 }
 
 .abcenter {

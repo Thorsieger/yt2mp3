@@ -16,7 +16,7 @@
     </ul>
 
     <!-- Modal -->
-    <div class="overlay active">
+    <div class="overlay">
       <div class="card centered w-middle p25">
         <div class="dnone block">
           <div class="impt mb3">
@@ -231,6 +231,9 @@
                 Télécharger
               </button>
             </div>
+            <p id="text-out"></p>
+            <p id="errp"></p>
+            <p id="errs"></p>
           </main>
 
           <div class="top-playlist">
@@ -282,7 +285,8 @@
         <section class="tab-pannel scroll">
           <article class="mx-auto w-middle">
             <div>
-              <h4>Format vidéo</h4>
+              <h4>Paramètres générales</h4>
+              <p>Format vidéos</p>
               <ul>
                 <li>
                   <input
@@ -316,6 +320,7 @@
                 </button>
               </div>
             </div>
+            <!-- Avancées -->
             <div class="mt4">
               <h4>Avancées</h4>
               <!-- Message bienvenue -->
@@ -326,7 +331,7 @@
                   </label>
                 </dt>
                 <dd>
-                  <input checked id="s3" type="checkbox" class="switch" />
+                  <input id="s3" type="checkbox" class="switch" />
                 </dd>
               </dl>
               <!-- Message bienvenue -->
@@ -361,7 +366,14 @@
               </div>
             </div>
             <!-- <hr class="sep" /> -->
-            <button class="show-more mt4" id="cgu-see">Read CGU</button>
+            <div class="flex jcsb">
+              <button class="btn btn-default small mt4" id="cgu-see">
+                Read CGU
+              </button>
+              <button class="btn btn-green small mt4" id="save-param">
+                Sauvegarder
+              </button>
+            </div>
             <div class="mt4 dnone" id="cgu-more">
               <h4>CGU</h4>
               <p>

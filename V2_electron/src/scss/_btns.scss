@@ -27,6 +27,14 @@
     padding: 0 35px;
     height: 60px;
   }
+  &.small {
+    min-height: 35px;
+    padding: 0 25px;
+    border-radius: 5px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
   @each $theme, $color in $ui-colors {
     &-#{$theme} {
       background-color: $color;
@@ -37,20 +45,5 @@
     &-#{$theme}:active {
       background-color: darken($color, 20%);
     }
-  }
-}
-.show-more {
-  border: 0;
-  padding: 0 25px;
-  height: 35px;
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  outline: none;
-  border-radius: 5px;
-  background: #ededed;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
   }
 }
