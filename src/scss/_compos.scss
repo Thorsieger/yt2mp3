@@ -38,6 +38,9 @@ $shadow-map: (
 .p25 {
   padding: 25px;
 }
+.p10 {
+  padding: 10px;
+}
 
 // text
 .tac {
@@ -66,6 +69,12 @@ $shadow-map: (
 //  Margins
 .mx-auto {
   margin-left: auto;
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
   margin-right: auto;
 }
 
@@ -215,7 +224,16 @@ a {
 .p-tooltip {
   /* Used to position the arrow */
   position: relative;
-
+  .tooltip-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+  }
+  &.pd-small {
+    .p-tooltip-content {
+      padding: 7px;
+    }
+  }
   &:hover {
     .p-tooltip-arrow,
     .p-tooltip-content {
@@ -232,7 +250,7 @@ a {
 
   /* Border */
   border: 8px solid transparent;
-  border-top-color: #00439e;
+  border-top-color: #1a1a1a;
 
   /* Position */
   bottom: 100%;
@@ -249,18 +267,61 @@ a {
 }
 
 .p-tooltip-content {
-  /* Invisible by default */
   opacity: 0;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 50px;
+  white-space: nowrap;
   pointer-events: none;
-  /* Background color, must be the same as the border color of arrow */
-  background-color: #00439e;
-  border-radius: 2px;
-
-  /* Position */
+  background-color: #1a1a1a;
   bottom: 100%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -8px);
-
   z-index: 10;
+  p {
+    margin: 0;
+    color: #fff;
+  }
+  .icon svg {
+    stroke: #fff;
+  }
+}
+
+.status-light {
+  /* Background color */
+  background-color: #00d067;
+
+  /* Rounded border */
+  border-radius: 9999px;
+
+  /* Size */
+  height: 8px;
+  width: 8px;
+
+  /* Spacing */
+  margin-right: 8px;
+}
+.status-content {
+  flex: 1;
+  p {
+    span {
+      font-style: 8px;
+      opacity: 0.5;
+    }
+  }
+}
+.status-item {
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  &:last-child {
+    margin-top: 10px;
+  }
+}
+
+input[type='text'].input-path {
+  border: 0;
+  background: var(--disabled);
+  height: 40px;
 }

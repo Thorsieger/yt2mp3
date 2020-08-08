@@ -46,7 +46,6 @@
     padding-top: 45px;
     padding-left: 45px;
     padding-right: 45px;
-    padding-bottom: 40px;
     &.scroll {
       height: calc(100vh - 75px);
       overflow-y: auto;
@@ -77,7 +76,7 @@
   display: flex;
   align-items: center;
   background: #fff;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 7px 15px;
   font-size: 12px;
   color: #848484;
@@ -89,6 +88,13 @@
       &:hover {
         stroke: #000;
       }
+    }
+  }
+  div {
+    display: block;
+    &:not(.p-tooltip-content) {
+      align-items: center;
+      display: flex;
     }
   }
 }
@@ -139,7 +145,7 @@
   box-shadow: 0 10px 20px 4px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.01);
   .banner-image {
     position: relative;
-    height: 71%;
+    height: 70%;
     background-color: #e8e8e8;
     background-position: center;
     background-repeat: no-repeat;
@@ -191,22 +197,22 @@
     font-size: var(--font-size);
     display: block;
     color: #fff;
-    padding: 0 10px;
     align-items: center;
     .submenu {
-      margin-left: 55px;
-      display: none;
-      li {
+      margin-left: 65px;
+      display: block;
+      a {
+        margin: 11px 0;
         display: flex;
         align-items: center;
         font-size: 14px;
         font-weight: 400;
         &:before {
           content: '';
-          width: 8px;
+          width: 12px;
           margin-right: 15px;
-          height: 8px;
-          border: 1px solid #fff;
+          height: 12px;
+          border: 0.08em solid #fff;
           background: transparent;
           border-radius: 50%;
           display: block;
@@ -222,14 +228,13 @@
     .nav-item {
       padding: 10px 15px;
       margin: 0;
-      a {
-        display: flex;
-        align-items: center;
-      }
-      i {
-        font-style: normal;
-        margin-left: auto;
-      }
+      border: 0;
+      background: transparent;
+      color: white;
+      display: flex;
+      outline: none;
+      width: 100%;
+      align-items: center;
       &.active {
         .submenu {
           display: block;
@@ -335,5 +340,35 @@
   &.active {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+.debug-window {
+  width: 250px;
+  position: fixed;
+  display: none;
+  left: 30px;
+  padding: 15px;
+  bottom: 50px;
+  background: #1a1a1a;
+  border-radius: var(--radius);
+  color: #fff;
+
+  a,
+  p,
+  dt,
+  dd {
+    line-height: 1.2;
+    font-size: 12px;
+    color: #fff;
+    word-break: break-all;
+  }
+  a {
+    display: inline-block;
+    line-height: 1.5;
+    text-decoration: underline;
+  }
+  &.active {
+    display: block;
   }
 }

@@ -46,4 +46,21 @@
       background-color: darken($color, 20%);
     }
   }
+  @each $theme, $color in $ui-colors {
+    &-o-#{$theme} {
+      background-color: transparent;
+      border: 1px solid $color;
+      color: lighten($color, 30%);
+      padding: 0 20px;
+      min-height: 40px;
+    }
+    &-o-#{$theme}:hover {
+      background-color: transparent;
+      border: 1px solid darken($color, 10%);
+    }
+    &-o-#{$theme}:active {
+      background-color: transparent;
+      border: 1px solid darken($color, 20%);
+    }
+  }
 }

@@ -9,11 +9,10 @@ document.getElementById('close-button').addEventListener('click', function () {
 })
 
 document.getElementById('accepte-rule').addEventListener('click', function () {
-  if(document.getElementById('c8').checked){
+  if (document.getElementById('c8').checked) {
     document.getElementById('intro').classList.add('hidden')
     document.getElementById('page').classList.remove('overlay')
-  }
-  else {
+  } else {
     //changer la couleurs d'accepter les cgu en rouge ?
   }
 })
@@ -38,11 +37,12 @@ function showErr() {
 
 var checkBox = document.getElementById('checkDebug')
 checkBox.addEventListener('click', function () {
-  var text = document.getElementById('debugText')
   if (checkBox.checked == true) {
-    text.classList.add('block')
+    document.querySelector('.is-debug').classList.add('block')
+    document.getElementById('debug-window').classList.add('block')
   } else {
-    text.classList.remove('block')
+    document.querySelector('.is-debug').classList.remove('block')
+    document.getElementById('debug-window').classList.remove('block')
   }
 })
 
@@ -111,7 +111,6 @@ function initTabNav() {
   const tabContent = document.querySelectorAll('.content section')
 
   if (tabMenu.length && tabContent.length) {
-    tabMenu[0].classList.add('active')
     tabContent[0].classList.add('active')
 
     function activeTab(index) {
@@ -119,11 +118,6 @@ function initTabNav() {
         section.classList.remove('active')
       })
       tabContent[index].classList.add('active')
-
-      tabMenu.forEach(function (menu) {
-        menu.classList.remove('active')
-      })
-      tabMenu[index].classList.add('active')
     }
 
     tabMenu.forEach(function (itemMenu, index) {
@@ -142,3 +136,18 @@ const elem = document.getElementById('cgu-see')
 elem.addEventListener('click', function (e) {
   document.getElementById('cgu-more').classList.toggle('block')
 })
+
+var dropdown = document.getElementsByClassName('dropdown-btn')
+var i
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+    var dropdownContent = this.nextElementSibling
+    if (dropdownContent.style.display === 'block') {
+      dropdownContent.style.display = 'none'
+    } else {
+      dropdownContent.style.display = 'block'
+    }
+  })
+}

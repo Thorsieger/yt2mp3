@@ -36,6 +36,11 @@ h6 {
   margin-top: 0;
   margin-bottom: 1em;
 }
+h4 {
+  font-weight: 600;
+  opacity: 0.8;
+  font-size: 14px;
+}
 p {
   margin-top: 0;
   line-height: 1.5;
@@ -48,20 +53,28 @@ ul {
   margin: 0;
   list-style: none;
   li {
-    margin: 14px 0;
+    margin: 0;
+    padding-top: 15px;
     position: relative;
+    &:nth-of-type(1) {
+      padding-top: 0;
+    }
   }
 }
-
+.sect {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--disabled-inner);
+}
 dl {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--disabled-inner);
   margin: 0px;
-  padding-top: 0;
-  padding-bottom: 11px;
-  margin-bottom: 11px;
+  padding-top: 15px;
+  &:nth-of-type(1) {
+    padding-top: 0;
+  }
   dd {
     margin: 0;
   }

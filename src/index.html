@@ -16,9 +16,9 @@
     </ul>
 
     <!-- Modal -->
-    <div id="page" class="overlay active">
-      <div id="intro" class="card centered w-middle p25">
-        <div class="dnone block">
+    <div id="page" class="overlay">
+      <div id="intro" class="card centered w-middle">
+        <div class="dnone block pl2 pr2 pt2">
           <div class="impt mb3">
             <article class="impt-inner">
               <h4>CGU &amp; RGPD</h4>
@@ -51,7 +51,7 @@
               </div>
             </article>
           </div>
-          <div class="flex mt2 aic">
+          <div class="flex mt2 pb2 aic">
             <div class="flex flex1 aic">
               <input id="c8" type="checkbox" />
               <label for="c8" class="flex aic">
@@ -73,7 +73,7 @@
     <!-- Header & Titlebar -->
     <header id="titlebar">
       <div id="drag-region">
-        <div id="window-title"></div>
+        <div id="window-title">🖐</div>
         <div id="window-controls">
           <div class="button" id="min-button">
             <svg
@@ -109,105 +109,143 @@
         </div>
       </div>
     </header>
-
+    <div id="debug-window" class="debug-window">
+      <p>
+        <!-- Youtube video title -->
+        Partiboi69 - G House, Techno and Electro Set Live From The Stingzone
+      </p>
+      <dl>
+        <dt>Download speed</dt>
+        <dd>
+          <!-- download speed -->
+          521 kbps
+        </dd>
+      </dl>
+      <dl class="mb1">
+        <dt>File size</dt>
+        <dd>
+          3.25 Mb
+        </dd>
+      </dl>
+      <a href="https://www.youtube.com/watch?v=fTIYzV9B0qo">
+        <!-- video link -->
+        https://www.youtube.com/watch?v=fTIYzV9B0qo
+      </a>
+      <dl>
+        <dt>Download</dt>
+        <dd>
+          <!-- 0 to 100% if download finished -->
+          100%
+        </dd>
+      </dl>
+    </div>
     <!-- Container -->
     <div class="container">
       <aside class="sidebar-app">
         <div class="sidebar-app-header">udownload</div>
-        <ul class="sidebar-menu">
-          <li class="nav-item" data-title="Download a playlist">
-            <a>
-              <div class="icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon-tabler"
-                  viewBox="0 0 24 24"
-                  stroke="#fff"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                </svg>
+        <div class="sidebar-menu">
+          <a class="nav-item" data-title="Download a playlist">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-tabler"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                <polyline points="7 11 12 16 17 11" />
+                <line x1="12" y1="4" x2="12" y2="16" />
+              </svg>
+            </div>
+            <span>Let's go</span>
+          </a>
+          <a class="nav-item dropdown-btn" data-title="History & Downloads">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-tabler"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <polyline points="12 8 12 12 14 14" />
+                <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+              </svg>
+            </div>
+            <span>History</span>
+            <div class="p-tooltip ml-auto p-small pd-small">
+              <div class="p-tooltip-content">
+                <p>Open download folder</p>
               </div>
-              <span>Let's go</span>
-            </a>
-          </li>
-          <li class="nav-item" data-title="History & Downloads">
-            <a>
-              <div class="icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon-tabler"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  stroke="#fff"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M0 0h24v24H0z" stroke="none" />
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </div>
-              <span>History</span>
-            </a>
-            <ul class="submenu">
-              <li class="active">Today</li>
-              <li>This week</li>
-              <li>Everytime</li>
-            </ul>
-          </li>
-          <li class="nav-item" data-title="Options">
-            <a>
-              <div class="icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  class="icon-tabler"
-                  viewBox="0 0 24 24"
-                  stroke="#fff"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M0 0h24v24H0z" stroke="none" />
-                  <circle cx="12" cy="12" r="1" />
-                  <circle cx="12" cy="19" r="1" />
-                  <circle cx="12" cy="5" r="1" />
-                </svg>
-              </div>
-              <span>Options</span>
-            </a>
-          </li>
-          <li class="nav-item" data-title="Inbox">
-            <a>
-              <div class="icon icon-notif">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon-tabler icon-notif"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#2c3e50"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M0 0h24v24H0z" stroke="none" />
-                  <path
-                    d="M10 5a2 2 0 014 0 7 7 0 014 6v3a4 4 0 002 3H4a4 4 0 002-3v-3a7 7 0 014-6M9 17v1a3 3 0 006 0v-1"
-                  />
-                </svg>
-              </div>
-              <span>Notifications</span>
-            </a>
-          </li>
-        </ul>
+              <div class="p-tooltip-arrow"></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="tooltip-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"
+                />
+              </svg>
+            </div>
+          </a>
+          <div class="submenu">
+            <a class="active">Today</a>
+            <a>This week</a>
+            <a>Everytime</a>
+          </div>
+          <a class="nav-item" data-title="Settings & More">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-tabler"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <span>Settings</span>
+          </a>
+
+          <a class="nav-item" data-title="Inbox">
+            <div class="icon icon-notif">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-tabler icon-notif"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M0 0h24v24H0z" stroke="none" />
+                <path
+                  d="M10 5a2 2 0 014 0 7 7 0 014 6v3a4 4 0 002 3H4a4 4 0 002-3v-3a7 7 0 014-6M9 17v1a3 3 0 006 0v-1"
+                />
+              </svg>
+            </div>
+            <span>Notifications</span>
+          </a>
+        </div>
       </aside>
 
       <!-- Sections block -->
@@ -284,9 +322,10 @@
         </section>
         <section class="tab-pannel scroll">
           <article class="mx-auto w-middle">
-            <div>
-              <h4>Paramètres générales</h4>
-              <p>Format vidéos</p>
+            <!-- General -->
+            <div class="sect">
+              <h4 class="mb2">General Parameters</h4>
+              <p>Video format</p>
               <ul>
                 <li>
                   <input
@@ -296,18 +335,21 @@
                     value="1"
                     checked=""
                   />
-                  <label for="r4">Vidéo format MP3 (par défaut)</label>
+                  <label for="r4">
+                    Download the video in .mp3 format (recommanded)
+                  </label>
                 </li>
                 <li>
                   <input id="r3" type="radio" name="radio" value="2" />
-                  <label for="r3">Vidéo format MP4 (instable)</label>
+                  <label for="r3">Download the video in .mp4 format</label>
                 </li>
               </ul>
             </div>
-            <div class="mt4">
-              <p>Chemin de fichiers téléchargés</p>
+            <div class="sect">
+              <p>Download location</p>
               <div class="flex">
                 <input
+                  class="input-path"
                   type="text"
                   id="path_text"
                   name=""
@@ -315,19 +357,19 @@
                   disabled
                   style="max-width: 480px;"
                 />
-                <button onclick="choose_path()" class="btn btn-dark ml2 dib">
-                  Ouvrir
+                <button onclick="choose_path()" class="btn btn-o-dark ml2 dib">
+                  Change
                 </button>
               </div>
             </div>
             <!-- Avancées -->
-            <div class="mt4">
-              <h4>Avancées</h4>
+            <div class="sect">
+              <h4>Advanced</h4>
               <!-- Message bienvenue -->
               <dl>
                 <dt>
                   <label for="s3">
-                    Toujours afficher le message de bienvenue
+                    Always display welcome message
                   </label>
                 </dt>
                 <dd>
@@ -338,7 +380,7 @@
               <dl>
                 <dt>
                   <label for="s5">
-                    Thème sombre
+                    Dark theme
                   </label>
                 </dt>
                 <dd>
@@ -349,7 +391,7 @@
               <dl>
                 <dt>
                   <label for="checkDebug">
-                    Debug mod
+                    Debugging
                   </label>
                 </dt>
                 <dd>
@@ -361,9 +403,6 @@
                   />
                 </dd>
               </dl>
-              <div class="mb2" id="debugText" style="display: none;">
-                <p>📣 Attention vous avez activé le mode développeur.</p>
-              </div>
             </div>
             <!-- <hr class="sep" /> -->
             <div class="flex jcsb">
@@ -418,38 +457,108 @@
             </div>
           </article>
         </section>
-        <section class="tab-pannel"></section>
+        <section class="tab-pannel">
+          <div class="notif-wrapper">
+            <div class="notif">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo,
+                voluptatem qui quidem exercitationem consectetur consequatur
+                aperiam odio minus ullam similique blanditiis ut laborum hic
+                tempora placeat non mollitia, rem accusamus.
+              </p>
+            </div>
+            <div class="notif error">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo,
+                voluptatem qui quidem exercitationem consectetur consequatur
+                aperiam odio minus ullam similique blanditiis ut laborum hic
+                tempora placeat non mollitia, rem accusamus.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
     <!-- Footer -->
     <footer class="footerbar">
-      <div class="icon p-tooltip">
-        <div class="p-tooltip-content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente iste
-          accusamus veniam. Similique aliquid atque voluptas possimus, minima
-          eveniet debitis? Suscipit, quam? Iure accusantium quam ut esse sequi,
-          officiis minus.
-        </div>
-        <div class="p-tooltip-arrow"></div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="#000"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M0 0h24v24H0z" stroke="none" />
-          <path
-            d="M21 14l-3-3h-7a1 1 0 01-1-1V4a1 1 0 011-1h9a1 1 0 011 1v10M14 15v2a1 1 0 01-1 1H6l-3 3V11a1 1 0 011-1h2"
-          />
-        </svg>
+      <div>
+        <span class="is-debug dnone">📣 Debug is activated</span>
       </div>
-      Up to date v2.0.0
+      <div>
+        <div class="p-tooltip mr1 icon">
+          <div class="p-tooltip-content">
+            <div class="status-item">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                fill="#fff"
+                class="mr1"
+              >
+                <path
+                  d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259L10.733 8l3.13 3.259L19.752 8l-6.559 6.963z"
+                />
+              </svg>
+              <!-- Status light -->
+              <div class="status-light" style="background-color: grey;"></div>
+
+              <!-- Content -->
+              <div class="status-content">
+                <p>
+                  Messenger -
+                  <span>@udownload</span>
+                </p>
+              </div>
+            </div>
+            <div class="status-item">
+              <svg
+                class="mr1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 50 50"
+                fill="#fff"
+              >
+                <path
+                  d="M41.625 10.77c-3.98-3.204-10.277-3.747-10.547-3.766a.992.992 0 00-.988.586 6.63 6.63 0 00-.305.832c2.633.445 5.867 1.34 8.793 3.156a1 1 0 11-1.055 1.7C32.493 10.155 26.211 10 25 10c-1.21 0-7.496.156-12.523 3.277a1 1 0 01-1.055-1.7c2.926-1.811 6.16-2.71 8.793-3.151-.152-.496-.29-.809-.3-.836a.987.987 0 00-.993-.586c-.27.02-6.567.562-10.602 3.809C6.215 12.761 2 24.152 2 34c0 .176.047.344.133.496 2.906 5.11 10.84 6.445 12.648 6.504h.031a1 1 0 00.81-.41l1.827-2.516c-4.933-1.273-7.453-3.437-7.597-3.566a1 1 0 011.324-1.5C11.234 33.063 15.875 37 25 37c9.14 0 13.781-3.953 13.828-3.992a1 1 0 011.41.094.996.996 0 01-.09 1.406c-.144.129-2.664 2.293-7.597 3.566l1.828 2.516a1 1 0 00.809.41h.03c1.81-.059 9.743-1.395 12.65-6.504.085-.152.132-.32.132-.496 0-9.848-4.215-21.238-6.375-23.23zM18.5 30c-1.934 0-3.5-1.79-3.5-4s1.566-4 3.5-4 3.5 1.79 3.5 4-1.566 4-3.5 4zm13 0c-1.934 0-3.5-1.79-3.5-4s1.566-4 3.5-4 3.5 1.79 3.5 4-1.566 4-3.5 4z"
+                />
+              </svg>
+              <!-- Status light -->
+              <div class="status-light"></div>
+
+              <!-- Content -->
+              <div class="status-content">
+                <p>
+                  Discord -
+                  <span>udownload#5454</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-tooltip-arrow"></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#000"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M0 0h24v24H0z" stroke="none" />
+            <path
+              d="M21 14l-3-3h-7a1 1 0 01-1-1V4a1 1 0 011-1h9a1 1 0 011 1v10M14 15v2a1 1 0 01-1 1H6l-3 3V11a1 1 0 011-1h2"
+            />
+          </svg>
+        </div>
+        Up to date v2.0.0
+      </div>
     </footer>
 
     <!-- Main script -->

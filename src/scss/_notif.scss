@@ -1,46 +1,28 @@
 .notif-wrapper {
-  z-index: 99999;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  max-width: 50%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   display: block;
   .notif {
     display: flex;
     flex-flow: row wrap;
     text-decoration: none;
     color: #000;
-    min-width: 420px;
+    border: 1px solid var(--border);
+    max-width: 100%;
     padding: 27px;
     margin-bottom: 1em;
     &:last-child {
       margin-bottom: 0;
     }
-    border-radius: 7px;
+    border-radius: var(--radius);
     background: var(--background);
     display: flex;
     align-items: center;
-    @include kit-ui-1;
-    &.card {
-      cursor: pointer;
-      > p,
-      span,
-      strong {
-        pointer-events: none;
-      }
-      transform: translateY(100%);
-      &.visible {
-        transform: translate(0);
-      }
-    }
     &.error {
       background-color: $color-red-carnation;
       transition: background-color 0.25s ease;
       display: grid;
       grid-template-columns: auto 1fr auto;
       column-gap: 20px;
+      border: 0;
       color: var(--background);
       &:hover {
         background-color: darken($color-red-carnation, 5%);
@@ -55,11 +37,6 @@
     }
     p {
       margin: 0;
-      flex: 1;
-      width: 80%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     span {
       margin-left: 1.5em;
