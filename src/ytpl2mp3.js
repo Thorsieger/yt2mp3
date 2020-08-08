@@ -28,8 +28,15 @@ window.onload = () => {
     document.getElementById('s3').checked = false
   }
 
-  if (setting.debug) document.getElementById('checkDebug').checked = true
-  else document.getElementById('checkDebug').checked = false
+  if (setting.debug){
+    document.getElementById('checkDebug').checked = true
+    document.querySelector('.is-debug').classList.add('block')
+    document.getElementById('debug-window').classList.add('block')
+  } else document.getElementById('checkDebug').checked = false
+
+  if(setting.dark) document.getElementById('s5').checked = true
+
+  document.getElementById(setting.format).checked = true;
 }
 
 function download() {
@@ -135,12 +142,7 @@ function dl_track_from_playlist(playlist, element) {
 function choose_path() {
   var windows = remote.getCurrentWindow()
   var data = remote.dialog.showOpenDialogSync(windows, {properties: ['openDirectory']})
-  if (data != undefined) {
-    chemin = data
-    document.getElementById('dl-button').disabled = false
-  } else {
-    document.getElementById('dl-button').disabled = true
-  }
+  if (data != undefined) chemin = data
   document.getElementById('path_text').value = chemin
 }
 
@@ -158,9 +160,10 @@ function afficher_notif(text1, text2) {
 
 function save_param() {
   let setting = {
-    format: 'mp3',
+    format: document.querySelector('input[name="radio"]:checked').id,
     path: document.getElementById('path_text').value,
     welcomeMsg: document.getElementById('s3').checked,
+    dark: document.getElementById('s5').checked,
     debug: document.getElementById('checkDebug').checked,
   }
 
