@@ -1,5 +1,3 @@
-var win = remote.getCurrentWindow()
-
 document.getElementById('min-button').addEventListener('click', function () {
   remote.getCurrentWindow().minimize()
 })
@@ -132,15 +130,13 @@ function initTabNav() {
 
 initTabNav()
 
-const elem = document.getElementById('cgu-see')
-elem.addEventListener('click', function (e) {
+document.getElementById('cgu-see').addEventListener('click', function (e) {
   document.getElementById('cgu-more').classList.toggle('block')
 })
 
 var dropdown = document.getElementsByClassName('dropdown-btn')
-var i
 
-for (i = 0; i < dropdown.length; i++) {
+for (var i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener('click', function () {
     this.classList.toggle('active')
     var dropdownContent = this.nextElementSibling
