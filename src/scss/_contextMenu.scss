@@ -1,21 +1,20 @@
 #context-menu {
   position: fixed;
   z-index: 10000;
-  width: 230px;
+  width: 200px;
   margin: 0;
   background: #1a1a1a;
   visibility: hidden;
   opacity: 0;
-  padding: 8px;
   border-radius: var(--radius);
   overflow: hidden;
   transform-origin: top left;
   transition: opacity 0.25s ease-in-out;
   .item {
-    padding: 8px 10px;
+    padding: 12px 15px;
     margin: 0;
+    font-size: 14px;
     cursor: pointer;
-    font-size: var(--font-size);
     border-radius: var(--radius);
     color: white;
     display: flex;

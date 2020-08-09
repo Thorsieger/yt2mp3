@@ -153,6 +153,112 @@
       }
     }
   }
+}
+.card {
+  color: #000;
+  background: var(--background);
+  border-radius: 7px;
+  position: relative;
+  &.progress {
+    padding: 2rem 1.5rem;
+  }
+  &.centered {
+    z-index: 9;
+    border: 1px solid var(--disabled-inner);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.card-download {
+    .card-album {
+      position: absolute;
+      max-width: 200px;
+      height: 150px;
+      opacity: 0;
+      visibility: hidden;
+      background: var(--background);
+      border-radius: 7px;
+      overflow: hidden;
+      left: 20px;
+      list-style: none;
+      top: -70%;
+      transform: translateY(50%);
+      transition: opacity 0.25s ease;
+      .playlist-number {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 30px;
+        right: 10px;
+        transform: translateY(50%);
+        font-size: 25px;
+        color: #fff;
+      }
+      .playlist-thumb {
+        img {
+          max-width: 100%;
+        }
+      }
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &-close {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--background);
+    width: 36px;
+    height: 36px;
+    top: -20px;
+    right: -20px;
+    padding: 8px;
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &-head {
+    padding-left: var(--padding-side);
+    padding-top: var(--padding);
+    padding-right: var(--padding-side);
+
+    .card-slider-tabs {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      height: 100%;
+      user-select: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .tab-slider-trigger {
+      font-size: 12px;
+      padding: 20px;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--tcolor);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 250ms ease-in-out;
+      &.active {
+        color: $color-blue-ribbon;
+      }
+    }
+  }
   .impt {
     border-radius: var(--radius);
     height: 330px;

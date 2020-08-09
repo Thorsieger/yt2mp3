@@ -62,13 +62,14 @@ ul {
   }
 }
 .sect {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
   border-bottom: 1px solid var(--disabled-inner);
 }
 dl {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0px;
   padding-top: 15px;
@@ -80,5 +81,31 @@ dl {
   }
   dt {
     margin: 0;
+  }
+}
+table,
+tr,
+td,
+th,
+thead,
+tbody {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-collapse: inherit;
+  border-spacing: 0;
+}
+table {
+  width: 100%;
+  border: 1px solid var(--disabled-inner);
+  border-radius: var(--radius);
+  thead {
+    border-bottom: 1px solid var(--disabled-inner);
+    tr {
+      th {
+        text-align: left;
+        padding: 20px;
+      }
+    }
   }
 }
