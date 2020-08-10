@@ -1,4 +1,5 @@
 const electron = require('electron')
+const globalShortcut = electron.globalShortcut
 
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -25,8 +26,17 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+
+  globalShortcut.register('f5', function() {
+		console.log('f5 is pressed')
+		mainWindow.reload()
+	})
+	globalShortcut.register('CommandOrControl+R', function() {
+		console.log('CommandOrControl+R is pressed')
+		mainWindow.reload()
+	})
 }
-require('electron-reload')(__dirname)
+
 app.on('ready', createWindow)
 
 app.on('window-all-closed', function () {

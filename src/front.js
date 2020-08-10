@@ -20,9 +20,9 @@ document.getElementById('reject-rule').addEventListener('click', function() {
 })
 
 function showPop() {
-  document.getElementById('notifOne').classList.add('visible')
+  document.getElementById('notifOne').classList.add('active')
   setTimeout(() => {
-      document.getElementById('notifOne').classList.remove('visible')
+      document.getElementById('notifOne').classList.remove('active')
   }, 4000)
 }
 

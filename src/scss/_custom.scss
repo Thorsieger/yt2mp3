@@ -55,19 +55,6 @@
     &.scroll {
       height: calc(100vh - 75px);
       overflow-y: auto;
-      &::-webkit-scrollbar {
-        width: 10px;
-        z-index: 1;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: var(--backgroundHome);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        background: var(--disabled-inner);
-      }
     }
   }
   main {
@@ -301,6 +288,7 @@
   display: none;
   left: 30px;
   padding: 15px;
+  opacity: 0.75;
   bottom: 50px;
   background: #1a1a1a;
   border-radius: var(--radius);

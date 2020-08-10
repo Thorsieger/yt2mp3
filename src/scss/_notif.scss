@@ -48,6 +48,45 @@
     }
   }
 }
+.notif-app {
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  display: block;
+  width: 300px;
+  z-index: 9999;
+  .item {
+    padding: 20px;
+    border-radius: var(--radius);
+    display: block;
+    background: #fff;
+    border: 1px solid var(--disabled-inner);
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, transform 0.25s ease;
+    transform: translateY(100%);
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      &.error {
+        display: block;
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+    &.error {
+      border: 0;
+      display: none;
+      p {
+        color: white;
+      }
+      background: $color-red-carnation;
+    }
+  }
+}
 .card {
   color: #000;
   background: var(--background);
@@ -277,20 +316,6 @@
     h4 {
       color: var(--tcolor);
       margin-top: 8px;
-    }
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      z-index: 1;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: var(--backgroundHome);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      background: var(--disabled-inner);
     }
   }
   &-body {

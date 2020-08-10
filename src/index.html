@@ -15,6 +15,18 @@
       </li>
     </ul>
 
+    <!-- Context Menu -->
+    <ul id="notif-app" class="notif-app">
+      <li class="item" id="notifOne">
+        Téléchargement de X est terminé
+      </li>
+      <li id="notifError" class="item error">
+        <p>
+          ERREUR 5454
+        </p>
+      </li>
+    </ul>
+
     <!-- Modal -->
     <div id="page" class="overlay">
       <div id="intro" class="card centered w-middle">
@@ -75,7 +87,7 @@
     <div id="debug-window" class="debug-window">
       <dl class="p0 mt0">
         <dt class="p-small p-light">Video title</dt>
-        <dd id="text-out"></dd>
+        <dd id="text-out" class="mt1"></dd>
       </dl>
       <dl class="p0 fcolumn">
         <dt class="p-small p-light">Errors</dt>
@@ -84,15 +96,15 @@
       </dl>
       <dl class="p0">
         <dt><p class="p-small p-light mb0">File name</p></dt>
-        <dd id="notifp"></dd>
+        <dd id="notifp" class="mt1"></dd>
       </dl>
       <dl class="p0">
         <dt><p class="p-small p-light mb0">File size</p></dt>
-        <dd id="notifs"></dd>
+        <dd id="notifs" class="mt1"></dd>
       </dl>
       <dl class="p0">
         <dt><p class="p-small p-light mb0">Download</p></dt>
-        <dd id="progressText"></dd>
+        <dd id="progressText" class="mt1"></dd>
       </dl>
     </div>
 
@@ -181,7 +193,6 @@
             </div>
             <span>Settings</span>
           </a>
-
           <a class="nav-item" data-title="Inbox">
             <div class="icon icon-notif">
               <svg
@@ -287,183 +298,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-top: 1px solid rgba(0, 0, 0, 0.3);">
-                  <td style="padding: 16px;">
-                    <div
-                      style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: start;
-                        width: 100%;
-                      "
-                    >
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 40%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 30%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 50%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                    </div>
+                <tr>
+                  <td>
+                    <h4>File name.mp3</h4>
                   </td>
-                  <td style="padding: 16px;">
-                    <div
-                      style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: start;
-                        width: 100%;
-                      "
-                    >
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 20%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 10%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 20%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                    </div>
+                  <td>
+                    <p>3.5Mb</p>
                   </td>
-                  <td style="padding: 16px;">
-                    <div
-                      style="
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: start;
-                        width: 100%;
-                      "
-                    >
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 20%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 50%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                      <div
-                        style="
-                          margin-bottom: 8px;
-                          margin-right: 8px;
-                          width: 30%;
-                        "
-                      >
-                        <div
-                          style="
-                            background-color: rgba(0, 0, 0, 0.3);
-                            border-radius: 9999px;
-                            height: 4px;
-                            width: 100%;
-                          "
-                        ></div>
-                      </div>
-                    </div>
+                  <td>
+                    <p>09 Septembre 2020</p>
+                  </td>
+                  <td>
+                    <h4><a href="#" class="btn btn-dark small">Action</a></h4>
                   </td>
                 </tr>
               </tbody>
@@ -512,6 +358,10 @@
                     Change
                   </button>
                 </div>
+                <p class="mb0 mt2 op-light">
+                  Files will be downloaded into the Download folder (but this
+                  option is customizable).
+                </p>
               </div>
               <!-- Avancées -->
               <div class="sect">

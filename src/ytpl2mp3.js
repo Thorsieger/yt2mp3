@@ -103,7 +103,7 @@ function download_track(link) {
         ffmpeg(stream)
             .audioBitrate(128)
             .outputOptions(metadata)
-            .save(path.normalize(`${chemin}/${info.videoDetails.title}.mp3`))
+            .save(path.normalize(`${chemin}/${info.videoDetails.title.replace(/[^\w\s]/gi,'')}.mp3`))
             .on('error', function(err, stdout, stderr) {
                 afficher_err(info.videoDetails.title, err)
             })
@@ -140,9 +140,7 @@ function dl_track_from_playlist(playlist, element) {
             if (element < playlist.total_items - 1)
                 dl_track_from_playlist(playlist, ++element)
             else
-                document.getElementById(
-                    'text-out',
-                ).innerHTML += `Playlist téléchargée en ${
+                document.getElementById('text-out',).innerHTML += `Playlist téléchargée en ${
           (Date.now() - startTime) / 1000
         }s<br>`
         })

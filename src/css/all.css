@@ -494,6 +494,7 @@ table {
   width: 100%;
   border: 1px solid var(--disabled-inner);
   border-radius: var(--radius);
+  border-collapse: inherit;
 }
 
 table thead {
@@ -502,7 +503,54 @@ table thead {
 
 table thead tr th {
   text-align: left;
-  padding: 20px;
+  padding: 25px;
+  font-size: 14px;
+}
+
+table thead,
+table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table tbody {
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--disabled-inner);
+}
+
+table tbody tr td {
+  padding: 15px 25px;
+  opacity: 0.5;
+}
+
+table tbody tr td:first-child, table tbody tr td:last-child {
+  opacity: 1;
+}
+
+table tbody tr td h4,
+table tbody tr td p {
+  font-size: 14px;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: 1;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--disabled);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: var(--disabled-inner);
 }
 
 .notif-wrapper {
@@ -562,6 +610,52 @@ table thead tr th {
 .notif-wrapper .notif .btn {
   flex: 0;
   display: inline-block;
+}
+
+.notif-app {
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  display: block;
+  width: 300px;
+  z-index: 9999;
+}
+
+.notif-app .item {
+  padding: 20px;
+  border-radius: var(--radius);
+  display: block;
+  background: #fff;
+  border: 1px solid var(--disabled-inner);
+  margin-bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, transform 0.25s ease;
+  transform: translateY(100%);
+}
+
+.notif-app .item.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.notif-app .item.active.error {
+  display: block;
+}
+
+.notif-app .item p {
+  margin-bottom: 0;
+}
+
+.notif-app .item.error {
+  border: 0;
+  display: none;
+  background: #f35f63;
+}
+
+.notif-app .item.error p {
+  color: white;
 }
 
 .card {
@@ -817,20 +911,6 @@ table thead tr th {
   margin-top: 8px;
 }
 
-.card .impt::-webkit-scrollbar {
-  width: 10px;
-  z-index: 1;
-}
-
-.card .impt::-webkit-scrollbar-track {
-  background: var(--backgroundHome);
-}
-
-.card .impt::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: var(--disabled-inner);
-}
-
 .card-body {
   padding-left: var(--padding-side);
   padding-bottom: var(--padding);
@@ -1058,6 +1138,7 @@ table thead tr th {
   font-size: var(--font-size);
   font-family: var(--primary-ff);
   align-items: center;
+  justify-content: center;
   padding: 0 42px;
   line-height: 24px;
   cursor: pointer;
@@ -1349,20 +1430,6 @@ table thead tr th {
   overflow-y: auto;
 }
 
-.content .tab-pannel.scroll::-webkit-scrollbar {
-  width: 10px;
-  z-index: 1;
-}
-
-.content .tab-pannel.scroll::-webkit-scrollbar-track {
-  background: var(--backgroundHome);
-}
-
-.content .tab-pannel.scroll::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: var(--disabled-inner);
-}
-
 .content main {
   width: 100%;
 }
@@ -1612,6 +1679,7 @@ table thead tr th {
   display: none;
   left: 30px;
   padding: 15px;
+  opacity: 0.75;
   bottom: 50px;
   background: #1a1a1a;
   border-radius: var(--radius);
