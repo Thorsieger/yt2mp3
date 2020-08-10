@@ -27,9 +27,9 @@ function showPop() {
 }
 
 function showErr() {
-  document.getElementById('notifErr').classList.add('visible')
+  document.getElementById('notifErr').classList.add('active')
   setTimeout(() => {
-      document.getElementById('notifErr').classList.remove('visible')
+      document.getElementById('notifErr').classList.remove('active')
   }, 4000)
 }
 
