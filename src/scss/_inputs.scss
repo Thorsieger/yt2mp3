@@ -166,6 +166,7 @@
       &:disabled {
         &:not(:checked) {
           &:after {
+            --ab: var(--disabled-inner);
             opacity: 0.6;
           }
         }

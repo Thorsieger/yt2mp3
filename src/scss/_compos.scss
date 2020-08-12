@@ -49,6 +49,11 @@ $shadow-map: (
 .bold {
   font-weight: bold;
 }
+.bg-w {
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  background: var(--disabled);
+}
 .p {
   &-small {
     font-size: calc(var(--font-size) - 3px);
@@ -170,10 +175,10 @@ a {
 
 .w {
   &-large {
-    width: 80%;
+    width: 95%;
   }
   &-middle {
-    width: 680px;
+    width: 85%;
   }
   &-small {
     width: 50%;

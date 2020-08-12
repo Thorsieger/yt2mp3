@@ -1,5 +1,6 @@
 #titlebar {
   display: flex;
+  position: relative;
   height: 40px;
   align-items: center;
   justify-content: space-between;
@@ -13,13 +14,30 @@
   }
   #window-title {
     display: flex;
+    position: relative;
     align-items: center;
-    color: black;
-    font-weight: 500;
-    font-size: var(--font-size);
-    font-family: var(--primary-ff);
-    margin-left: 32px;
     overflow-x: hidden;
+    span {
+      color: black;
+      // mix-blend-mode: difference;
+      font-weight: 500;
+      font-size: var(--font-size);
+      font-family: var(--primary-ff);
+      margin-left: 32px;
+    }
+    #progressBar {
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background: var(--blue);
+      span {
+        position: absolute;
+        right: 10px;
+        color: #fff;
+      }
+    }
   }
   #window-controls {
     display: grid;

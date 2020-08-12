@@ -9,7 +9,7 @@ document.getElementById('close-button').addEventListener('click', function() {
 document.getElementById('accepte-rule').addEventListener('click', function() {
   if (document.getElementById('c8').checked) {
       document.getElementById('intro').classList.add('hidden')
-      document.getElementById('page').classList.remove('overlay')
+      document.getElementById('page').classList.remove('active')
   } else {
       //changer la couleurs d'accepter les cgu en rouge ?
   }
@@ -36,10 +36,8 @@ function showErr() {
 var checkBox = document.getElementById('checkDebug')
 checkBox.addEventListener('click', function() {
   if (checkBox.checked == true) {
-      document.querySelector('.is-debug').classList.add('block')
       document.getElementById('debug-window').classList.add('block')
   } else {
-      document.querySelector('.is-debug').classList.remove('block')
       document.getElementById('debug-window').classList.remove('block')
   }
 })
@@ -122,7 +120,7 @@ function initTabNav() {
           itemMenu.addEventListener('click', function() {
               activeTab(index)
               var newTitle = itemMenu.dataset.title
-              document.getElementById('window-title').innerText = newTitle
+              document.getElementById('page-title').innerText = newTitle
           })
       })
   }

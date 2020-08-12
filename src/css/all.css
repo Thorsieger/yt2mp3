@@ -540,17 +540,30 @@ table tbody tr td p {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
   z-index: 1;
+  width: 15px;
+  background-color: transparent;
+  border-left: 1px solid var(--disabled-inner);
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--disabled);
+  padding: 3px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background: var(--disabled-inner);
+  border: 5px solid transparent;
+  background-clip: content-box;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-color: transparent;
 }
 
 .notif-wrapper {
@@ -616,6 +629,7 @@ table tbody tr td p {
   position: fixed;
   right: 30px;
   bottom: 50px;
+  pointer-events: none;
   display: block;
   width: 300px;
   z-index: 9999;
@@ -1111,6 +1125,7 @@ table tbody tr td p {
     --ab: var(--background);
   }
   input[type='checkbox'].switch:disabled:not(:checked):after {
+    --ab: var(--disabled-inner);
     opacity: 0.6;
   }
   input[type='radio'] {
@@ -1166,7 +1181,7 @@ table tbody tr td p {
 
 .btn.small {
   min-height: 35px;
-  padding: 0 25px;
+  padding: 0 20px;
   border-radius: 5px;
 }
 
@@ -1426,45 +1441,12 @@ table tbody tr td p {
 }
 
 .content .tab-pannel.scroll {
-  height: calc(100vh - 75px);
+  height: calc(100vh - 40px);
   overflow-y: auto;
 }
 
 .content main {
   width: 100%;
-}
-
-.footerbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  justify-content: space-between;
-  padding: 7px 15px;
-  font-size: 12px;
-  color: #848484;
-  border-top: 1px solid #ececec;
-}
-
-.footerbar .icon {
-  margin-right: 15px;
-}
-
-.footerbar .icon svg {
-  stroke: #848484;
-}
-
-.footerbar .icon svg:hover {
-  stroke: #000;
-}
-
-.footerbar div {
-  display: block;
-}
-
-.footerbar div:not(.p-tooltip-content) {
-  align-items: center;
-  display: flex;
 }
 
 .section {
@@ -1536,12 +1518,18 @@ table tbody tr td p {
   letter-spacing: 0.1em;
 }
 
+.h100 {
+  height: 100%;
+}
+
 .tab-pannel {
   display: none;
 }
 
 .tab-pannel.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .sep {
@@ -1553,7 +1541,7 @@ table tbody tr td p {
 }
 
 .sidebar-app {
-  width: 310px;
+  width: 27%;
   background: #000;
   color: #fff;
   display: flex;
@@ -1577,35 +1565,6 @@ table tbody tr td p {
   align-items: center;
 }
 
-.sidebar-app .sidebar-menu .submenu {
-  margin-left: 65px;
-  display: block;
-}
-
-.sidebar-app .sidebar-menu .submenu a {
-  margin: 11px 0;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.sidebar-app .sidebar-menu .submenu a:before {
-  content: '';
-  width: 12px;
-  margin-right: 15px;
-  height: 12px;
-  border: 0.08em solid #fff;
-  background: transparent;
-  border-radius: 50%;
-  display: block;
-}
-
-.sidebar-app .sidebar-menu .submenu a.active:before {
-  border-color: var(--blue);
-  background: var(--blue);
-}
-
 .sidebar-app .sidebar-menu .nav-item {
   padding: 10px 20px;
   margin: 0;
@@ -1617,10 +1576,6 @@ table tbody tr td p {
   width: 100%;
   align-items: center;
   cursor: pointer;
-}
-
-.sidebar-app .sidebar-menu .nav-item.active .submenu {
-  display: block;
 }
 
 .sidebar-app .sidebar-menu .nav-item .icon {
@@ -1764,6 +1719,7 @@ table tbody tr td p {
 
 #titlebar {
   display: flex;
+  position: relative;
   height: 40px;
   align-items: center;
   justify-content: space-between;
@@ -1780,13 +1736,32 @@ table tbody tr td p {
 
 #titlebar #window-title {
   display: flex;
+  position: relative;
   align-items: center;
+  overflow-x: hidden;
+}
+
+#titlebar #window-title span {
   color: black;
   font-weight: 500;
   font-size: var(--font-size);
   font-family: var(--primary-ff);
   margin-left: 32px;
-  overflow-x: hidden;
+}
+
+#titlebar #window-title #progressBar {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--blue);
+}
+
+#titlebar #window-title #progressBar span {
+  position: absolute;
+  right: 10px;
+  color: #fff;
 }
 
 #titlebar #window-controls {
@@ -1876,6 +1851,12 @@ table tbody tr td p {
 
 .bold {
   font-weight: bold;
+}
+
+.bg-w {
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  background: var(--disabled);
 }
 
 .p-small {
@@ -2128,11 +2109,11 @@ a {
 }
 
 .w-large {
-  width: 80%;
+  width: 95%;
 }
 
 .w-middle {
-  width: 680px;
+  width: 85%;
 }
 
 .w-small {

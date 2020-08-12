@@ -9,10 +9,10 @@ let mainWindow
 function createWindow() {
   // Création d'une fenetre en résolution 1133x720
   mainWindow = new BrowserWindow({
-    width: 1216,
-    height: 739,
+    width: 1152,
+    height: 680,
     frame: false,
-    // icon: __dirname + '/src/assets/icons/app.png',
+    icon: __dirname + '/src/assets/icons/app.png',
     resizable: false,
     webPreferences: {
       nodeIntegration: true,

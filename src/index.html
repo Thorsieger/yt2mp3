@@ -20,7 +20,7 @@
       <li class="item" id="notifOne">
         Téléchargement de X est terminé
       </li>
-      <li id="notifErr" class="item error">
+      <li id="notifError" class="item error">
         <p>
           ERREUR 5454
         </p>
@@ -115,23 +115,16 @@
         <div class="sidebar-menu">
           <a class="nav-item" data-title="Download a playlist">
             <div class="icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon-tabler"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-                <polyline points="7 11 12 16 17 11" />
-                <line x1="12" y1="4" x2="12" y2="16" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
               </svg>
             </div>
-            <span>Let's go</span>
+            <span>Download</span>
           </a>
-          <a class="nav-item dropdown-btn" data-title="History & Downloads">
+          <a class="nav-item" data-title="History & Downloads">
             <div class="icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,11 +160,6 @@
               </svg>
             </div>
           </a>
-          <div class="submenu">
-            <a class="active">Today</a>
-            <a>This week</a>
-            <a>Everytime</a>
-          </div>
           <a class="nav-item" data-title="Settings & More">
             <div class="icon">
               <svg
@@ -221,7 +209,10 @@
         <!-- Header & Titlebar -->
         <header id="titlebar">
           <div id="drag-region">
-            <div id="window-title">🖐</div>
+            <div id="window-title">
+              <span id="page-title"
+                >🖐
+            </div>
             <div id="window-controls">
               <div class="button" id="min-button">
                 <svg
@@ -279,8 +270,8 @@
               </div>
             </main>
           </section>
-          <section class="tab-pannel">
-            <table>
+          <section class="tab-pannel relative">
+            <!-- <table>
               <thead>
                 <tr>
                   <th>
@@ -313,7 +304,33 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+            <div class="flex aic jcc h100">
+              <div class="tac">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon-tabler mb1"
+                  width="64"
+                  height="64"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#000000"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <polyline
+                    points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"
+                  />
+                  <line x1="12" y1="12" x2="20" y2="7.5" />
+                  <line x1="12" y1="12" x2="12" y2="21" />
+                  <line x1="12" y1="12" x2="4" y2="7.5" />
+                  <line x1="16" y1="5.25" x2="8" y2="9.75" />
+                </svg>
+                <p class="bg-w p5 mb0">There is no downloads to display</p>
+              </div>
+            </div>
           </section>
           <section class="tab-pannel scroll">
             <article class="mx-auto w-middle">
@@ -339,6 +356,9 @@
                     <label for="mp4">Download the video in .mp4 format</label>
                   </li>
                 </ul>
+                <p class="mb0 mt2 op-light p-small">
+                  The default file format is <strong>MP3</strong> but can be switched to video <strong>MP4</strong>.
+                </p>
               </div>
               <div class="sect">
                 <p>Download location</p>
@@ -353,13 +373,13 @@
                   />
                   <button
                     onclick="choose_path()"
-                    class="btn btn-o-dark ml2 dib"
+                    class="btn btn-dark small ml2 dib"
                   >
                     Change
                   </button>
                 </div>
-                <p class="mb0 mt2 op-light">
-                  Files will be downloaded into the Download folder (but this
+                <p class="mb0 mt2 op-light p-small">
+                  Files will be downloaded into the Download folder (this
                   option is customizable).
                 </p>
               </div>
@@ -377,15 +397,15 @@
                     <input id="s3" type="checkbox" class="switch" />
                   </dd>
                 </dl>
-                <!-- Message bienvenue -->
+                <!-- Dark theme -->
                 <dl>
                   <dt>
-                    <label for="s5">
-                      Dark theme
+                    <label for="s5" class="flex aic">
+                      Dark theme <p class="p-small op-light mb0 ml1">Disabled available v2.0.15</p>
                     </label>
                   </dt>
                   <dd>
-                    <input id="s5" type="checkbox" class="switch" />
+                    <input id="s5" type="checkbox" class="switch" disabled/>
                   </dd>
                 </dl>
                 <!-- Debug -->
@@ -404,6 +424,9 @@
                     />
                   </dd>
                 </dl>
+                <p class="mb0 mt2 op-light p-small">
+                  Be aware with advanced options, activate the debug option only if needed this can cause issues.
+                </p>
               </div>
               <!-- <hr class="sep" /> -->
               <div class="flex jcsb mt2">
@@ -430,6 +453,22 @@
                   présentes conditions générales d'utilisation.
                 </p>
                 <h4 class="mt4">RGPD</h4>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Autem minima rerum mollitia non corporis numquam. Perspiciatis
+                  sit dicta sapiente magni dignissimos ut? Aspernatur voluptatem
+                  eius magni voluptate nam sit impedit?
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+                  minima aliquam impedit voluptates quos, nesciunt fugiat
+                  maiores, doloribus dolores consectetur aut illo ad.
+                  Repellendus voluptatem asperiores porro distinctio sequi earum
+                  ad accusamus, nam fugit perferendis, quasi, deserunt quis
+                  harum similique ratione corporis. Perferendis, animi
+                  exercitationem?
+                </p>
+                <h4 class="mt4">Cookies & Monitoring</h4>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Autem minima rerum mollitia non corporis numquam. Perspiciatis
@@ -480,13 +519,7 @@
             </div>
           </section>
         </div>
-        <!-- Footer -->
-        <footer class="footerbar">
-          <div>
-            <span class="is-debug dnone">📣 Debug is activated</span>
-          </div>
-          <div>
-            <div class="p-tooltip mr1 icon">
+            <!-- <div class="p-tooltip icon">
               <div class="p-tooltip-content">
                 <div class="status-item">
                   <svg
@@ -503,13 +536,11 @@
                       d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259L10.733 8l3.13 3.259L19.752 8l-6.559 6.963z"
                     />
                   </svg>
-                  <!-- Status light -->
                   <div
                     class="status-light"
                     style="background-color: grey;"
                   ></div>
 
-                  <!-- Content -->
                   <div class="status-content">
                     <p>
                       Messenger -
@@ -530,10 +561,8 @@
                       d="M41.625 10.77c-3.98-3.204-10.277-3.747-10.547-3.766a.992.992 0 00-.988.586 6.63 6.63 0 00-.305.832c2.633.445 5.867 1.34 8.793 3.156a1 1 0 11-1.055 1.7C32.493 10.155 26.211 10 25 10c-1.21 0-7.496.156-12.523 3.277a1 1 0 01-1.055-1.7c2.926-1.811 6.16-2.71 8.793-3.151-.152-.496-.29-.809-.3-.836a.987.987 0 00-.993-.586c-.27.02-6.567.562-10.602 3.809C6.215 12.761 2 24.152 2 34c0 .176.047.344.133.496 2.906 5.11 10.84 6.445 12.648 6.504h.031a1 1 0 00.81-.41l1.827-2.516c-4.933-1.273-7.453-3.437-7.597-3.566a1 1 0 011.324-1.5C11.234 33.063 15.875 37 25 37c9.14 0 13.781-3.953 13.828-3.992a1 1 0 011.41.094.996.996 0 01-.09 1.406c-.144.129-2.664 2.293-7.597 3.566l1.828 2.516a1 1 0 00.809.41h.03c1.81-.059 9.743-1.395 12.65-6.504.085-.152.132-.32.132-.496 0-9.848-4.215-21.238-6.375-23.23zM18.5 30c-1.934 0-3.5-1.79-3.5-4s1.566-4 3.5-4 3.5 1.79 3.5 4-1.566 4-3.5 4zm13 0c-1.934 0-3.5-1.79-3.5-4s1.566-4 3.5-4 3.5 1.79 3.5 4-1.566 4-3.5 4z"
                     />
                   </svg>
-                  <!-- Status light -->
                   <div class="status-light"></div>
 
-                  <!-- Content -->
                   <div class="status-content">
                     <p>
                       Discord -
@@ -559,10 +588,7 @@
                   d="M21 14l-3-3h-7a1 1 0 01-1-1V4a1 1 0 011-1h9a1 1 0 011 1v10M14 15v2a1 1 0 01-1 1H6l-3 3V11a1 1 0 011-1h2"
                 />
               </svg>
-            </div>
-            Up to date v2.0.0
-          </div>
-        </footer>
+            </div> -->
       </main>
     </div>
 
