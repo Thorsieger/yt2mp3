@@ -12,7 +12,7 @@ function createWindow() {
     width: 1152,
     height: 680,
     frame: false,
-    icon: __dirname + '/src/assets/icons/app.png',
+    //icon: __dirname + '/src/assets/icons/app.png',
     resizable: false,
     webPreferences: {
       nodeIntegration: true,

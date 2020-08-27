@@ -5,15 +5,18 @@ const ffmpeg = require('fluent-ffmpeg')
 const { remote } = require('electron')
 const path = require('path')
 
+ytpl.do_warn_deprecate = false;
+
 var pathToFfmpeg = require('ffmpeg-static').replace(
   'app.asar',
   'app.asar.unpacked',
 )
 ffmpeg.setFfmpegPath(pathToFfmpeg)
 
-var startTime
-var taille
-var chemin
+var startTime;
+var taille;
+var chemin;
+var format;
 
 window.onload = () => {
   let setting = JSON.parse(fs.readFileSync(__dirname + '/userSetting.json'))
@@ -30,7 +33,7 @@ window.onload = () => {
 
   if (setting.debug){
     document.getElementById('checkDebug').checked = true
-    document.querySelector('.is-debug').classList.add('block')
+    //document.querySelector('.is-debug').classList.add('block')
     document.getElementById('debug-window').classList.add('block')
   } else document.getElementById('checkDebug').checked = false
 
@@ -42,6 +45,8 @@ window.onload = () => {
 function download() {
   startTime = Date.now()
   let link = document.getElementById('playlist-id').value
+  format = document.querySelector('input[name="radio"]:checked').id;
+
   ytpl.getPlaylistID(link, (err, playlistID) => {
     if (err) {
       try {
@@ -76,8 +81,8 @@ const onProgress = (chunkLength, downloaded, total) => {
 
 function download_track(link) {
   let stream = ytdl(link, { quality: 'highestaudio' })
-
-  stream.on('progress', onProgress).on('info', (info) => {
+  stream.on('progress', onProgress)
+  stream.on('info', (info) => {
     //document.getElementById('progressBar').classList.add('visible')
     document.getElementById('text-out').innerHTML +="Téléchargement de : " + info.videoDetails.title;
     let start = Date.now()
@@ -89,10 +94,13 @@ function download_track(link) {
       `artist=${info.videoDetails.author.name}  `,
     ]
 
+    var fichier_out = `${chemin}/${info.videoDetails.title.replace(/\//g,'-')}.${format}`;
+    if(process.platform == 'win32') fichier_out =`${chemin}/${info.videoDetails.title.replace(/\//g,'-').replace(/[\<\>\:\«\|\?\*\.]*/g,'')}.${format}`;
+
     ffmpeg(stream)
       .audioBitrate(128)
       .outputOptions(metadata)
-      .save(path.normalize(`${chemin}/${info.videoDetails.title}.mp3`))
+      .save(fichier_out)
       .on('error', function (err, stdout, stderr) {
         afficher_err(info.videoDetails.title, err)
       })
@@ -103,9 +111,7 @@ function download_track(link) {
 }
 
 function dl_track_from_playlist(playlist, element) {
-  let stream = ytdl(playlist.items[element].url_simple, {
-    quality: 'highestaudio',
-  })
+  let stream = ytdl(playlist.items[element].url_simple, {quality: 'highest'})
 
   stream.on('progress', onProgress)
   //document.getElementById('progressBar').classList.add('visible')
@@ -119,10 +125,13 @@ function dl_track_from_playlist(playlist, element) {
     `artist=${playlist.items[element].author.name}  `,
   ]
 
+  var fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-')}.${format}`;
+  if(process.platform == 'win32') fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-').replace(/[\<\>\:\«\|\?\*\.]*/g,'')}.${format}`;
+  
   ffmpeg(stream)
     .audioBitrate(128)
     .outputOptions(metadata)
-    .save(`${chemin}/${playlist.title}/${playlist.items[element].title}.mp3`)
+    .save(fichier_out)
     .on('error', function (err, stdout, stderr) {
       afficher_err(info.videoDetails.title, err)
       if (element < playlist.total_items - 1)
