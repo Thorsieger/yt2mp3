@@ -42,24 +42,6 @@ checkBox.addEventListener('click', function() {
   }
 })
 
-/**
-* Contextual menu right click
-* no back-end or functionnality there
-**/
-
-var contextElement = document.getElementById('context-menu')
-window.addEventListener('contextmenu', function(event) {
-  event.preventDefault()
-  contextElement.style.top = event.pageY + 'px'
-  contextElement.style.left = event.pageX + 'px'
-  contextElement.classList.add('active')
-})
-window.addEventListener('click', function() {
-  if (contextElement.classList.contains('active')) {
-      document.getElementById('context-menu').classList.remove('active')
-  }
-})
-
 // Get all modals with class modal
 var modals = document.getElementsByClassName('modal')
 
@@ -103,7 +85,7 @@ for (let i = 0; i < spans.length; i++) {
 }
 
 function initTabNav() {
-  const tabMenu = document.querySelectorAll('.sidebar-menu .nav-item')
+  const tabMenu = document.querySelectorAll('.sidebar-app .nav-item')
   const tabContent = document.querySelectorAll('.content section')
 
   if (tabMenu.length && tabContent.length) {

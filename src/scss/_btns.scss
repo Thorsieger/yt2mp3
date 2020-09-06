@@ -29,7 +29,7 @@
 
   &.large {
     padding: 0 35px;
-    height: 60px;
+    height: 50px;
   }
 
   &.small {
@@ -46,14 +46,20 @@
   $color in $ui-colors {
     &-#{$theme} {
       background-color: $color;
-    }
 
-    &-#{$theme}:hover {
-      background-color: darken($color, 10%);
-    }
+      &:hover {
+        background-color: darken($color, 10%);
+      }
 
-    &-#{$theme}:active {
-      background-color: darken($color, 20%);
+      &:active {
+        background-color: darken($color, 20%);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color, 0.15);
+        outline: 2px dotted transparent;
+        outline-offset: 2px;
+      }
     }
   }
 
@@ -61,20 +67,27 @@
   $color in $ui-colors {
     &-o-#{$theme} {
       background-color: transparent;
-      border: 1px solid $color;
-      color: lighten($color, 30%);
+      border: 1px solid lighten($color, 75%);
+      color: $color;
       padding: 0 20px;
       min-height: 40px;
-    }
 
-    &-o-#{$theme}:hover {
-      background-color: transparent;
-      border: 1px solid darken($color, 10%);
-    }
+      &:hover {
+        background-color: $color;
+        color: invert($color, 100%);
+        border: 1px solid darken($color, 10%);
+      }
 
-    &-o-#{$theme}:active {
-      background-color: transparent;
-      border: 1px solid darken($color, 20%);
+      &:active {
+        background-color: lighten($color, 20%);
+        color: invert($color, 100%);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color, 0.15);
+        outline: 2px dotted transparent;
+        outline-offset: 2px;
+      }
     }
   }
 }

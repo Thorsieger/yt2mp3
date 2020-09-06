@@ -37,8 +37,6 @@ window.onload = () => {
     document.getElementById('debug-window').classList.add('block')
   } else document.getElementById('checkDebug').checked = false
 
-  if(setting.dark) document.getElementById('s5').checked = true
-
   document.getElementById(setting.format).checked = true;
 }
 
@@ -172,7 +170,6 @@ function save_param() {
     format: document.querySelector('input[name="radio"]:checked').id,
     path: document.getElementById('path_text').value,
     welcomeMsg: document.getElementById('s3').checked,
-    dark: document.getElementById('s5').checked,
     debug: document.getElementById('checkDebug').checked,
   }
 

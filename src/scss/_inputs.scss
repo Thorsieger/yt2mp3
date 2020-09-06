@@ -1,8 +1,6 @@
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
   input[type='text'] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    user-select: none;
     width: 100%;
     line-height: 24px;
     padding: 0 20px;
@@ -29,12 +27,10 @@
       color: var(--tcolor);
     }
 
-    &:hover {
-      &:not(:checked) {
-        &:not(:disabled) {
-          --bc: var(--border-hover);
-        }
-      }
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(#ddd, 0.15);
+      outline: 2px dotted transparent;
+      outline-offset: 2px;
     }
 
     &:disabled {
@@ -54,6 +50,28 @@
 
   input[type='checkbox'] {
     border-radius: 4px;
+
+    &:after {
+      content: '';
+      display: block;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+        opacity var(--d-o, 0.2s);
+    }
+
+  }
+
+  input[type='radio'] {
+    &:hover {
+      &:not(:checked) {
+        &:not(:disabled) {
+          --bc: var(--border) !important;
+          --b: var(--border) !important;
+        }
+      }
+    }
   }
 
   input[type='checkbox'],
@@ -71,16 +89,6 @@
     border: 1px solid var(--bc, var(--border));
     background: var(--b, var(--background));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
-
-    &:after {
-      content: '';
-      display: block;
-      left: 0;
-      top: 0;
-      position: absolute;
-      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
-        opacity var(--d-o, 0.2s);
-    }
 
     &:checked {
       --b: var(--dark);
@@ -142,7 +150,7 @@
       &:after {
         width: 5px;
         height: 9px;
-        border: 2px solid var(--blue-inner);
+        border: 2px solid var(--white);
         border-top: 0;
         border-left: 0;
         left: 7px;
@@ -178,7 +186,7 @@
       }
 
       &:checked {
-        --ab: var(--blue-inner);
+        --ab: var(--white);
         --x: 17px;
 
         &:hover {
@@ -207,7 +215,7 @@
       width: 19px;
       height: 19px;
       border-radius: 50%;
-      background: var(--blue-inner);
+      background: var(--white);
       opacity: 0;
       transform: scale(var(--s, 0.7));
     }

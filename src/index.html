@@ -8,16 +8,6 @@
 
 <body>
   <!-- Context Menu -->
-  <ul id="context-menu">
-    <li class="item">
-      Copier
-    </li>
-    <li class="item">
-      Coller
-    </li>
-  </ul>
-
-  <!-- Context Menu -->
   <ul id="notif-app" class="notif-app">
     <li class="item" id="notifOne">
       Téléchargement de X est terminé
@@ -119,31 +109,36 @@
   <!-- Container -->
   <div class="container">
     <aside class="sidebar-app">
-      <!-- <div class="sidebar-app-header">udownload</div> -->
       <div class="sidebar-menu">
         <a class="nav-item" data-title="Download a playlist">
           <div class="icon">
-            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24">
               <path
-                d="M9.73 2.788a3.633 3.633 0 014.36-.12l.16.12 6.09 4.871a2.999 2.999 0 011.15 2.13l.01.2v8.11c0 2.09-1.65 3.79-3.72 3.9h-1.99a1.83 1.83 0 01-1.79-1.69l-.01-.14v-2.86a.635.635 0 00-.54-.62l-.09-.01h-2.67a.635.635 0 00-.62.54l-.01.09v2.85c0 .06-.01.13-.02.18l-.01.02-.01.07a1.822 1.822 0 01-1.69 1.56L8.2 22H6.41c-2.09 0-3.8-1.64-3.91-3.7v-8.31a2.967 2.967 0 011-2.19zm3.65 1.09a2.256 2.256 0 00-2.64-.11l-.15.11L4.51 8.78a1.55 1.55 0 00-.61 1.06l-.01.16v8.1c0 1.33 1.04 2.42 2.36 2.5H8.2c.22 0 .41-.15.44-.36l.02-.18.01-.05v-2.7c0-1.07.82-1.94 1.87-2.02h2.82c1.07 0 1.94.82 2.02 1.87v3.01c0 .21.15.39.35.43h1.86a2.5 2.5 0 002.51-2.34l.01-.16v-8.1a1.62 1.62 0 00-.5-1.13l-.13-.11z" />
+                d="M9.157 20.771v-3.066c0-.78.636-1.414 1.424-1.42h2.886c.792 0 1.434.636 1.434 1.42h0v3.076c0 .662.533 1.203 1.202 1.219h1.924c1.918 0 3.473-1.54 3.473-3.438h0V9.838a2.44 2.44 0 00-.962-1.905l-6.58-5.248a3.18 3.18 0 00-3.945 0L3.462 7.943A2.42 2.42 0 002.5 9.847v8.715C2.5 20.46 4.055 22 5.973 22h1.924c.685 0 1.241-.55 1.241-1.229h0" />
             </svg>
           </div>
-          <!-- <span>Download</span> -->
         </a>
         <a class="nav-item" data-title="History & Downloads">
           <div class="icon">
-            <svg width="24" height="24" class="icon-tabler" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14.986 2C18.048 2 20 3.435 20 6.258V20.33c0 .443-.172.867-.477 1.18-.305.313-.72.489-1.162.489a1.705 1.705 0 01-.775-.203l-5.612-3.133-5.59 3.14c-.673.358-1.489.193-2-.406l-.098-.126-.093-.155A1.778 1.778 0 014 20.331V6.434C4 3.5 5.91 2 9.014 2zm0 1.448H9.014c-2.395 0-3.602.948-3.602 2.986V20.32c0 .044.011.087 0 .07l.037.063c.065.09.186.12.27.075l5.588-3.139c.416-.23.918-.23 1.337.001l5.602 3.128c.043.023.09.035.126.035a.213.213 0 00.153-.065.224.224 0 00.063-.156V6.258c0-1.9-1.238-2.81-3.602-2.81zm.422 4.869c.39 0 .706.324.706.724 0 .366-.266.669-.61.717l-.096.006H8.54a.715.715 0 01-.706-.723c0-.367.266-.67.61-.718l.096-.006h6.868z" />
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+              <g transform="translate(2 1.5)">
+                <path d="M5.245 13.281l2.993-3.89 3.414 2.682 2.93-3.78" />
+                <circle cx="17.995" cy="2.7" r="1.922" />
+                <path
+                  d="M12.924 1.62H5.657C2.645 1.62.778 3.753.778 6.764v8.083c0 3.011 1.83 5.135 4.879 5.135h8.604c3.011 0 4.879-2.124 4.879-5.135v-7.04" />
+              </g>
             </svg>
           </div>
-          <!-- <span>History</span> -->
         </a>
+
+      </div>
+      <div class="sidebar-bottom">
         <a class="nav-item" data-title="Settings & More">
           <div class="icon">
-            <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 19.3 20.7">
               <path
-                d="M12.616 2c.71 0 1.388.28 1.882.779.494.498.762 1.17.74 1.799l.009.147c.017.146.065.286.144.416.152.255.402.44.695.514.292.074.602.032.896-.137l.164-.083c1.23-.566 2.705-.116 3.387 1.044l.614 1.043c.016.027.03.056.042.085l.057.111a2.536 2.536 0 01-.884 3.204l-.257.159a1.102 1.102 0 00-.33.356 1.094 1.094 0 00-.117.847c.078.287.27.53.56.695l.166.105c.505.346.869.855 1.028 1.439.18.659.083 1.36-.272 1.957l-.66 1.077-.1.152c-.774 1.092-2.279 1.425-3.427.776l-.136-.069a1.187 1.187 0 00-.435-.1 1.128 1.128 0 00-1.143 1.154l-.008.171C15.12 20.971 13.984 22 12.616 22h-1.235c-1.449 0-2.623-1.15-2.622-2.525l-.008-.147a1.045 1.045 0 00-.148-.422 1.125 1.125 0 00-.688-.519c-.29-.076-.6-.035-.9.134l-.177.087a2.674 2.674 0 01-1.794.129 2.606 2.606 0 01-1.57-1.215l-.637-1.078-.085-.16a2.527 2.527 0 011.03-3.297l.104-.064c.309-.21.494-.554.494-.923 0-.401-.219-.772-.6-.988l-.156-.098a2.542 2.542 0 01-.764-3.407l.65-1.045a2.646 2.646 0 013.552-.96l.134.07c.135.06.283.093.425.094.626 0 1.137-.492 1.146-1.124l.009-.194a2.54 2.54 0 01.752-1.593A2.642 2.642 0 0111.381 2zm0 1.448h-1.235c-.302 0-.592.118-.806.328-.189.186-.304.431-.325.66l-.013.306C10.133 6.07 9 7.114 7.613 7.114a2.619 2.619 0 01-1.069-.244l-.192-.1a1.163 1.163 0 00-1.571.43l-.65 1.045a1.103 1.103 0 00.312 1.464l.261.162A2.556 2.556 0 015.858 12c0 .845-.424 1.634-1.156 2.13l-.156.096c-.512.29-.71.918-.472 1.412l.056.107.63 1.063c.147.262.395.454.688.536.26.072.538.052.754-.042l.109-.052a2.652 2.652 0 011.986-.261 2.592 2.592 0 011.925 2.21l.02.353c.062.562.548 1 1.14 1h1.234c.598 0 1.094-.45 1.14-1l.006-.11a2.535 2.535 0 01.766-1.823 2.651 2.651 0 011.877-.75c.35.009.695.086 1.048.241l.316.158c.496.213 1.084.058 1.382-.361l.073-.111.644-1.052a1.1 1.1 0 00-.303-1.455l-.273-.17a2.564 2.564 0 01-1.062-1.462 2.513 2.513 0 01.265-1.944c.19-.326.451-.606.792-.838l.161-.099c.512-.293.71-.921.473-1.417l-.07-.134-.013-.028-.585-.995a1.157 1.157 0 00-1.34-.513l-.112.044-.103.051a2.661 2.661 0 01-1.984.272 2.607 2.607 0 01-1.596-1.18 2.488 2.488 0 01-.342-1.021l-.014-.253a1.11 1.11 0 00-.323-.814 1.158 1.158 0 00-.823-.34zm-.613 5.284c1.843 0 3.336 1.463 3.336 3.268 0 1.805-1.493 3.268-3.336 3.268-1.842 0-3.336-1.463-3.336-3.268 0-1.805 1.494-3.268 3.336-3.268zm0 1.448c-1.026 0-1.858.815-1.858 1.82 0 1.005.832 1.82 1.858 1.82 1.026 0 1.858-.815 1.858-1.82 0-1.005-.832-1.82-1.858-1.82z" />
+                d="M18.307 6.124l-.623-1.08a1.913 1.913 0 00-2.608-.705h0a1.904 1.904 0 01-2.61-.678 1.83 1.83 0 01-.255-.915h0A1.913 1.913 0 0010.297.778H9.043A1.904 1.904 0 007.14 2.691h0a1.913 1.913 0 01-1.913 1.886 1.83 1.83 0 01-.916-.257h0a1.913 1.913 0 00-2.608.705l-.669 1.099a1.913 1.913 0 00.696 2.608h0a1.913 1.913 0 010 3.314h0a1.904 1.904 0 00-.696 2.6h0l.632 1.089a1.913 1.913 0 002.609.741h0a1.895 1.895 0 012.6.696c.164.277.252.593.255.915h0c0 1.057.857 1.913 1.913 1.913h1.254c1.053 0 1.908-.85 1.914-1.904h0a1.904 1.904 0 011.913-1.913c.321.009.636.097.915.256h0a1.913 1.913 0 002.609-.695h0l.659-1.099a1.904 1.904 0 00-.696-2.608h0a1.904 1.904 0 01-.696-2.61c.166-.289.406-.529.696-.695h0a1.913 1.913 0 00.696-2.6h0v-.008z" />
+              <circle cx="9.675" cy="10.389" r="2.636" />
             </svg>
           </div>
           <!-- <span>Settings</span> -->
@@ -179,7 +174,7 @@
       </header>
       <!-- App content -->
       <div class="content block">
-        <section class="tab-pannel">
+        <section class="tab-pannel relative">
           <div class="centered">
             <div class="flex searchbar">
               <input class="input-main" type="text" name="" id="playlist-id" placeholder="Give me a link" />
@@ -188,6 +183,7 @@
               </button>
             </div>
           </div>
+          <canvas id="my-canvas"></canvas>
         </section>
         <section class="tab-pannel">
           <table>
@@ -210,7 +206,7 @@
             <tbody>
               <tr>
                 <td>
-                  <h4>File name.mp3</h4>
+                  <p>File name.mp3</p>
                 </td>
                 <td>
                   <p>3.5Mb</p>
@@ -218,8 +214,8 @@
                 <td>
                   <p>09 Septembre 2020</p>
                 </td>
-                <td>
-                  <h4><a href="#" class="btn btn-dark small">Action</a></h4>
+                <td class="d-flex">
+                  <a href="#" class="btn btn-dark small">Action</a>
                 </td>
               </tr>
             </tbody>
@@ -255,8 +251,8 @@
           <article class="mx-auto w-small pt4 pb4">
             <!-- General -->
             <div class="sect">
-              <h4 class="mb2">General Parameters</h4>
-              <p>Format fichier</p>
+              <h2 class="mb4">Paramètres Généraux</h2>
+              <h4>Fichiers</h4>
               <ul>
                 <li>
                   <input id="mp3" type="radio" name="radio" value="1" checked="" />
@@ -270,20 +266,20 @@
                   </label>
                 </li>
               </ul>
-              <p class="mb0 mt2 op-light p-small">
+              <p class="mb0 mt1 op-light p-small">
                 Le format de fichier par défaut est <strong>MP3</strong> mais peut être basculé en vidéo
                 <strong>MP4</strong>.
               </p>
             </div>
             <div class="sect">
-              <p>Emplacement de téléchargement</p>
+              <h4 class="mt4">Emplacement de téléchargement</h4>
               <div class="flex">
                 <input class="input-path" type="text" id="path_text" name="" value="" disabled />
-                <button onclick="choose_path()" class="btn btn-dark small ml2 dib">
+                <button onclick="choose_path()" class="btn btn-o-dark small ml2 dib">
                   Modifier...
                 </button>
               </div>
-              <p class="mb0 mt2 op-light p-small">
+              <p class="mb0 mt1 op-light p-small">
                 Les fichiers seront téléchargés dans le dossier de téléchargement (cette option est personnalisable).
               </p>
             </div>
@@ -317,12 +313,11 @@
                 nécessaire, cela peut causer des problèmes.
               </p>
             </div>
-            <!-- <hr class="sep" /> -->
             <div class="flex jcsb mt2">
               <button class="btn btn-default small" id="cgu-see">
                 Lire les CGU
               </button>
-              <button class="btn btn-blue small" onclick="save_param()">
+              <button class="btn btn-green small" onclick="save_param()">
                 Sauvegarder
               </button>
             </div>
@@ -486,6 +481,33 @@
 
   <!-- Coté front-end -->
   <script src="./front.js"></script>
+  <script src="./confetti.min.js"></script>
+  <script type="text/javascript">
+    //Second example
+    var canvas2Settings = {
+      "target": "my-canvas",
+      "max": "80",
+      "size": ".8",
+      "animate": true,
+      "props": ["rotate", "square", "triangle", "line"],
+      "colors": [
+        [165, 104, 246],
+        [230, 61, 135],
+        [0, 199, 228],
+        [253, 214, 126]
+      ],
+      "clock": "2",
+      "rotate": false,
+      "width": "960",
+      "height": "620",
+      "start_from_edge": false,
+      "respawn": true
+    };
+
+    var canvas2 = new ConfettiGenerator(canvas2Settings);
+    canvas2.render();
+  </script>
+
 </body>
 
 </html>
