@@ -1,22 +1,20 @@
-$shadow-map: (
-  df: (
-    0 1px 3px 0 rgba($color-blue-ribbon, 0.1),
+$shadow-map: (df: (0 1px 3px 0 rgba($color-blue-ribbon, 0.1),
     0 1px 2px 0 rgba($color-blue-ribbon, 0.06),
   ),
-  md: (
-    0 4px 6px -1px rgba($color-blue-ribbon, 0.1),
+  md: (0 4px 6px -1px rgba($color-blue-ribbon, 0.1),
     0 2px 4px -1px rgba($color-blue-ribbon, 0.06),
   ),
-  lg: (
-    0px 0.5rem 0.8rem rgba($color-blue-ribbon, 0.1),
+  lg: (0px 0.5rem 0.8rem rgba($color-blue-ribbon, 0.1),
   ),
-  xl: (
-    0 20px 25px -5px rgba($color-blue-ribbon, 0.1),
+  xl: (0 20px 25px -5px rgba($color-blue-ribbon, 0.1),
     0 10px 10px -5px rgba($color-blue-ribbon, 0.04),
   ),
 );
+
 @mixin box-shadows($property: 'box-shadow') {
-  @each $name, $hex in $shadow-map {
+
+  @each $name,
+  $hex in $shadow-map {
     &-#{$name} {
       #{$property}: $hex;
     }
@@ -30,14 +28,17 @@ $shadow-map: (
 // Other
 .w550 {
   width: 550px;
+
   p {
     font-size: 14px;
     line-height: 1.5;
   }
 }
+
 .p25 {
   padding: 25px;
 }
+
 .p10 {
   padding: 10px;
 }
@@ -46,27 +47,34 @@ $shadow-map: (
 .tac {
   text-align: center;
 }
+
 .bold {
   font-weight: bold;
 }
+
 .bg-w {
   padding: 5px 10px;
   border-radius: var(--radius);
   background: var(--disabled);
 }
+
 .p {
   &-small {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: calc(var(--font-size) - 3px);
   }
 }
+
 .wps {
   white-space: break-spaces;
 }
+
 .lh {
   &-large {
     line-height: 1.5;
   }
 }
+
 .tl {
   font-style: italic;
 }
@@ -76,40 +84,43 @@ $shadow-map: (
   margin-left: auto;
   margin-right: auto;
 }
+
 .ml-auto {
   margin-left: auto;
 }
+
 .mr-auto {
   margin-right: auto;
 }
 
 $spacer: 20px;
-$spacers: (
-  0: 0,
-  1: (
-    $spacer * 0.5,
+$spacers: (0: 0,
+  1: ($spacer * 0.5,
   ),
-  2: (
-    $spacer * 1,
+  2: ($spacer * 1,
   ),
   3: $spacer * 1.5,
-  4: (
-    $spacer * 2,
+  4: ($spacer * 2,
   ),
 );
 
-$xy-border: (
-  top: t,
+$xy-border: (top: t,
   right: r,
   bottom: b,
   left: l,
 );
+
 // set key value pairs for margin and padding
-@each $prop, $letter in (margin: m, padding: p) {
+@each $prop,
+$letter in (margin: m, padding: p) {
+
   // loop through top, right, bottom, and left
-  @each $direction, $d in $xy-border {
+  @each $direction,
+  $d in $xy-border {
+
     // loop through the spacers we've set
-    @each $unit, $rem in $spacers {
+    @each $unit,
+    $rem in $spacers {
       .#{$letter}#{$d}#{$unit} {
         #{$prop}-#{$direction}: #{$rem};
       }
@@ -120,13 +131,16 @@ $xy-border: (
 $max: 4;
 $offset: 1;
 $unit: 'rem'; // Feel free to change the unit.
+
 @mixin list-loop($className, $styleName) {
   $i: 0;
-  @while $i <= $max {
+
+  @while $i <=$max {
     #{$className + $i} {
       #{$styleName}: #{$i + $unit};
     }
-    $i: $i + $offset;
+
+    $i: $i+$offset;
   }
 }
 
@@ -137,17 +151,21 @@ $unit: 'rem'; // Feel free to change the unit.
     opacity: 0.7;
   }
 }
+
 // tested
 // Justify
 .jcc {
   justify-content: center;
 }
+
 .jcsb {
   justify-content: space-between;
 }
+
 .jcfe {
   justify-content: flex-end;
 }
+
 .aic {
   align-items: center;
 }
@@ -164,9 +182,11 @@ $unit: 'rem'; // Feel free to change the unit.
 .flex {
   display: flex;
 }
+
 a {
   text-decoration: none;
 }
+
 .dnone {
   display: none;
 }
@@ -177,12 +197,15 @@ a {
   &-large {
     width: 95%;
   }
+
   &-middle {
     width: 85%;
   }
+
   &-small {
-    width: 50%;
+    width: 72.5%;
   }
+
   &-auto {
     width: auto !important;
   }
@@ -206,10 +229,12 @@ a {
   &-priority {
     z-index: 99;
   }
+
   &-main {
     z-index: 2;
   }
 }
+
 // Transition & Animations
 .tr25 {
   transition: 0.15s ease;
@@ -220,6 +245,7 @@ a {
   opacity: 0;
   transform: translate(-50%, -40%);
 }
+
 .visible {
   opacity: 1;
   visibility: visible;
@@ -229,17 +255,21 @@ a {
 .p-tooltip {
   /* Used to position the arrow */
   position: relative;
+
   .tooltip-icon {
     width: 20px;
     height: 20px;
     stroke: white;
   }
+
   &.pd-small {
     .p-tooltip-content {
       padding: 7px;
     }
   }
+
   &:hover {
+
     .p-tooltip-arrow,
     .p-tooltip-content {
       opacity: 1;
@@ -284,10 +314,12 @@ a {
   position: absolute;
   transform: translate(-50%, -8px);
   z-index: 10;
+
   p {
     margin: 0;
     color: #fff;
   }
+
   .icon svg {
     stroke: #fff;
   }
@@ -307,8 +339,10 @@ a {
   /* Spacing */
   margin-right: 8px;
 }
+
 .status-content {
   flex: 1;
+
   p {
     span {
       font-style: 8px;
@@ -316,10 +350,12 @@ a {
     }
   }
 }
+
 .status-item {
   /* Center the content */
   align-items: center;
   display: flex;
+
   &:last-child {
     margin-top: 10px;
   }

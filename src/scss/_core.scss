@@ -21,6 +21,7 @@ body {
 * {
   box-sizing: inherit;
   user-select: none;
+
   &:before,
   &:after {
     box-sizing: inherit;
@@ -36,11 +37,13 @@ h6 {
   margin-top: 0;
   margin-bottom: 1em;
 }
+
 h4 {
   font-weight: 600;
   opacity: 0.8;
   font-size: 14px;
 }
+
 p {
   margin-top: 0;
   line-height: 1.5;
@@ -52,20 +55,24 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+
   li {
     margin: 0;
     padding-top: 15px;
     position: relative;
+
     &:nth-of-type(1) {
       padding-top: 0;
     }
   }
 }
+
 .sect {
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid var(--disabled-inner);
 }
+
 dl {
   align-items: center;
   display: flex;
@@ -73,16 +80,20 @@ dl {
   justify-content: space-between;
   margin: 0px;
   padding-top: 15px;
+
   &:nth-of-type(1) {
     padding-top: 0;
   }
+
   dd {
     margin: 0;
   }
+
   dt {
     margin: 0;
   }
 }
+
 table,
 tr,
 td,
@@ -95,13 +106,15 @@ tbody {
   border-collapse: inherit;
   border-spacing: 0;
 }
+
 table {
   width: 100%;
-  border: 1px solid var(--disabled-inner);
-  border-radius: var(--radius);
   border-collapse: inherit;
+  height: 100%;
+
   thead {
     border-bottom: 1px solid var(--disabled-inner);
+
     tr {
       th {
         text-align: left;
@@ -110,25 +123,31 @@ table {
       }
     }
   }
+
   thead,
   tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed;
   }
+
   tbody {
     display: block;
     height: 500px;
     overflow-y: auto;
+
     tr {
       border-bottom: 1px solid var(--disabled-inner);
+
       td {
         padding: 15px 25px;
         opacity: 0.5;
+
         &:first-child,
         &:last-child {
           opacity: 1;
         }
+
         h4,
         p {
           font-size: 14px;
@@ -140,27 +159,26 @@ table {
 }
 
 ::-webkit-scrollbar {
-  // width: 10px;
-  z-index: 1;
-  width: 15px;
-  background-color: transparent;
-  border-left: 1px solid var(--disabled-inner);
+  width: 8px;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-  padding: 3px;
+  background: #E6E6E6;
 }
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-}
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  border: 5px solid transparent;
-  background-clip: content-box;
-  border-radius: 1rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-color: transparent;
+  background: #C8C8C8;
+  border-radius: 10px;
+}
+
+button,
+input {
+  &:focus {
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+    outline: 2px dotted transparent;
+    outline-offset: 3px;
+  }
 }

@@ -1,311 +1,230 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Download a playlist</title>
-    <link rel="stylesheet" type="text/css" href="css/all.css" />
-  </head>
-  <body>
-    <!-- Context Menu -->
-    <ul id="context-menu">
-      <li class="item">
-        Copier
-      </li>
-      <li class="item">
-        Coller
-      </li>
-    </ul>
 
-    <!-- Context Menu -->
-    <ul id="notif-app" class="notif-app">
-      <li class="item" id="notifOne">
-        Téléchargement de X est terminé
-      </li>
-      <li id="notifError" class="item error">
-        <p>
-          ERREUR 5454
-        </p>
-      </li>
-    </ul>
+<head>
+  <meta charset="UTF-8" />
+  <title>Download a playlist</title>
+  <link rel="stylesheet" type="text/css" href="css/all.css" />
+</head>
 
-    <!-- Modal -->
-    <div id="page" class="overlay">
-      <div id="intro" class="card centered w-middle">
-        <div class="dnone block pl2 pr2 pt2">
-          <div class="impt mb3">
-            <article class="impt-inner">
-              <h4>CGU &amp; RGPD</h4>
-              <p>
-                Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
-                ont pour objet l'encadrement juridique des modalités de mise à
-                disposition des services de l'application udownload et leur
-                utilisation par «&nbsp;l'Utilisateur&nbsp;».
+<body>
+  <!-- Context Menu -->
+  <ul id="context-menu">
+    <li class="item">
+      Copier
+    </li>
+    <li class="item">
+      Coller
+    </li>
+  </ul>
+
+  <!-- Context Menu -->
+  <ul id="notif-app" class="notif-app">
+    <li class="item" id="notifOne">
+      Téléchargement de X est terminé
+    </li>
+    <li id="notifError" class="item error">
+      <p>
+        ERREUR 5454
+      </p>
+    </li>
+  </ul>
+
+  <!-- Modal -->
+  <div id="page" class="overlay">
+    <div id="intro" class="card centered w-middle">
+      <div class="dnone block pl2 pr2 pt2">
+        <div class="impt mb3">
+          <article class="impt-inner">
+            <h4>CGU &amp; RGPD</h4>
+            <p>
+              Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
+              ont pour objet l'encadrement juridique des modalités de mise à
+              disposition des services de l'application udownload et leur
+              utilisation par «&nbsp;l'Utilisateur&nbsp;».
+            </p>
+            <p>
+              Les conditions générales d'utilisation doivent être acceptées
+              par tout Utilisateur souhaitant accéder au site. Elles
+              constituent le contrat entre le site et l'Utilisateur. L'accès
+              au site par l'Utilisateur signifie son acceptation des présentes
+              conditions générales d'utilisation.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+              blanditiis quam facere tenetur voluptatibus laborum, nihil dolor
+              nesciunt delectus laudantium maxime, repudiandae architecto
+              quia. Molestias culpa deleniti itaque accusamus quibusdam odio
+              consequuntur fugit nisi praesentium eius, sit soluta aut odit
+              autem repellendus expedita, ea asperiores explicabo unde
+              perferendis nobis facere sed. Saepe?
+            </p>
+            <div class="p-small w-small mx-auto mt2 mb2">
+              <p class="op-light mt2">
+                All rights reserved to udownload © ‐ 2020
               </p>
-              <p>
-                Les conditions générales d'utilisation doivent être acceptées
-                par tout Utilisateur souhaitant accéder au site. Elles
-                constituent le contrat entre le site et l'Utilisateur. L'accès
-                au site par l'Utilisateur signifie son acceptation des présentes
-                conditions générales d'utilisation.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                blanditiis quam facere tenetur voluptatibus laborum, nihil dolor
-                nesciunt delectus laudantium maxime, repudiandae architecto
-                quia. Molestias culpa deleniti itaque accusamus quibusdam odio
-                consequuntur fugit nisi praesentium eius, sit soluta aut odit
-                autem repellendus expedita, ea asperiores explicabo unde
-                perferendis nobis facere sed. Saepe?
-              </p>
-              <div class="p-small w-small mx-auto mt2 mb2">
-                <p class="op-light mt2">
-                  All rights reserved to udownload © ‐ 2020
-                </p>
-              </div>
-            </article>
+            </div>
+          </article>
+        </div>
+        <div class="flex mt2 pb2 aic">
+          <div class="flex flex1 aic">
+            <input id="c8" type="checkbox" />
+            <label for="c8" class="flex aic">
+              J'accepte les CGU
+            </label>
           </div>
-          <div class="flex mt2 pb2 aic">
-            <div class="flex flex1 aic">
-              <input id="c8" type="checkbox" />
-              <label for="c8" class="flex aic">
-                J'accepte les CGU
-              </label>
-            </div>
-            <div class="flex jcfe aic">
-              <button id="reject-rule" class="btn btn-default">
-                Annuler
-              </button>
-              <button id="accepte-rule" class="btn btn-blue ml2">
-                Envoyer
-              </button>
-            </div>
+          <div class="flex jcfe aic">
+            <button id="reject-rule" class="btn btn-default">
+              Annuler
+            </button>
+            <button id="accepte-rule" class="btn btn-blue ml2">
+              Envoyer
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Debug window -->
-    <div id="debug-window" class="debug-window">
-      <dl class="p0 mt0">
-        <dt class="p-small p-light">Video title</dt>
-        <dd id="text-out" class="mt1"></dd>
-      </dl>
-      <dl class="p0 fcolumn">
-        <dt class="p-small p-light">Errors</dt>
-        <dd id="errp"></dd>
-        <dd id="errs"></dd>
-      </dl>
-      <dl class="p0">
-        <dt><p class="p-small p-light mb0">File name</p></dt>
-        <dd id="notifp" class="mt1"></dd>
-      </dl>
-      <dl class="p0">
-        <dt><p class="p-small p-light mb0">File size</p></dt>
-        <dd id="notifs" class="mt1"></dd>
-      </dl>
-      <dl class="p0">
-        <dt><p class="p-small p-light mb0">Download</p></dt>
-        <dd id="progressText" class="mt1"></dd>
-      </dl>
-    </div>
+  <!-- Debug window -->
+  <div id="debug-window" class="debug-window">
+    <dl class="p0 mt0">
+      <dt class="p-small p-light">Video title</dt>
+      <dd id="text-out" class="mt1"></dd>
+    </dl>
+    <dl class="p0 fcolumn">
+      <dt class="p-small p-light">Errors</dt>
+      <dd id="errp"></dd>
+      <dd id="errs"></dd>
+    </dl>
+    <dl class="p0">
+      <dt>
+        <p class="p-small p-light mb0">File name</p>
+      </dt>
+      <dd id="notifp" class="mt1"></dd>
+    </dl>
+    <dl class="p0">
+      <dt>
+        <p class="p-small p-light mb0">File size</p>
+      </dt>
+      <dd id="notifs" class="mt1"></dd>
+    </dl>
+    <dl class="p0">
+      <dt>
+        <p class="p-small p-light mb0">Download</p>
+      </dt>
+      <dd id="progressText" class="mt1"></dd>
+    </dl>
+  </div>
 
-    <!-- Container -->
-    <div class="container">
-      <aside class="sidebar-app">
-        <div class="sidebar-app-header">udownload</div>
-        <div class="sidebar-menu">
-          <a class="nav-item" data-title="Download a playlist">
-            <div class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z"/>
-                <polyline points="5 12 3 12 12 3 21 12 19 12" />
-                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-              </svg>
-            </div>
-            <span>Download</span>
-          </a>
-          <a class="nav-item" data-title="History & Downloads">
-            <div class="icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon-tabler"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <polyline points="12 8 12 12 14 14" />
-                <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
-              </svg>
-            </div>
-            <span>History</span>
-            <div class="p-tooltip ml-auto p-small pd-small">
-              <div class="p-tooltip-content">
-                <p>Open download folder</p>
-              </div>
-              <div class="p-tooltip-arrow"></div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="tooltip-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"
-                />
-              </svg>
-            </div>
-          </a>
-          <a class="nav-item" data-title="Settings & More">
-            <div class="icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon-tabler"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <span>Settings</span>
-          </a>
-          <a class="nav-item" data-title="Inbox">
-            <div class="icon icon-notif">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon-tabler icon-notif"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#2c3e50"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+  <!-- Container -->
+  <div class="container">
+    <aside class="sidebar-app">
+      <!-- <div class="sidebar-app-header">udownload</div> -->
+      <div class="sidebar-menu">
+        <a class="nav-item" data-title="Download a playlist">
+          <div class="icon">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+              <path
+                d="M9.73 2.788a3.633 3.633 0 014.36-.12l.16.12 6.09 4.871a2.999 2.999 0 011.15 2.13l.01.2v8.11c0 2.09-1.65 3.79-3.72 3.9h-1.99a1.83 1.83 0 01-1.79-1.69l-.01-.14v-2.86a.635.635 0 00-.54-.62l-.09-.01h-2.67a.635.635 0 00-.62.54l-.01.09v2.85c0 .06-.01.13-.02.18l-.01.02-.01.07a1.822 1.822 0 01-1.69 1.56L8.2 22H6.41c-2.09 0-3.8-1.64-3.91-3.7v-8.31a2.967 2.967 0 011-2.19zm3.65 1.09a2.256 2.256 0 00-2.64-.11l-.15.11L4.51 8.78a1.55 1.55 0 00-.61 1.06l-.01.16v8.1c0 1.33 1.04 2.42 2.36 2.5H8.2c.22 0 .41-.15.44-.36l.02-.18.01-.05v-2.7c0-1.07.82-1.94 1.87-2.02h2.82c1.07 0 1.94.82 2.02 1.87v3.01c0 .21.15.39.35.43h1.86a2.5 2.5 0 002.51-2.34l.01-.16v-8.1a1.62 1.62 0 00-.5-1.13l-.13-.11z" />
+            </svg>
+          </div>
+          <!-- <span>Download</span> -->
+        </a>
+        <a class="nav-item" data-title="History & Downloads">
+          <div class="icon">
+            <svg width="24" height="24" class="icon-tabler" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.986 2C18.048 2 20 3.435 20 6.258V20.33c0 .443-.172.867-.477 1.18-.305.313-.72.489-1.162.489a1.705 1.705 0 01-.775-.203l-5.612-3.133-5.59 3.14c-.673.358-1.489.193-2-.406l-.098-.126-.093-.155A1.778 1.778 0 014 20.331V6.434C4 3.5 5.91 2 9.014 2zm0 1.448H9.014c-2.395 0-3.602.948-3.602 2.986V20.32c0 .044.011.087 0 .07l.037.063c.065.09.186.12.27.075l5.588-3.139c.416-.23.918-.23 1.337.001l5.602 3.128c.043.023.09.035.126.035a.213.213 0 00.153-.065.224.224 0 00.063-.156V6.258c0-1.9-1.238-2.81-3.602-2.81zm.422 4.869c.39 0 .706.324.706.724 0 .366-.266.669-.61.717l-.096.006H8.54a.715.715 0 01-.706-.723c0-.367.266-.67.61-.718l.096-.006h6.868z" />
+            </svg>
+          </div>
+          <!-- <span>History</span> -->
+        </a>
+        <a class="nav-item" data-title="Settings & More">
+          <div class="icon">
+            <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+              <path
+                d="M12.616 2c.71 0 1.388.28 1.882.779.494.498.762 1.17.74 1.799l.009.147c.017.146.065.286.144.416.152.255.402.44.695.514.292.074.602.032.896-.137l.164-.083c1.23-.566 2.705-.116 3.387 1.044l.614 1.043c.016.027.03.056.042.085l.057.111a2.536 2.536 0 01-.884 3.204l-.257.159a1.102 1.102 0 00-.33.356 1.094 1.094 0 00-.117.847c.078.287.27.53.56.695l.166.105c.505.346.869.855 1.028 1.439.18.659.083 1.36-.272 1.957l-.66 1.077-.1.152c-.774 1.092-2.279 1.425-3.427.776l-.136-.069a1.187 1.187 0 00-.435-.1 1.128 1.128 0 00-1.143 1.154l-.008.171C15.12 20.971 13.984 22 12.616 22h-1.235c-1.449 0-2.623-1.15-2.622-2.525l-.008-.147a1.045 1.045 0 00-.148-.422 1.125 1.125 0 00-.688-.519c-.29-.076-.6-.035-.9.134l-.177.087a2.674 2.674 0 01-1.794.129 2.606 2.606 0 01-1.57-1.215l-.637-1.078-.085-.16a2.527 2.527 0 011.03-3.297l.104-.064c.309-.21.494-.554.494-.923 0-.401-.219-.772-.6-.988l-.156-.098a2.542 2.542 0 01-.764-3.407l.65-1.045a2.646 2.646 0 013.552-.96l.134.07c.135.06.283.093.425.094.626 0 1.137-.492 1.146-1.124l.009-.194a2.54 2.54 0 01.752-1.593A2.642 2.642 0 0111.381 2zm0 1.448h-1.235c-.302 0-.592.118-.806.328-.189.186-.304.431-.325.66l-.013.306C10.133 6.07 9 7.114 7.613 7.114a2.619 2.619 0 01-1.069-.244l-.192-.1a1.163 1.163 0 00-1.571.43l-.65 1.045a1.103 1.103 0 00.312 1.464l.261.162A2.556 2.556 0 015.858 12c0 .845-.424 1.634-1.156 2.13l-.156.096c-.512.29-.71.918-.472 1.412l.056.107.63 1.063c.147.262.395.454.688.536.26.072.538.052.754-.042l.109-.052a2.652 2.652 0 011.986-.261 2.592 2.592 0 011.925 2.21l.02.353c.062.562.548 1 1.14 1h1.234c.598 0 1.094-.45 1.14-1l.006-.11a2.535 2.535 0 01.766-1.823 2.651 2.651 0 011.877-.75c.35.009.695.086 1.048.241l.316.158c.496.213 1.084.058 1.382-.361l.073-.111.644-1.052a1.1 1.1 0 00-.303-1.455l-.273-.17a2.564 2.564 0 01-1.062-1.462 2.513 2.513 0 01.265-1.944c.19-.326.451-.606.792-.838l.161-.099c.512-.293.71-.921.473-1.417l-.07-.134-.013-.028-.585-.995a1.157 1.157 0 00-1.34-.513l-.112.044-.103.051a2.661 2.661 0 01-1.984.272 2.607 2.607 0 01-1.596-1.18 2.488 2.488 0 01-.342-1.021l-.014-.253a1.11 1.11 0 00-.323-.814 1.158 1.158 0 00-.823-.34zm-.613 5.284c1.843 0 3.336 1.463 3.336 3.268 0 1.805-1.493 3.268-3.336 3.268-1.842 0-3.336-1.463-3.336-3.268 0-1.805 1.494-3.268 3.336-3.268zm0 1.448c-1.026 0-1.858.815-1.858 1.82 0 1.005.832 1.82 1.858 1.82 1.026 0 1.858-.815 1.858-1.82 0-1.005-.832-1.82-1.858-1.82z" />
+            </svg>
+          </div>
+          <!-- <span>Settings</span> -->
+        </a>
+      </div>
+    </aside>
+
+    <!-- Sections block -->
+    <main class="app-content">
+      <!-- Header & Titlebar -->
+      <header id="titlebar">
+        <div id="drag-region">
+          <div id="window-title">
+            <span id="page-title">
+              Download a playlist
+          </div>
+          <div id="window-controls">
+            <div class="button" id="min-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M0 0h24v24H0z" stroke="none" />
-                <path
-                  d="M10 5a2 2 0 014 0 7 7 0 014 6v3a4 4 0 002 3H4a4 4 0 002-3v-3a7 7 0 014-6M9 17v1a3 3 0 006 0v-1"
-                />
+                <path d="M5 12h14" />
               </svg>
             </div>
-            <span>Notifications</span>
-          </a>
-        </div>
-      </aside>
-
-      <!-- Sections block -->
-      <main class="app-content">
-        <!-- Header & Titlebar -->
-        <header id="titlebar">
-          <div id="drag-region">
-            <div id="window-title">
-              <span id="page-title"
-                >🖐
-            </div>
-            <div id="window-controls">
-              <div class="button" id="min-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#000"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M0 0h24v24H0z" stroke="none" />
-                  <path d="M5 12h14" />
-                </svg>
-              </div>
-              <div class="button" id="close-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#000"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </div>
+            <div class="button" id="close-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
             </div>
           </div>
-        </header>
-        <!-- App content -->
-        <div class="content block">
-          <section class="tab-pannel">
-            <main class="flex jcsb">
-              <div class="flex searchbar">
-                <input
-                  class="input-main"
-                  type="text"
-                  name=""
-                  id="playlist-id"
-                  placeholder="Give me a link"
-                />
-                <button
-                  onclick="download()"
-                  class="btn btn-blue ml2 large"
-                  id="dl-button"
-                >
-                  Télécharger
-                </button>
-              </div>
-            </main>
-          </section>
-          <section class="tab-pannel relative">
-            <!-- <table>
-              <thead>
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Size
-                  </th>
-                  <th>
-                    Date
-                  </th>
-                  <th>
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <h4>File name.mp3</h4>
-                  </td>
-                  <td>
-                    <p>3.5Mb</p>
-                  </td>
-                  <td>
-                    <p>09 Septembre 2020</p>
-                  </td>
-                  <td>
-                    <h4><a href="#" class="btn btn-dark small">Action</a></h4>
-                  </td>
-                </tr>
-              </tbody>
-            </table> -->
-            <div class="flex aic jcc h100">
+        </div>
+      </header>
+      <!-- App content -->
+      <div class="content block">
+        <section class="tab-pannel">
+          <div class="centered">
+            <div class="flex searchbar">
+              <input class="input-main" type="text" name="" id="playlist-id" placeholder="Give me a link" />
+              <button onclick="download()" class="btn btn-blue ml2 large" id="dl-button">
+                Télécharger
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="tab-pannel">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Size
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <h4>File name.mp3</h4>
+                </td>
+                <td>
+                  <p>3.5Mb</p>
+                </td>
+                <td>
+                  <p>09 Septembre 2020</p>
+                </td>
+                <td>
+                  <h4><a href="#" class="btn btn-dark small">Action</a></h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div class="flex aic jcc h100">
               <div class="tac">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -328,198 +247,168 @@
                   <line x1="12" y1="12" x2="4" y2="7.5" />
                   <line x1="16" y1="5.25" x2="8" y2="9.75" />
                 </svg>
-                <p class="bg-w p5 mb0">There is no downloads to display</p>
+                <p class="p5 mb0">There is no downloads to display</p>
               </div>
+            </div> -->
+        </section>
+        <section class="tab-pannel scroll">
+          <article class="mx-auto w-small pt4 pb4">
+            <!-- General -->
+            <div class="sect">
+              <h4 class="mb2">General Parameters</h4>
+              <p>Format fichier</p>
+              <ul>
+                <li>
+                  <input id="mp3" type="radio" name="radio" value="1" checked="" />
+                  <label for="mp3">
+                    Téléchargez la vidéo au format .mp3 (recommandé)
+                  </label>
+                </li>
+                <li>
+                  <input id="mp4" type="radio" name="radio" value="2" />
+                  <label for="mp4">Téléchargez la vidéo au format .mp4
+                  </label>
+                </li>
+              </ul>
+              <p class="mb0 mt2 op-light p-small">
+                Le format de fichier par défaut est <strong>MP3</strong> mais peut être basculé en vidéo
+                <strong>MP4</strong>.
+              </p>
             </div>
-          </section>
-          <section class="tab-pannel scroll">
-            <article class="mx-auto w-middle">
-              <!-- General -->
-              <div class="sect">
-                <h4 class="mb2">General Parameters</h4>
-                <p>Video format</p>
-                <ul>
-                  <li>
-                    <input
-                      id="mp3"
-                      type="radio"
-                      name="radio"
-                      value="1"
-                      checked=""
-                    />
-                    <label for="mp3">
-                      Download the video in .mp3 format (recommanded)
-                    </label>
-                  </li>
-                  <li>
-                    <input id="mp4" type="radio" name="radio" value="2" />
-                    <label for="mp4">Download the video in .mp4 format</label>
-                  </li>
-                </ul>
-                <p class="mb0 mt2 op-light p-small">
-                  The default file format is <strong>MP3</strong> but can be switched to video <strong>MP4</strong>.
-                </p>
-              </div>
-              <div class="sect">
-                <p>Download location</p>
-                <div class="flex">
-                  <input
-                    class="input-path"
-                    type="text"
-                    id="path_text"
-                    name=""
-                    value=""
-                    disabled
-                  />
-                  <button
-                    onclick="choose_path()"
-                    class="btn btn-dark small ml2 dib"
-                  >
-                    Change
-                  </button>
-                </div>
-                <p class="mb0 mt2 op-light p-small">
-                  Files will be downloaded into the Download folder (this
-                  option is customizable).
-                </p>
-              </div>
-              <!-- Avancées -->
-              <div class="sect">
-                <h4>Advanced</h4>
-                <!-- Message bienvenue -->
-                <dl>
-                  <dt>
-                    <label for="s3">
-                      Always display welcome message
-                    </label>
-                  </dt>
-                  <dd>
-                    <input id="s3" type="checkbox" class="switch" />
-                  </dd>
-                </dl>
-                <!-- Dark theme -->
-                <dl>
-                  <dt>
-                    <label for="s5" class="flex aic">
-                      Dark theme <p class="p-small op-light mb0 ml1">Disabled available v2.0.15</p>
-                    </label>
-                  </dt>
-                  <dd>
-                    <input id="s5" type="checkbox" class="switch" disabled/>
-                  </dd>
-                </dl>
-                <!-- Debug -->
-                <dl>
-                  <dt>
-                    <label for="checkDebug">
-                      Debugging
-                    </label>
-                  </dt>
-                  <dd>
-                    <input
-                      type="checkbox"
-                      id="checkDebug"
-                      name="checkDebug"
-                      class="switch"
-                    />
-                  </dd>
-                </dl>
-                <p class="mb0 mt2 op-light p-small">
-                  Be aware with advanced options, activate the debug option only if needed this can cause issues.
-                </p>
-              </div>
-              <!-- <hr class="sep" /> -->
-              <div class="flex jcsb mt2">
-                <button class="btn btn-default small" id="cgu-see">
-                  Read CGU
-                </button>
-                <button class="btn btn-green small" onclick="save_param()">
-                  Sauvegarder
+            <div class="sect">
+              <p>Emplacement de téléchargement</p>
+              <div class="flex">
+                <input class="input-path" type="text" id="path_text" name="" value="" disabled />
+                <button onclick="choose_path()" class="btn btn-dark small ml2 dib">
+                  Modifier...
                 </button>
               </div>
-              <div class="mt4 dnone" id="cgu-more">
-                <h4>CGU</h4>
-                <p>
-                  Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
-                  ont pour objet l'encadrement juridique des modalités de mise à
-                  disposition des services de l'application udownload et leur
-                  utilisation par «&nbsp;l'Utilisateur&nbsp;».
-                </p>
-                <p>
-                  Les conditions générales d'utilisation doivent être acceptées
-                  par tout Utilisateur souhaitant accéder au site. Elles
-                  constituent le contrat entre le site et l'Utilisateur. L'accès
-                  au site par l'Utilisateur signifie son acceptation des
-                  présentes conditions générales d'utilisation.
-                </p>
-                <h4 class="mt4">RGPD</h4>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Autem minima rerum mollitia non corporis numquam. Perspiciatis
-                  sit dicta sapiente magni dignissimos ut? Aspernatur voluptatem
-                  eius magni voluptate nam sit impedit?
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
-                  minima aliquam impedit voluptates quos, nesciunt fugiat
-                  maiores, doloribus dolores consectetur aut illo ad.
-                  Repellendus voluptatem asperiores porro distinctio sequi earum
-                  ad accusamus, nam fugit perferendis, quasi, deserunt quis
-                  harum similique ratione corporis. Perferendis, animi
-                  exercitationem?
-                </p>
-                <h4 class="mt4">Cookies & Monitoring</h4>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Autem minima rerum mollitia non corporis numquam. Perspiciatis
-                  sit dicta sapiente magni dignissimos ut? Aspernatur voluptatem
-                  eius magni voluptate nam sit impedit?
-                </p>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
-                  minima aliquam impedit voluptates quos, nesciunt fugiat
-                  maiores, doloribus dolores consectetur aut illo ad.
-                  Repellendus voluptatem asperiores porro distinctio sequi earum
-                  ad accusamus, nam fugit perferendis, quasi, deserunt quis
-                  harum similique ratione corporis. Perferendis, animi
-                  exercitationem?
-                </p>
-              </div>
-              <div class="p-small mx-auto mt4 mb4">
-                <p class="op-light">
-                  Design by Asmir BELKIC - Core code by Thomas Mertz - this
-                  software is under MIT License.
-                  <br />
-                  We are using ElectronJS & NodeJS
-                </p>
-                <p class="op-light mt2">
-                  All rights reserved to udownload &copy; &dash; 2020
-                </p>
-              </div>
-            </article>
-          </section>
-          <section class="tab-pannel">
-            <div class="notif-wrapper">
-              <div class="notif">
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Nemo, voluptatem qui quidem exercitationem consectetur
-                  consequatur aperiam odio minus ullam similique blanditiis ut
-                  laborum hic tempora placeat non mollitia, rem accusamus.
-                </p>
-              </div>
-              <div class="notif error">
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Nemo, voluptatem qui quidem exercitationem consectetur
-                  consequatur aperiam odio minus ullam similique blanditiis ut
-                  laborum hic tempora placeat non mollitia, rem accusamus.
-                </p>
-              </div>
+              <p class="mb0 mt2 op-light p-small">
+                Les fichiers seront téléchargés dans le dossier de téléchargement (cette option est personnalisable).
+              </p>
             </div>
-          </section>
-        </div>
-            <!-- <div class="p-tooltip icon">
+            <!-- Avancées -->
+            <div class="sect">
+              <h4>Avancées</h4>
+              <!-- Message bienvenue -->
+              <dl>
+                <dt>
+                  <label for="s3">
+                    Toujours afficher le message de bienvenue
+                  </label>
+                </dt>
+                <dd>
+                  <input id="s3" type="checkbox" class="switch" />
+                </dd>
+              </dl>
+              <!-- Debug -->
+              <dl>
+                <dt>
+                  <label for="checkDebug">
+                    Débogage
+                  </label>
+                </dt>
+                <dd>
+                  <input type="checkbox" id="checkDebug" name="checkDebug" class="switch" />
+                </dd>
+              </dl>
+              <p class="mb0 mt2 op-light p-small">
+                Faites attention en manipulant les options avancées, activez l'option de débogage uniquement si
+                nécessaire, cela peut causer des problèmes.
+              </p>
+            </div>
+            <!-- <hr class="sep" /> -->
+            <div class="flex jcsb mt2">
+              <button class="btn btn-default small" id="cgu-see">
+                Lire les CGU
+              </button>
+              <button class="btn btn-blue small" onclick="save_param()">
+                Sauvegarder
+              </button>
+            </div>
+            <div class="mt4 dnone" id="cgu-more">
+              <h4>CGU</h4>
+              <p>
+                Les présentes «&nbsp;conditions générales d'utilisation&nbsp;»
+                ont pour objet l'encadrement juridique des modalités de mise à
+                disposition des services de l'application udownload et leur
+                utilisation par «&nbsp;l'Utilisateur&nbsp;».
+              </p>
+              <p>
+                Les conditions générales d'utilisation doivent être acceptées
+                par tout Utilisateur souhaitant accéder au site. Elles
+                constituent le contrat entre le site et l'Utilisateur. L'accès
+                au site par l'Utilisateur signifie son acceptation des
+                présentes conditions générales d'utilisation.
+              </p>
+              <h4 class="mt4">RGPD</h4>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Autem minima rerum mollitia non corporis numquam. Perspiciatis
+                sit dicta sapiente magni dignissimos ut? Aspernatur voluptatem
+                eius magni voluptate nam sit impedit?
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+                minima aliquam impedit voluptates quos, nesciunt fugiat
+                maiores, doloribus dolores consectetur aut illo ad.
+                Repellendus voluptatem asperiores porro distinctio sequi earum
+                ad accusamus, nam fugit perferendis, quasi, deserunt quis
+                harum similique ratione corporis. Perferendis, animi
+                exercitationem?
+              </p>
+              <h4 class="mt4">Cookies & Monitoring</h4>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Autem minima rerum mollitia non corporis numquam. Perspiciatis
+                sit dicta sapiente magni dignissimos ut? Aspernatur voluptatem
+                eius magni voluptate nam sit impedit?
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+                minima aliquam impedit voluptates quos, nesciunt fugiat
+                maiores, doloribus dolores consectetur aut illo ad.
+                Repellendus voluptatem asperiores porro distinctio sequi earum
+                ad accusamus, nam fugit perferendis, quasi, deserunt quis
+                harum similique ratione corporis. Perferendis, animi
+                exercitationem?
+              </p>
+            </div>
+            <div class="p-small mx-auto mt4 mb4">
+              <p class="op-light">
+                Design by Asmir BELKIC - Core code by Thomas Mertz - this
+                software is under MIT License.
+                <br />
+                We are using ElectronJS & NodeJS
+              </p>
+              <p class="op-light mt2">
+                All rights reserved to udownload &copy; &dash; 2020
+              </p>
+            </div>
+          </article>
+        </section>
+        <!-- <section class="tab-pannel">
+          <div class="notif-wrapper">
+            <div class="notif">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Nemo, voluptatem qui quidem exercitationem consectetur
+                consequatur aperiam odio minus ullam similique blanditiis ut
+                laborum hic tempora placeat non mollitia, rem accusamus.
+              </p>
+            </div>
+            <div class="notif error">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Nemo, voluptatem qui quidem exercitationem consectetur
+                consequatur aperiam odio minus ullam similique blanditiis ut
+                laborum hic tempora placeat non mollitia, rem accusamus.
+              </p>
+            </div>
+          </div>
+        </section> -->
+      </div>
+      <!-- <div class="p-tooltip icon">
               <div class="p-tooltip-content">
                 <div class="status-item">
                   <svg
@@ -589,13 +478,14 @@
                 />
               </svg>
             </div> -->
-      </main>
-    </div>
+    </main>
+  </div>
 
-    <!-- Main script -->
-    <script src="./ytpl2mp3.js"></script>
+  <!-- Main script -->
+  <script src="./ytpl2mp3.js"></script>
 
-    <!-- Coté front-end -->
-    <script src="./front.js"></script>
-  </body>
+  <!-- Coté front-end -->
+  <script src="./front.js"></script>
+</body>
+
 </html>

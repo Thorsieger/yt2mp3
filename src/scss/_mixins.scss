@@ -1,6 +1,7 @@
 @mixin kit-ui-1 {
   box-shadow: 0px 0.5rem 0.8rem rgba($color-blue-ribbon, 0.1);
 }
+
 @mixin kit-ui-2 {
   box-shadow: 0px 0.5rem 0.8rem lighten($color-blue-ribbon, 31%);
 }
@@ -12,6 +13,10 @@
   transform: translate(-50%, -50%);
 }
 
+.centered {
+  @include centerer;
+}
+
 //Padding mixin
 @mixin padding($top, $right, $bottom, $left) {
   padding-top: $top;
@@ -19,6 +24,7 @@
   padding-bottom: $bottom;
   padding-left: $left;
 }
+
 //Margin mixin
 @mixin margin($top, $right, $bottom, $left) {
   margin-top: $top;

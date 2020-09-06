@@ -364,6 +364,13 @@ template {
   display: none;
 }
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @font-face {
   font-family: 'Inter';
   src: url(../assets/fonts/Inter-Regular.woff2) format("woff2");
@@ -492,9 +499,8 @@ tbody {
 
 table {
   width: 100%;
-  border: 1px solid var(--disabled-inner);
-  border-radius: var(--radius);
   border-collapse: inherit;
+  height: 100%;
 }
 
 table thead {
@@ -540,30 +546,26 @@ table tbody tr td p {
 }
 
 ::-webkit-scrollbar {
-  z-index: 1;
-  width: 15px;
-  background-color: transparent;
-  border-left: 1px solid var(--disabled-inner);
+  width: 8px;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-  padding: 3px;
+  background: #E6E6E6;
 }
 
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-}
-
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  border: 5px solid transparent;
-  background-clip: content-box;
-  border-radius: 1rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-color: transparent;
+  background: #C8C8C8;
+  border-radius: 10px;
+}
+
+button:focus,
+input:focus {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+  outline: 2px dotted transparent;
+  outline-offset: 3px;
 }
 
 .notif-wrapper {
@@ -973,7 +975,7 @@ table tbody tr td p {
     appearance: none;
     width: 100%;
     line-height: 24px;
-    padding: 0 24px;
+    padding: 0 20px;
     border-radius: var(--radius);
     outline: none;
     font-family: var(--primary-ff);
@@ -1151,14 +1153,14 @@ table tbody tr td p {
   min-height: 50px;
   font-weight: 300;
   font-size: var(--font-size);
-  font-family: var(--primary-ff);
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   align-items: center;
   justify-content: center;
   padding: 0 42px;
   line-height: 24px;
   cursor: pointer;
   background: #d4d4d4;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   outline: none;
   border: 0;
   color: var(--blue-inner);
@@ -1436,10 +1438,6 @@ table tbody tr td p {
   flex: 1;
 }
 
-.content .tab-pannel {
-  padding: 45px;
-}
-
 .content .tab-pannel.scroll {
   height: calc(100vh - 40px);
   overflow-y: auto;
@@ -1541,8 +1539,7 @@ table tbody tr td p {
 }
 
 .sidebar-app {
-  width: 27%;
-  background: #000;
+  background: #fff;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -1566,7 +1563,7 @@ table tbody tr td p {
 }
 
 .sidebar-app .sidebar-menu .nav-item {
-  padding: 10px 20px;
+  padding: 15px;
   margin: 0;
   border: 0;
   background: transparent;
@@ -1580,7 +1577,6 @@ table tbody tr td p {
 
 .sidebar-app .sidebar-menu .nav-item .icon {
   position: relative;
-  margin-right: 25px;
 }
 
 .sidebar-app .sidebar-menu .nav-item .icon.icon-notif {
@@ -1600,14 +1596,17 @@ table tbody tr td p {
   background: #00d067;
 }
 
-.sidebar-app .sidebar-menu .nav-item .icon-tabler {
-  width: 28px;
-  stroke: #fff;
-  height: 28px;
+.sidebar-app .sidebar-menu .nav-item.active .icon-tabler {
+  opacity: 1;
 }
 
-.icon-tabler {
+.sidebar-app .sidebar-menu .nav-item .icon-tabler {
+  width: 28px;
   stroke-width: 1;
+  fill: #000;
+  opacity: .3;
+  height: 28px;
+  transition: opacity .10s ease;
 }
 
 .overlay {
@@ -1634,7 +1633,6 @@ table tbody tr td p {
   display: none;
   left: 30px;
   padding: 15px;
-  opacity: 0.75;
   bottom: 50px;
   background: #1a1a1a;
   border-radius: var(--radius);
@@ -1720,10 +1718,9 @@ table tbody tr td p {
 #titlebar {
   display: flex;
   position: relative;
-  height: 40px;
+  height: 45px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ececec;
 }
 
 #titlebar #drag-region {
@@ -1746,7 +1743,7 @@ table tbody tr td p {
   font-weight: 500;
   font-size: var(--font-size);
   font-family: var(--primary-ff);
-  margin-left: 32px;
+  margin-left: 25px;
 }
 
 #titlebar #window-title #progressBar {
@@ -1860,6 +1857,7 @@ table tbody tr td p {
 }
 
 .p-small {
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: calc(var(--font-size) - 3px);
 }
 
@@ -2117,7 +2115,7 @@ a {
 }
 
 .w-small {
-  width: 50%;
+  width: 72.5%;
 }
 
 .w-auto {

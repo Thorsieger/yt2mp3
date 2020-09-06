@@ -107,6 +107,7 @@ function initTabNav() {
   const tabContent = document.querySelectorAll('.content section')
 
   if (tabMenu.length && tabContent.length) {
+      tabMenu[0].classList.add('active')
       tabContent[0].classList.add('active')
 
       function activeTab(index) {
@@ -114,6 +115,11 @@ function initTabNav() {
               section.classList.remove('active')
           })
           tabContent[index].classList.add('active')
+
+          tabMenu.forEach(function(menu){
+            menu.classList.remove('active');
+          });
+          tabMenu[index].classList.add('active');
       }
 
       tabMenu.forEach(function(itemMenu, index) {

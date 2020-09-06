@@ -5,25 +5,31 @@
 .main {
   will-change: transform;
   transition: transform 0.25s ease;
+
   &.active {
     transform: translateY(-70px);
   }
 }
+
 .ableft {
   position: absolute;
   height: calc(100% - 175px);
   left: 25px;
   top: 60px;
+
   .card {
     height: 100%;
   }
+
   &.hidden {
     transform: translate(-20%, 0);
   }
+
   &.visible {
     transform: translate(0, 0);
   }
 }
+
 .abcenterbot {
   position: absolute;
   bottom: 30px;
@@ -31,10 +37,12 @@
   width: 320px;
   text-align: center;
   transform: translate(-50%, -50%);
+
   p {
     margin-bottom: 10px;
   }
 }
+
 .container {
   display: flex;
   width: 100%;
@@ -42,25 +50,30 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
 .app-content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
 }
+
 .content {
   flex: 1;
+
   .tab-pannel {
-    padding: 45px;
+
     &.scroll {
       height: calc(100vh - 40px);
       overflow-y: auto;
     }
   }
+
   main {
     width: 100%;
   }
 }
+
 .section {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -68,6 +81,7 @@
 
 .searchbar {
   border-radius: var(--radius);
+
   .input-main {
     font-weight: 400;
     -webkit-appearance: none;
@@ -90,6 +104,7 @@
     height: 60px;
     padding: 0 25px;
     border: 1px solid #ddd;
+
     &::placeholder {
       color: #444444;
     }
@@ -106,6 +121,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 20px 4px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.01);
+
   .banner-image {
     position: relative;
     height: 70%;
@@ -115,24 +131,29 @@
     background-size: cover;
     overflow: hidden;
   }
+
   .artist-img {
     img {
       max-width: 50px;
       border-radius: 50%;
     }
   }
+
   .subtitle {
     font-size: 0.6em;
     color: rgba(0, 0, 0, 0.6);
     letter-spacing: 0.1em;
   }
 }
+
 .h100 {
   height: 100%;
 }
+
 // Menu APP
 .tab-pannel {
   display: none;
+
   &.active {
     display: flex;
     flex-direction: column;
@@ -149,12 +170,15 @@
 }
 
 .sidebar-app {
-  width: 27%;
-  background: #000;
+  // width: 27%;
+  // background: #000;
+  background: #fff;
   color: #fff;
+  // border-right: 1px solid #ececec;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+
   &-header {
     font-size: var(--font-size);
     font-family: var(--primary-ff);
@@ -163,13 +187,15 @@
     -webkit-app-region: drag;
     margin-bottom: 0.2em;
   }
+
   .sidebar-menu {
     font-size: var(--font-size);
     display: block;
     color: #fff;
     align-items: center;
+
     .nav-item {
-      padding: 10px 20px;
+      padding: 15px;
       margin: 0;
       border: 0;
       background: transparent;
@@ -178,11 +204,15 @@
       outline: none;
       width: 100%;
       align-items: center;
+      cursor: pointer;
+
       .icon {
         position: relative;
-        margin-right: 25px;
+        // margin-right: 25px;
+
         &.icon-notif {
           position: relative;
+
           &:before {
             content: '';
             position: absolute;
@@ -197,19 +227,26 @@
           }
         }
       }
+
+      &.active {
+        .icon-tabler {
+          opacity: 1;
+        }
+      }
+
       .icon-tabler {
         width: 28px;
-        stroke: #fff;
+        stroke-width: 1;
+        // stroke: #000;
+        fill: #000;
+        opacity: .3;
         height: 28px;
+        transition: opacity .10s ease;
       }
-      cursor: pointer;
     }
   }
 }
 
-.icon-tabler {
-  stroke-width: 1;
-}
 
 .overlay {
   position: absolute;
@@ -221,6 +258,7 @@
   z-index: 9;
   background: rgba(#000, 0.5);
   visibility: hidden;
+
   &.active {
     opacity: 1;
     visibility: visible;
@@ -234,17 +272,19 @@
   display: none;
   left: 30px;
   padding: 15px;
-  opacity: 0.75;
   bottom: 50px;
   background: #1a1a1a;
   border-radius: var(--radius);
   color: #fff;
+
   .p-small {
     font-size: 10px;
   }
+
   .p-light {
     opacity: 0.4;
   }
+
   a,
   p,
   dt,
@@ -254,18 +294,22 @@
     color: #fff;
     word-break: break-all;
   }
+
   dl {
     align-items: flex-start;
     margin-top: 10px;
+
     &:first-child {
       margin-top: 0;
     }
   }
+
   a {
     display: inline-block;
     line-height: 1.5;
     text-decoration: underline;
   }
+
   &.active {
     display: block;
   }
