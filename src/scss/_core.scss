@@ -39,7 +39,7 @@ h6 {
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 25px;
   font-size: 18px;
 }
@@ -111,14 +111,14 @@ table {
   width: 100%;
   border-collapse: inherit;
   height: 100%;
+  box-sizing: border-box;
 
   thead {
-    border-bottom: 1px solid var(--disabled-inner);
 
     tr {
       th {
         text-align: left;
-        padding: 25px;
+        padding: 15px;
         font-size: 14px;
       }
     }
@@ -133,17 +133,15 @@ table {
 
   tbody {
     display: block;
-    height: 500px;
+    height: 100%;
     overflow-y: auto;
 
     tr {
-      border-bottom: 1px solid var(--disabled-inner);
 
       td {
-        padding: 15px 25px;
+        padding: 10px 15px;
         opacity: 0.5;
 
-        &:first-child,
         &:last-child {
           opacity: 1;
         }
@@ -164,11 +162,11 @@ table {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #E6E6E6;
+  background: var(--disabled);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #C8C8C8;
+  background: var(--border);
   border-radius: 10px;
 }

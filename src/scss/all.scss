@@ -24,7 +24,7 @@ $ui-colors: (default: $color-grey-gallery,
 
 // root variables
 :root {
-  --primary-ff: 'Inter', sans-serif;
+  --primary-ff: 'Helvetica Now', sans-serif;
   --tcolor: #222;
   --icon-size: 26px;
   --blue: #{$color-blue-ribbon};
@@ -32,15 +32,11 @@ $ui-colors: (default: $color-grey-gallery,
   --padding: 20px;
   --padding-side: 20px;
   --radius: 4px;
-  --blue-hover: #d4d4d4;
-  --blue-inner: #fff;
   --focus: 2px rgba(0, 0, 0, 0.9);
-  --border: #ddd;
+  --border: #cccccc;
   --white: #fff;
   --dark: #000;
   --border-hover: #222;
-  --backgroundHome: #f6f8ff;
-  --background: #fff;
   --disabled: #f7f7f7;
   --disabled-inner: #e2e2e2;
 }

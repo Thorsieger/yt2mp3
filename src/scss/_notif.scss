@@ -13,7 +13,7 @@
       margin-bottom: 0;
     }
     border-radius: var(--radius);
-    background: var(--background);
+    background: var(--white);
     display: flex;
     align-items: center;
     &.error {
@@ -23,12 +23,12 @@
       grid-template-columns: auto 1fr auto;
       column-gap: 20px;
       border: 0;
-      color: var(--background);
+      color: var(--white);
       &:hover {
         background-color: darken($color-red-carnation, 5%);
       }
       p {
-        color: var(--background);
+        color: var(--white);
         max-width: 80%;
         white-space: nowrap;
         overflow: hidden;
@@ -90,7 +90,7 @@
 }
 .card {
   color: #000;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   position: relative;
   &.progress {
@@ -111,7 +111,7 @@
       height: 150px;
       opacity: 0;
       visibility: hidden;
-      background: var(--background);
+      background: var(--white);
       border-radius: 7px;
       overflow: hidden;
       left: 20px;
@@ -147,7 +147,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--background);
+    background: var(--white);
     width: 36px;
     height: 36px;
     top: -20px;
@@ -179,7 +179,7 @@
       font-size: 12px;
       padding: 20px;
       margin: 0;
-      font-weight: 600;
+      font-weight: bold;
       letter-spacing: 0.05em;
       color: var(--tcolor);
       text-transform: uppercase;
@@ -196,7 +196,7 @@
 }
 .card {
   color: #000;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   position: relative;
   &.progress {
@@ -217,7 +217,7 @@
       height: 150px;
       opacity: 0;
       visibility: hidden;
-      background: var(--background);
+      background: var(--white);
       border-radius: 7px;
       overflow: hidden;
       left: 20px;
@@ -253,7 +253,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--background);
+    background: var(--white);
     width: 36px;
     height: 36px;
     top: -20px;
@@ -285,7 +285,7 @@
       font-size: 12px;
       padding: 20px;
       margin: 0;
-      font-weight: 600;
+      font-weight: bold;
       letter-spacing: 0.05em;
       color: var(--tcolor);
       text-transform: uppercase;

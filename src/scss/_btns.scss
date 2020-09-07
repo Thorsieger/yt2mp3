@@ -3,9 +3,9 @@
   border-radius: var(--radius);
   display: flex;
   min-height: 50px;
-  font-weight: 300;
-  font-size: var(--font-size);
-  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: var(--primary-ff);
   align-items: center;
   justify-content: center;
   padding: 0 42px;
@@ -15,7 +15,7 @@
   letter-spacing: 0.05em;
   outline: none;
   border: 0;
-  color: var(--blue-inner);
+  color: var(--white);
   transition: 0.3s ease;
 
   &:disabled {
@@ -34,7 +34,7 @@
 
   &.small {
     min-height: 35px;
-    padding: 0 20px;
+    padding: 0 14px;
     border-radius: 5px;
 
     &:hover {

@@ -120,13 +120,9 @@
         </a>
         <a class="nav-item" data-title="History & Downloads">
           <div class="icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
-              <g transform="translate(2 1.5)">
-                <path d="M5.245 13.281l2.993-3.89 3.414 2.682 2.93-3.78" />
-                <circle cx="17.995" cy="2.7" r="1.922" />
-                <path
-                  d="M12.924 1.62H5.657C2.645 1.62.778 3.753.778 6.764v8.083c0 3.011 1.83 5.135 4.879 5.135h8.604c3.011 0 4.879-2.124 4.879-5.135v-7.04" />
-              </g>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon-tabler">
+              <path
+                d="M11.665 18.632L5.733 21.88a.989.989 0 01-1.318-.394h0a1.043 1.043 0 01-.119-.466V6.622c0-2.746 1.877-3.844 4.577-3.844h6.343c2.618 0 4.577 1.025 4.577 3.661v14.582a.98.98 0 01-.98.979 1.08 1.08 0 01-.475-.119l-5.968-3.25a.741.741 0 00-.705 0zM8.37 9.323h7.295" />
             </svg>
           </div>
         </a>
@@ -135,10 +131,11 @@
       <div class="sidebar-bottom">
         <a class="nav-item" data-title="Settings & More">
           <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 19.3 20.7">
-              <path
-                d="M18.307 6.124l-.623-1.08a1.913 1.913 0 00-2.608-.705h0a1.904 1.904 0 01-2.61-.678 1.83 1.83 0 01-.255-.915h0A1.913 1.913 0 0010.297.778H9.043A1.904 1.904 0 007.14 2.691h0a1.913 1.913 0 01-1.913 1.886 1.83 1.83 0 01-.916-.257h0a1.913 1.913 0 00-2.608.705l-.669 1.099a1.913 1.913 0 00.696 2.608h0a1.913 1.913 0 010 3.314h0a1.904 1.904 0 00-.696 2.6h0l.632 1.089a1.913 1.913 0 002.609.741h0a1.895 1.895 0 012.6.696c.164.277.252.593.255.915h0c0 1.057.857 1.913 1.913 1.913h1.254c1.053 0 1.908-.85 1.914-1.904h0a1.904 1.904 0 011.913-1.913c.321.009.636.097.915.256h0a1.913 1.913 0 002.609-.695h0l.659-1.099a1.904 1.904 0 00-.696-2.608h0a1.904 1.904 0 01-.696-2.61c.166-.289.406-.529.696-.695h0a1.913 1.913 0 00.696-2.6h0v-.008z" />
-              <circle cx="9.675" cy="10.389" r="2.636" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="19" r="1" />
+              <circle cx="12" cy="5" r="1" />
             </svg>
           </div>
           <!-- <span>Settings</span> -->
@@ -173,6 +170,22 @@
         </div>
       </header>
       <!-- App content -->
+      <div id="ad-banner" class="ad-banner hidden">
+        <div class="ad-content">
+          <div class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="icon">
+              <path
+                d="M2.9 17.1C-1 13.2-1 6.8 2.9 2.9S13.1-1 17 2.9s3.9 10.2 0 14.1c-3.8 4-10.2 4-14.1.1zM8.6 10l-2.1 2.1c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l2.1-2.1 2.1 2.1c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L11.4 10l2.1-2.1c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L10 8.6 7.9 6.5c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4L8.6 10z"
+                fill="#1d1d1d" /></svg>
+          </div>
+          <div class="ad-text">
+            <h2>Having a "ruff" life?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem earum obcaecati recusandae
+              nostrum est. </p>
+          </div>
+          <div class="ad-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/pug.png" alt=""></div>
+        </div>
+      </div>
       <div class="content block">
         <section class="tab-pannel relative">
           <div class="centered">
@@ -204,6 +217,48 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>
+                  <p>File name.mp3</p>
+                </td>
+                <td>
+                  <p>3.5Mb</p>
+                </td>
+                <td>
+                  <p>09 Septembre 2020</p>
+                </td>
+                <td class="d-flex">
+                  <a href="#" class="btn btn-dark small">Action</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>File name.mp3</p>
+                </td>
+                <td>
+                  <p>3.5Mb</p>
+                </td>
+                <td>
+                  <p>09 Septembre 2020</p>
+                </td>
+                <td class="d-flex">
+                  <a href="#" class="btn btn-dark small">Action</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>File name.mp3</p>
+                </td>
+                <td>
+                  <p>3.5Mb</p>
+                </td>
+                <td>
+                  <p>09 Septembre 2020</p>
+                </td>
+                <td class="d-flex">
+                  <a href="#" class="btn btn-dark small">Action</a>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <p>File name.mp3</p>
@@ -261,14 +316,14 @@
                   </label>
                 </li>
                 <li>
-                  <input id="mp4" type="radio" name="radio" value="2" />
+                  <input id="mp4" type="radio" name="radio" value="2" disabled/>
                   <label for="mp4">Téléchargez la vidéo au format .mp4
                   </label>
                 </li>
               </ul>
               <p class="mb0 mt1 op-light p-small">
-                Le format de fichier par défaut est <strong>MP3</strong> mais peut être basculé en vidéo
-                <strong>MP4</strong>.
+                Le format de fichier par défaut est MP3 mais peut être basculé en vidéo
+                MP4.
               </p>
             </div>
             <div class="sect">
@@ -280,12 +335,33 @@
                 </button>
               </div>
               <p class="mb0 mt1 op-light p-small">
-                Les fichiers seront téléchargés dans le dossier de téléchargement (cette option est personnalisable).
+                Les fichiers seront téléchargés dans le dossier choisi (cette option est personnalisable grâce au bouton <strong>Modifier...</strong>).
               </p>
             </div>
-            <!-- Avancées -->
+            <!-- avancés -->
             <div class="sect">
-              <h4>Avancées</h4>
+              <h4>Avancés</h4>
+              <dl>
+                <dt>
+                  <label for="s6">
+                    Mise à jour automatique
+                  </label>
+                </dt>
+                <dd>
+                  <input id="s6" type="checkbox" class="switch" />
+                </dd>
+              </dl>
+              <!-- Lancement au démarrage -->
+              <dl>
+                <dt>
+                  <label for="s5">
+                    Lancer automatiquement au démarrage de Windows
+                  </label>
+                </dt>
+                <dd>
+                  <input id="s5" type="checkbox" class="switch" />
+                </dd>
+              </dl>
               <!-- Message bienvenue -->
               <dl>
                 <dt>
@@ -310,7 +386,7 @@
               </dl>
               <p class="mb0 mt2 op-light p-small">
                 Faites attention en manipulant les options avancées, activez l'option de débogage uniquement si
-                nécessaire, cela peut causer des problèmes.
+                nécessaire.
               </p>
             </div>
             <div class="flex jcsb mt2">

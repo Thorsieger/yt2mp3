@@ -15,7 +15,7 @@
     position: relative;
     margin: 0;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
     &.small {
@@ -87,7 +87,7 @@
     margin: 0;
     cursor: pointer;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
     &:checked {
@@ -191,7 +191,7 @@
 
         &:hover {
           &:after {
-            --ab: var(--background);
+            --ab: var(--white);
             // background: var(--ab, var(--border));
           }
         }

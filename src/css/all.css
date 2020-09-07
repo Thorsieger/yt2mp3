@@ -5,7 +5,7 @@
   DATE : 19/07/2020
 */
 :root {
-  --primary-ff: 'Inter', sans-serif;
+  --primary-ff: 'Helvetica Now', sans-serif;
   --tcolor: #222;
   --icon-size: 26px;
   --blue: #0066ff;
@@ -13,15 +13,11 @@
   --padding: 20px;
   --padding-side: 20px;
   --radius: 4px;
-  --blue-hover: #d4d4d4;
-  --blue-inner: #fff;
   --focus: 2px rgba(0, 0, 0, 0.9);
-  --border: #ddd;
+  --border: #cccccc;
   --white: #fff;
   --dark: #000;
   --border-hover: #222;
-  --backgroundHome: #f6f8ff;
-  --background: #fff;
   --disabled: #f7f7f7;
   --disabled-inner: #e2e2e2;
 }
@@ -373,21 +369,15 @@ template {
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url(../assets/fonts/Inter-Regular.woff2) format("woff2");
-  font-weight: 400;
+  font-family: 'Helvetica';
+  src: url(../assets/fonts/Helvetica.woff2) format("woff2");
+  font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url(../assets/fonts/Inter-Medium.woff2) format("woff2");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url(../assets/fonts/Inter-Bold.woff2) format("woff2");
-  font-weight: 600;
+  font-family: 'Helvetica';
+  src: url(../assets/fonts/Helvetica-Bold.woff2) format("woff2");
+  font-weight: bold;
 }
 
 html,
@@ -430,7 +420,7 @@ h6 {
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 25px;
   font-size: 18px;
 }
@@ -502,15 +492,12 @@ table {
   width: 100%;
   border-collapse: inherit;
   height: 100%;
-}
-
-table thead {
-  border-bottom: 1px solid var(--disabled-inner);
+  box-sizing: border-box;
 }
 
 table thead tr th {
   text-align: left;
-  padding: 25px;
+  padding: 15px;
   font-size: 14px;
 }
 
@@ -523,20 +510,16 @@ table tbody tr {
 
 table tbody {
   display: block;
-  height: 500px;
+  height: 100%;
   overflow-y: auto;
 }
 
-table tbody tr {
-  border-bottom: 1px solid var(--disabled-inner);
-}
-
 table tbody tr td {
-  padding: 15px 25px;
+  padding: 10px 15px;
   opacity: 0.5;
 }
 
-table tbody tr td:first-child, table tbody tr td:last-child {
+table tbody tr td:last-child {
   opacity: 1;
 }
 
@@ -552,12 +535,12 @@ table tbody tr td p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #E6E6E6;
+  background: var(--disabled);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #C8C8C8;
+  background: var(--border);
   border-radius: 10px;
 }
 
@@ -575,7 +558,7 @@ table tbody tr td p {
   padding: 27px;
   margin-bottom: 1em;
   border-radius: var(--radius);
-  background: var(--background);
+  background: var(--white);
   display: flex;
   align-items: center;
 }
@@ -591,7 +574,7 @@ table tbody tr td p {
   grid-template-columns: auto 1fr auto;
   column-gap: 20px;
   border: 0;
-  color: var(--background);
+  color: var(--white);
 }
 
 .notif-wrapper .notif.error:hover {
@@ -599,7 +582,7 @@ table tbody tr td p {
 }
 
 .notif-wrapper .notif.error p {
-  color: var(--background);
+  color: var(--white);
   max-width: 80%;
   white-space: nowrap;
   overflow: hidden;
@@ -669,7 +652,7 @@ table tbody tr td p {
 
 .card {
   color: #000;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   position: relative;
 }
@@ -693,7 +676,7 @@ table tbody tr td p {
   height: 150px;
   opacity: 0;
   visibility: hidden;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   overflow: hidden;
   left: 20px;
@@ -730,7 +713,7 @@ table tbody tr td p {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--background);
+  background: var(--white);
   width: 36px;
   height: 36px;
   top: -20px;
@@ -766,7 +749,7 @@ table tbody tr td p {
   font-size: 12px;
   padding: 20px;
   margin: 0;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 0.05em;
   color: var(--tcolor);
   text-transform: uppercase;
@@ -783,7 +766,7 @@ table tbody tr td p {
 
 .card {
   color: #000;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   position: relative;
 }
@@ -807,7 +790,7 @@ table tbody tr td p {
   height: 150px;
   opacity: 0;
   visibility: hidden;
-  background: var(--background);
+  background: var(--white);
   border-radius: 7px;
   overflow: hidden;
   left: 20px;
@@ -844,7 +827,7 @@ table tbody tr td p {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--background);
+  background: var(--white);
   width: 36px;
   height: 36px;
   top: -20px;
@@ -880,7 +863,7 @@ table tbody tr td p {
   font-size: 12px;
   padding: 20px;
   margin: 0;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 0.05em;
   color: var(--tcolor);
   text-transform: uppercase;
@@ -978,7 +961,7 @@ table tbody tr td p {
     position: relative;
     margin: 0;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
   input[type='text'].small {
@@ -1032,7 +1015,7 @@ table tbody tr td p {
     margin: 0;
     cursor: pointer;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
   input[type='checkbox']:checked,
@@ -1120,7 +1103,7 @@ table tbody tr td p {
     --x: 17px;
   }
   input[type='checkbox'].switch:checked:hover:after {
-    --ab: var(--background);
+    --ab: var(--white);
   }
   input[type='checkbox'].switch:disabled:not(:checked):after {
     --ab: var(--disabled-inner);
@@ -1147,9 +1130,9 @@ table tbody tr td p {
   border-radius: var(--radius);
   display: flex;
   min-height: 50px;
-  font-weight: 300;
-  font-size: var(--font-size);
-  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: var(--primary-ff);
   align-items: center;
   justify-content: center;
   padding: 0 42px;
@@ -1159,7 +1142,7 @@ table tbody tr td p {
   letter-spacing: 0.05em;
   outline: none;
   border: 0;
-  color: var(--blue-inner);
+  color: var(--white);
   transition: 0.3s ease;
 }
 
@@ -1179,7 +1162,7 @@ table tbody tr td p {
 
 .btn.small {
   min-height: 35px;
-  padding: 0 20px;
+  padding: 0 14px;
   border-radius: 5px;
 }
 
@@ -1522,7 +1505,7 @@ table tbody tr td p {
 }
 
 .searchbar .input-main {
-  font-weight: 400;
+  font-weight: normal;
   width: 100%;
   min-width: 480px;
   align-self: flex-start;
@@ -1539,6 +1522,11 @@ table tbody tr td p {
   height: 50px;
   padding: 0 25px;
   border: 1px solid #ddd;
+}
+
+.searchbar .input-main:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px var(--blue);
 }
 
 .searchbar .input-main::placeholder {
@@ -1625,7 +1613,7 @@ table tbody tr td p {
 }
 
 .sidebar-app .nav-item {
-  padding: 15px;
+  padding: 19px;
   margin: 0;
   border: 0;
   background: transparent;
@@ -1648,7 +1636,7 @@ table tbody tr td p {
 }
 
 .sidebar-app .nav-item .icon.icon-notif:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   display: block;
@@ -1665,16 +1653,16 @@ table tbody tr td p {
 }
 
 .sidebar-app .nav-item .icon-tabler {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   fill: none;
-  opacity: .3;
+  opacity: 0.3;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill-rule: evenodd;
   stroke-width: 1;
   stroke: #000;
-  transition: opacity .10s ease;
+  transition: opacity 0.1s ease;
 }
 
 .overlay {
@@ -1694,17 +1682,85 @@ table tbody tr td p {
   visibility: visible;
 }
 
+.ad-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  width: 450px;
+  background: #673ab7;
+  z-index: 999;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.ad-banner .ad-content {
+  display: grid;
+  grid: auto / auto 160px;
+  align-items: center;
+  position: relative;
+}
+
+.ad-banner .ad-content .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.ad-banner .ad-content .close .icon {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.ad-banner .ad-content .close .icon:hover {
+  opacity: 1;
+}
+
+.ad-banner .ad-content .close .icon path {
+  fill: var(--white);
+}
+
+.ad-banner .ad-content .ad-text {
+  padding: 1.5rem;
+  color: var(--white);
+}
+
+.ad-banner .ad-content .ad-text h2 {
+  font-size: 16px;
+}
+
+.ad-banner .ad-content .ad-text p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.ad-banner .ad-content .ad-image {
+  align-self: flex-end;
+  justify-self: flex-end;
+  padding-top: 15px;
+}
+
+.ad-banner .ad-content .ad-image img {
+  user-select: none;
+  pointer-events: none;
+  max-height: 160px;
+  max-width: 100%;
+}
+
 .debug-window {
   width: 250px;
   z-index: 9999;
   position: fixed;
   display: none;
-  left: 30px;
+  right: 15px;
   padding: 15px;
-  bottom: 50px;
+  bottom: 10px;
+  pointer-events: none;
   background: #1a1a1a;
   border-radius: var(--radius);
   color: #fff;
+  opacity: 0.8;
 }
 
 .debug-window .p-small {
@@ -1786,7 +1842,7 @@ table tbody tr td p {
 #titlebar {
   display: flex;
   position: relative;
-  height: 40px;
+  height: 47px;
   align-items: center;
   justify-content: space-between;
 }
@@ -1807,10 +1863,10 @@ table tbody tr td p {
 }
 
 #titlebar #window-title span {
-  color: black;
-  font-weight: 500;
-  font-size: var(--font-size);
-  font-family: var(--primary-ff);
+  color: var(--dark);
+  font-weight: normal;
+  font-size: 14px;
+  font-family: 'Helvetica', Arial, sans-serif;
   margin-left: 10px;
 }
 
@@ -2315,5 +2371,7 @@ input[type='text'].input-path {
   border: 0;
   background: var(--disabled);
   height: 40px;
+  pointer-events: none;
+  color: #777;
 }
 /*# sourceMappingURL=all.css.map */
