@@ -149,6 +149,12 @@ table {
           width: 5%;
         }
 
+        &:last-child {
+          display: grid;
+          column-gap: 15px;
+          grid-template-columns: 1fr 1fr;
+        }
+
         padding: 10px 15px;
         opacity: 0.5;
 

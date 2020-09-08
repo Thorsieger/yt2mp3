@@ -84,6 +84,33 @@ for (let i = 0; i < spans.length; i++) {
   }
 }
 
+function toggle(source) {
+  checkboxes = document.getElementsByName('tableItems');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+
+// let element = document.getElementById('logInNow');
+
+// function toggle () {
+//   // Attempt to reference the element in the document, not the template content
+//   var imported = document.querySelector(".imported");
+    
+//    // Check for the element, not the template content
+//    if (document.body.contains(imported)) {
+//      // Element exists, call removeChild on its parent
+//      document.body.style.overflow = 'auto';
+//      imported.parentNode.removeChild(imported);
+//      document.element.style.pointerEvents = 'auto';
+//     } else {
+//       // Use .importNode to bring template content in:
+//      document.body.appendChild(document.importNode(element.content, true));
+//    }
+// }
+
+// document.getElementById('logIn').addEventListener('click', toggle);
+
 function initTabNav() {
   const tabMenu = document.querySelectorAll('.sidebar-app .nav-item')
   const tabContent = document.querySelectorAll('.content section')
