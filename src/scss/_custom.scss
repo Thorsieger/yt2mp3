@@ -191,7 +191,7 @@
   }
 
   .nav-item {
-    padding: 19px;
+    padding: 13px;
     margin: 0;
     border: 0;
     background: transparent;
@@ -203,6 +203,10 @@
     width: 100%;
     cursor: pointer;
     position: relative;
+
+    &.logo {
+      // background: #000;
+    }
 
     .icon {
       position: relative;
@@ -233,16 +237,21 @@
     }
 
     .icon-tabler {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       fill: none;
-      opacity: 0.3;
+      opacity: 0.4;
       stroke-linecap: round;
       stroke-linejoin: round;
       fill-rule: evenodd;
       stroke-width: 1;
       stroke: #000;
-      transition: opacity 0.1s ease;
+      transition: opacity 0.25s, transform .1s ease;
+
+      &.fill {
+        stroke: none;
+        fill: var(--dark);
+      }
     }
   }
 }

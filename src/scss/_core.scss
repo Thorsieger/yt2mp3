@@ -120,6 +120,10 @@ table {
         text-align: left;
         padding: 15px;
         font-size: 14px;
+
+        &:first-child {
+          width: 5%;
+        }
       }
     }
   }
@@ -139,6 +143,12 @@ table {
     tr {
 
       td {
+        &:first-child {
+          opacity: 1;
+          text-align: center;
+          width: 5%;
+        }
+
         padding: 10px 15px;
         opacity: 0.5;
 

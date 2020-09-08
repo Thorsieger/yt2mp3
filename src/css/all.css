@@ -501,6 +501,10 @@ table thead tr th {
   font-size: 14px;
 }
 
+table thead tr th:first-child {
+  width: 5%;
+}
+
 table thead,
 table tbody tr {
   display: table;
@@ -517,6 +521,12 @@ table tbody {
 table tbody tr td {
   padding: 10px 15px;
   opacity: 0.5;
+}
+
+table tbody tr td:first-child {
+  opacity: 1;
+  text-align: center;
+  width: 5%;
 }
 
 table tbody tr td:last-child {
@@ -945,7 +955,7 @@ table tbody tr td p {
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type='text'] {
+  input[type="text"] {
     user-select: none;
     width: 100%;
     line-height: 24px;
@@ -961,49 +971,49 @@ table tbody tr td p {
     position: relative;
     margin: 0;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--white));
+    background: var(--b, var(--background));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-  input[type='text'].small {
+  input[type="text"].small {
     padding: 10px 24px;
     min-height: 50px;
   }
-  input[type='text']::placeholder {
+  input[type="text"]::placeholder {
     color: var(--tcolor);
   }
-  input[type='text']:focus {
+  input[type="text"]:focus {
     box-shadow: 0 0 0 3px rgba(221, 221, 221, 0.15);
     outline: 2px dotted transparent;
     outline-offset: 2px;
   }
-  input[type='text']:disabled {
+  input[type="text"]:disabled {
     --b: var(--disabled);
     opacity: 0.9;
   }
-  input[type='text']:disabled:checked {
+  input[type="text"]:disabled:checked {
     --b: var(--disabled-inner);
     --bc: var(--border);
   }
-  input[type='text']:disabled + label {
+  input[type="text"]:disabled + label {
     cursor: not-allowed;
   }
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     border-radius: 4px;
   }
-  input[type='checkbox']:after {
-    content: '';
+  input[type="checkbox"]:after {
+    content: "";
     display: block;
     left: 0;
     top: 0;
     position: absolute;
     transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
   }
-  input[type='radio']:hover:not(:checked):not(:disabled) {
+  input[type="radio"]:hover:not(:checked):not(:disabled) {
     --bc: var(--border) !important;
     --b: var(--border) !important;
   }
-  input[type='checkbox'],
-  input[type='radio'] {
+  input[type="checkbox"],
+  input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -1015,50 +1025,50 @@ table tbody tr td p {
     margin: 0;
     cursor: pointer;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--white));
+    background: var(--b, var(--background));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-  input[type='checkbox']:checked,
-  input[type='radio']:checked {
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
     --b: var(--dark);
     --bc: var(--dark);
     --d-o: 0.3s;
     --d-t: 0.6s;
     --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
   }
-  input[type='checkbox']:disabled,
-  input[type='radio']:disabled {
+  input[type="checkbox"]:disabled,
+  input[type="radio"]:disabled {
     --b: var(--disabled);
     cursor: not-allowed;
     opacity: 0.9;
   }
-  input[type='checkbox']:disabled:checked,
-  input[type='radio']:disabled:checked {
+  input[type="checkbox"]:disabled:checked,
+  input[type="radio"]:disabled:checked {
     --b: var(--disabled-inner);
     --bc: var(--border);
   }
-  input[type='checkbox']:disabled + label,
-  input[type='radio']:disabled + label {
+  input[type="checkbox"]:disabled + label,
+  input[type="radio"]:disabled + label {
     cursor: not-allowed;
   }
-  input[type='checkbox']:hover:not(:checked):not(:disabled),
-  input[type='radio']:hover:not(:checked):not(:disabled) {
+  input[type="checkbox"]:hover:not(:checked):not(:disabled),
+  input[type="radio"]:hover:not(:checked):not(:disabled) {
     --bc: var(--border-hover);
   }
-  input[type='checkbox']:not(.switch),
-  input[type='radio']:not(.switch) {
+  input[type="checkbox"]:not(.switch),
+  input[type="radio"]:not(.switch) {
     width: 21px;
   }
-  input[type='checkbox']:not(.switch):after,
-  input[type='radio']:not(.switch):after {
+  input[type="checkbox"]:not(.switch):after,
+  input[type="radio"]:not(.switch):after {
     opacity: var(--o, 0);
   }
-  input[type='checkbox']:not(.switch):checked,
-  input[type='radio']:not(.switch):checked {
+  input[type="checkbox"]:not(.switch):checked,
+  input[type="radio"]:not(.switch):checked {
     --o: 1;
   }
-  input[type='checkbox'] + label,
-  input[type='radio'] + label {
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
     color: var(--tcolor);
     font-family: var(--primary-ff);
     font-size: var(--font-size);
@@ -1068,7 +1078,7 @@ table tbody tr td p {
     cursor: pointer;
     margin-left: 10px;
   }
-  input[type='checkbox']:not(.switch):after {
+  input[type="checkbox"]:not(.switch):after {
     width: 5px;
     height: 9px;
     border: 2px solid var(--white);
@@ -1078,41 +1088,61 @@ table tbody tr td p {
     top: 4px;
     transform: rotate(var(--r, 20deg));
   }
-  input[type='checkbox']:not(.switch):checked {
+  input[type="checkbox"]:not(.switch):checked {
     --r: 43deg;
   }
-  input[type='checkbox'].switch {
+  input[type="checkbox"].switch {
     width: 38px;
     border-radius: 11px;
+    background: #e8e9eb;
+    border: 0;
+    position: relative;
   }
-  input[type='checkbox'].switch:after {
+  input[type="checkbox"].switch:after {
     left: 2px;
     top: 2px;
     border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    background: var(--ab, var(--border));
+    width: 17px;
+    height: 17px;
+    background: var(--ab, var(--white));
     transform: translateX(var(--x, 0));
-    transition: background 0.3s;
+    transition: 0.25s ease;
   }
-  input[type='checkbox'].switch:hover:after {
-    --ab: var(--dark);
+  input[type="checkbox"].switch:hover:before {
+    content: 'Off';
+    color: var(--white);
+    position: absolute;
+    background: #000;
+    border-radius: var(--radius);
+    right: -100%;
+    z-index: 9;
+    font-size: 10px;
+    padding: 5px 8px;
   }
-  input[type='checkbox'].switch:checked {
+  input[type="checkbox"].switch:checked {
     --ab: var(--white);
     --x: 17px;
+    background: var(--dark);
   }
-  input[type='checkbox'].switch:checked:hover:after {
-    --ab: var(--white);
+  input[type="checkbox"].switch:checked:hover:before {
+    content: 'On';
+    color: var(--white);
+    position: absolute;
+    background: #000;
+    border-radius: var(--radius);
+    right: -100%;
+    z-index: 9;
+    font-size: 10px;
+    padding: 5px 8px;
   }
-  input[type='checkbox'].switch:disabled:not(:checked):after {
+  input[type="checkbox"].switch:disabled:not(:checked):after {
     --ab: var(--disabled-inner);
     opacity: 0.6;
   }
-  input[type='radio'] {
+  input[type="radio"] {
     border-radius: 50%;
   }
-  input[type='radio']:after {
+  input[type="radio"]:after {
     width: 19px;
     height: 19px;
     border-radius: 50%;
@@ -1120,7 +1150,7 @@ table tbody tr td p {
     opacity: 0;
     transform: scale(var(--s, 0.7));
   }
-  input[type='radio']:checked {
+  input[type="radio"]:checked {
     --s: 0.5;
   }
 }
@@ -1613,7 +1643,7 @@ table tbody tr td p {
 }
 
 .sidebar-app .nav-item {
-  padding: 19px;
+  padding: 13px;
   margin: 0;
   border: 0;
   background: transparent;
@@ -1653,16 +1683,21 @@ table tbody tr td p {
 }
 
 .sidebar-app .nav-item .icon-tabler {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   fill: none;
-  opacity: 0.3;
+  opacity: 0.4;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill-rule: evenodd;
   stroke-width: 1;
   stroke: #000;
-  transition: opacity 0.1s ease;
+  transition: opacity 0.25s, transform .1s ease;
+}
+
+.sidebar-app .nav-item .icon-tabler.fill {
+  stroke: none;
+  fill: var(--dark);
 }
 
 .overlay {
@@ -1842,7 +1877,7 @@ table tbody tr td p {
 #titlebar {
   display: flex;
   position: relative;
-  height: 47px;
+  height: 48px;
   align-items: center;
   justify-content: space-between;
 }
@@ -1972,7 +2007,6 @@ table tbody tr td p {
 }
 
 .p-small {
-  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: calc(var(--font-size) - 3px);
 }
 
@@ -2182,7 +2216,7 @@ table tbody tr td p {
 }
 
 .op-light {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .jcc {
@@ -2230,7 +2264,7 @@ a {
 }
 
 .w-small {
-  width: 72.5%;
+  width: 66.666%;
 }
 
 .w-auto {

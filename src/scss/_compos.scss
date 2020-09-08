@@ -50,7 +50,7 @@ $shadow-map: (df: (0 1px 3px 0 rgba($color-blue-ribbon, 0.1),
 
 .p {
   &-small {
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    // font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: calc(var(--font-size) - 3px);
   }
 }
@@ -136,10 +136,8 @@ $unit: 'rem'; // Feel free to change the unit.
 
 @include list-loop('.p', 'padding');
 
-.op {
-  &-light {
-    opacity: 0.7;
-  }
+.op-light {
+  opacity: 0.5;
 }
 
 // Justify
@@ -192,7 +190,7 @@ a {
   }
 
   &-small {
-    width: 72.5%;
+    width: 66.666%;
   }
 
   &-auto {
