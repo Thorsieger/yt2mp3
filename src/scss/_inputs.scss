@@ -1,5 +1,7 @@
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type="text"] {
+
+  input[type="text"],
+  input[type="email"] {
     user-select: none;
     width: 100%;
     line-height: 24px;
@@ -15,13 +17,8 @@
     position: relative;
     margin: 0;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
-
-    &.small {
-      padding: 10px 24px;
-      min-height: 50px;
-    }
 
     &::placeholder {
       color: var(--tcolor);
@@ -186,7 +183,7 @@
       // }
       &:hover {
         &:before {
-          content: 'Off';
+          content: "Off";
           color: var(--white);
           position: absolute;
           background: #000;
@@ -212,7 +209,7 @@
         // }
         &:hover {
           &:before {
-            content: 'On';
+            content: "On";
             color: var(--white);
             position: absolute;
             background: #000;

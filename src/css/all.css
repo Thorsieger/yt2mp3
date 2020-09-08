@@ -8,6 +8,7 @@
   --primary-ff: 'Helvetica Now', sans-serif;
   --tcolor: #222;
   --icon-size: 26px;
+  --purple: #4e25e1;
   --blue: #0066ff;
   --font-size: 16px;
   --padding: 20px;
@@ -961,7 +962,8 @@ table tbody tr td p {
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-  input[type="text"] {
+  input[type="text"],
+  input[type="email"] {
     user-select: none;
     width: 100%;
     line-height: 24px;
@@ -977,30 +979,31 @@ table tbody tr td p {
     position: relative;
     margin: 0;
     border: 1px solid var(--bc, var(--border));
-    background: var(--b, var(--background));
+    background: var(--b, var(--white));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-  input[type="text"].small {
-    padding: 10px 24px;
-    min-height: 50px;
-  }
-  input[type="text"]::placeholder {
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder {
     color: var(--tcolor);
   }
-  input[type="text"]:focus {
+  input[type="text"]:focus,
+  input[type="email"]:focus {
     box-shadow: 0 0 0 3px rgba(221, 221, 221, 0.15);
     outline: 2px dotted transparent;
     outline-offset: 2px;
   }
-  input[type="text"]:disabled {
+  input[type="text"]:disabled,
+  input[type="email"]:disabled {
     --b: var(--disabled);
     opacity: 0.9;
   }
-  input[type="text"]:disabled:checked {
+  input[type="text"]:disabled:checked,
+  input[type="email"]:disabled:checked {
     --b: var(--disabled-inner);
     --bc: var(--border);
   }
-  input[type="text"]:disabled + label {
+  input[type="text"]:disabled + label,
+  input[type="email"]:disabled + label {
     cursor: not-allowed;
   }
   input[type="checkbox"] {
@@ -1115,7 +1118,7 @@ table tbody tr td p {
     transition: 0.25s ease;
   }
   input[type="checkbox"].switch:hover:before {
-    content: 'Off';
+    content: "Off";
     color: var(--white);
     position: absolute;
     background: #000;
@@ -1133,7 +1136,7 @@ table tbody tr td p {
     background: var(--dark);
   }
   input[type="checkbox"].switch:checked:hover:before {
-    content: 'On';
+    content: "On";
     color: var(--white);
     position: absolute;
     background: #000;
@@ -1265,19 +1268,19 @@ table tbody tr td p {
 }
 
 .btn-purple {
-  background-color: #9b59b6;
+  background-color: #4e25e1;
 }
 
 .btn-purple:hover {
-  background-color: #804399;
+  background-color: #3c1ab9;
 }
 
 .btn-purple:active {
-  background-color: #623475;
+  background-color: #2e138d;
 }
 
 .btn-purple:focus {
-  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.15);
+  box-shadow: 0 0 0 3px rgba(78, 37, 225, 0.15);
   outline: 2px dotted transparent;
   outline-offset: 2px;
 }
@@ -1396,24 +1399,24 @@ table tbody tr td p {
 .btn-o-purple {
   background-color: transparent;
   border: 1px solid white;
-  color: #9b59b6;
+  color: #4e25e1;
   padding: 0 20px;
   min-height: 40px;
 }
 
 .btn-o-purple:hover {
-  background-color: #9b59b6;
-  color: #64a649;
-  border: 1px solid #804399;
+  background-color: #4e25e1;
+  color: #b1da1e;
+  border: 1px solid #3c1ab9;
 }
 
 .btn-o-purple:active {
-  background-color: #c6a0d5;
-  color: #64a649;
+  background-color: #977fed;
+  color: #b1da1e;
 }
 
 .btn-o-purple:focus {
-  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.15);
+  box-shadow: 0 0 0 3px rgba(78, 37, 225, 0.15);
   outline: 2px dotted transparent;
   outline-offset: 2px;
 }
@@ -1688,13 +1691,17 @@ table tbody tr td p {
   background: #00d067;
 }
 
-.sidebar-app .nav-item.active .icon-tabler {
+.sidebar-app .nav-item.active .line {
   opacity: 1;
 }
 
-.sidebar-app .nav-item .icon-tabler {
-  width: 24px;
-  height: 24px;
+.sidebar-app .nav-item.active .line.fill {
+  fill: var(--blue);
+}
+
+.sidebar-app .nav-item .line {
+  width: 26px;
+  height: 26px;
   fill: none;
   opacity: 0.4;
   stroke-linecap: round;
@@ -1702,12 +1709,12 @@ table tbody tr td p {
   fill-rule: evenodd;
   stroke-width: 1;
   stroke: #000;
-  transition: opacity 0.25s, transform .1s ease;
+  transition: opacity 0.25s, transform 0.1s ease;
 }
 
-.sidebar-app .nav-item .icon-tabler.fill {
+.sidebar-app .nav-item .line.fill {
   stroke: none;
-  fill: var(--dark);
+  fill: var(--blue);
 }
 
 .overlay {
@@ -1728,28 +1735,26 @@ table tbody tr td p {
 }
 
 .ad-banner {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translate(-50%, -20px);
-  width: 450px;
-  background: #673ab7;
+  transform: translate(-50%, 0);
   z-index: 999;
-  overflow: hidden;
-  border-radius: var(--radius);
 }
 
 .ad-banner .ad-content {
+  width: 470px;
+  border-radius: var(--radius);
+  background: var(--purple);
   display: grid;
-  grid: auto / auto 160px;
   align-items: center;
   position: relative;
 }
 
 .ad-banner .ad-content .close {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 15px;
+  top: 15px;
 }
 
 .ad-banner .ad-content .close .icon {
@@ -1766,31 +1771,84 @@ table tbody tr td p {
 }
 
 .ad-banner .ad-content .ad-text {
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   color: var(--white);
 }
 
 .ad-banner .ad-content .ad-text h2 {
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .ad-banner .ad-content .ad-text p {
-  margin-bottom: 0;
-  font-size: 14px;
+  opacity: .9;
   color: var(--white);
+  font-size: 16px;
+  margin-bottom: 0;
 }
 
 .ad-banner .ad-content .ad-image {
-  align-self: flex-end;
-  justify-self: flex-end;
-  padding-top: 15px;
+  display: flex;
+  padding: 1.5rem;
 }
 
-.ad-banner .ad-content .ad-image img {
-  user-select: none;
-  pointer-events: none;
-  max-height: 160px;
-  max-width: 100%;
+.ad-banner .ad-content .ad-image .input-with-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  overflow: hidden;
+  height: 50px;
+}
+
+.ad-banner .ad-content .ad-image .input-with-btn .dollar-sign {
+  height: 100%;
+  color: #acafb7;
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  width: 30px;
+  background: var(--white);
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+.ad-banner .ad-content .ad-image .input-with-btn input[type="number"] {
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  background: var(--white);
+  color: var(--dark);
+  cursor: text;
+  font-size: 25px;
+  font-weight: 700;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.ad-banner .ad-content .ad-image .input-with-btn input[type="number"]::placeholder {
+  color: #acafb7;
+}
+
+.ad-banner .ad-content .ad-image .input-with-btn input[type="number"] ::-webkit-outer-spin-button, .ad-banner .ad-content .ad-image .input-with-btn input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ad-banner .ad-content .ad-image .btn-paypal {
+  background: #f6f7f8;
+  color: #003087;
+  font-weight: bold;
+}
+
+.ad-banner .ad-content .ad-image .btn-paypal:hover {
+  background: rgba(246, 247, 248, 0.7);
 }
 
 .debug-window {
@@ -1979,19 +2037,19 @@ table tbody tr td p {
 }
 
 .shadow-df {
-  box-shadow: 0 1px 3px 0 rgba(0, 102, 255, 0.1), 0 1px 2px 0 rgba(0, 102, 255, 0.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 102, 255, 0.1), 0 2px 4px -1px rgba(0, 102, 255, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .shadow-lg {
-  box-shadow: 0px 0.5rem 0.8rem rgba(0, 102, 255, 0.1);
+  box-shadow: 0px 0.5rem 0.8rem rgba(0, 0, 0, 0.1);
 }
 
 .shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 102, 255, 0.1), 0 10px 10px -5px rgba(0, 102, 255, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .p25 {

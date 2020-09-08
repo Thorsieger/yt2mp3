@@ -7,10 +7,11 @@
 
 // UI Colors
 $color-green-fern: #60b66e;
-$color-purple-amethyst: #9b59b6;
+$color-purple-amethyst: #4e25e1;
 $color-grey-gallery: #d4d4d4;
 $color-blue-ribbon: #0066ff;
 $color-red-carnation: #f35f63;
+$color-dark: #000;
 $color-white: #ffffff;
 
 // UI Colors Map
@@ -27,6 +28,7 @@ $ui-colors: (default: $color-grey-gallery,
   --primary-ff: 'Helvetica Now', sans-serif;
   --tcolor: #222;
   --icon-size: 26px;
+  --purple: #{$color-purple-amethyst};
   --blue: #{$color-blue-ribbon};
   --font-size: 16px;
   --padding: 20px;

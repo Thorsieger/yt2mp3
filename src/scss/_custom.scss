@@ -204,10 +204,6 @@
     cursor: pointer;
     position: relative;
 
-    &.logo {
-      // background: #000;
-    }
-
     .icon {
       position: relative;
       // margin-right: 25px;
@@ -231,14 +227,18 @@
     }
 
     &.active {
-      .icon-tabler {
+      .line {
         opacity: 1;
+
+        &.fill {
+          fill: var(--blue)
+        }
       }
     }
 
-    .icon-tabler {
-      width: 24px;
-      height: 24px;
+    .line {
+      width: 26px;
+      height: 26px;
       fill: none;
       opacity: 0.4;
       stroke-linecap: round;
@@ -246,11 +246,11 @@
       fill-rule: evenodd;
       stroke-width: 1;
       stroke: #000;
-      transition: opacity 0.25s, transform .1s ease;
+      transition: opacity 0.25s, transform 0.1s ease;
 
       &.fill {
         stroke: none;
-        fill: var(--dark);
+        fill: var(--blue);
       }
     }
   }
@@ -274,26 +274,24 @@
 }
 
 .ad-banner {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translate(-50%, -20px);
-  width: 450px;
-  background: #673ab7;
+  transform: translate(-50%, 0);
   z-index: 999;
-  overflow: hidden;
-  border-radius: var(--radius);
 
   .ad-content {
+    width: 470px;
+    border-radius: var(--radius);
+    background: var(--purple);
     display: grid;
-    grid: auto / auto 160px;
     align-items: center;
     position: relative;
 
     .close {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      right: 15px;
+      top: 15px;
 
       .icon {
         opacity: 0.5;
@@ -310,31 +308,93 @@
     }
 
     .ad-text {
-      padding: 1.5rem;
+      padding: 1.5rem 1.5rem 0 1.5rem;
       color: var(--white);
 
       h2 {
-        font-size: 16px;
+        font-size: 20px;
+        margin-bottom: 10px;
       }
 
       p {
-        margin-bottom: 0;
-        font-size: 14px;
+        opacity: .9;
         color: var(--white);
+        font-size: 16px;
+        margin-bottom: 0;
       }
     }
 
     .ad-image {
-      align-self: flex-end;
-      justify-self: flex-end;
-      padding-top: 15px;
+      display: flex;
+      padding: 1.5rem;
 
-      img {
-        user-select: none;
-        pointer-events: none;
-        max-height: 160px;
-        max-width: 100%;
+      .input-with-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        overflow: hidden;
+        height: 50px;
+
+        .dollar-sign {
+          height: 100%;
+          color: #acafb7;
+          display: flex;
+          align-items: center;
+          padding-right: 15px;
+          width: 30px;
+          background: var(--white);
+          font-weight: bold;
+          font-size: 1.5em;
+          line-height: 1.5;
+        }
+
+        input[type="number"] {
+          border: none;
+          outline: none;
+          box-sizing: border-box;
+          background: var(--white);
+          color: var(--dark);
+          cursor: text;
+          font-size: 25px;
+          font-weight: 700;
+          height: 100%;
+          line-height: 1.5;
+          margin: 0;
+          padding: 0 15px;
+          width: 100%;
+
+          &::placeholder {
+            color: #acafb7;
+          }
+
+          & ::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
       }
+
+      .btn-paypal {
+        background: #f6f7f8;
+        color: #003087;
+        font-weight: bold;
+
+        &:hover {
+          background: rgba(#f6f7f8, .7);
+        }
+      }
+
+
+      // img {
+      //   user-select: none;
+      //   pointer-events: none;
+      //   max-height: 160px;
+      //   max-width: 100%;
+      // }
     }
   }
 }

@@ -12,7 +12,7 @@ function createWindow() {
     width: 1020,
     height: 640,
     frame: false,
-    //icon: __dirname + '/src/assets/icons/app.png',
+    icon: __dirname + '/src/assets/icons/logo.png',
     resizable: false,
     fullscreenable: false,
     webPreferences: {
