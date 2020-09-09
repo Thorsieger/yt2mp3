@@ -46,7 +46,7 @@
 
   .tab-pannel {
     &.scroll {
-      height: calc(100vh - 40px);
+      height: calc(100vh - 48px);
       overflow-y: auto;
     }
   }
@@ -72,36 +72,32 @@
   top: 0;
 }
 
-.searchbar {
+.input-main {
+  font-weight: normal;
+  width: 100%;
+  min-width: 400px;
+  align-self: flex-start;
+  padding: 0;
+  font-size: 12px;
+  line-height: 24px;
   border-radius: var(--radius);
+  outline: none;
+  padding: 0;
+  font-family: var(--primary-ff);
+  font-size: var(--font-size);
+  display: inline-block;
+  color: #444444;
+  height: 50px;
+  padding: 0 25px;
+  border: 1px solid #ddd;
 
-  .input-main {
-    font-weight: normal;
-    width: 100%;
-    min-width: 480px;
-    align-self: flex-start;
-    padding: 0;
-    font-size: 12px;
-    line-height: 24px;
-    border-radius: var(--radius);
-    outline: none;
-    padding: 0;
-    font-family: var(--primary-ff);
-    font-size: var(--font-size);
-    display: inline-block;
+  &:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  &::placeholder {
     color: #444444;
-    height: 50px;
-    padding: 0 25px;
-    border: 1px solid #ddd;
-
-    &:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 2px var(--blue);
-    }
-
-    &::placeholder {
-      color: #444444;
-    }
   }
 }
 
@@ -164,11 +160,8 @@
 }
 
 .sidebar-app {
-  // width: 27%;
-  // background: #000;
   background: #fff;
   color: #fff;
-  // border-right: 1px solid #ececec;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -448,5 +441,94 @@
 
   &.active {
     display: block;
+  }
+}
+
+.video-found {
+  margin-top: 2rem;
+
+  .video-inner {
+    .video-thumbnail {
+      background-size: cover;
+      background-position: center;
+      width: 250px;
+      height: 150px;
+      position: relative;
+      border-radius: var(--radius);
+
+      span {
+        font-weight: bold;
+        color: var(--white);
+        z-index: 999;
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        padding: 10px;
+      }
+    }
+
+    .artist-info {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+
+      .video-artist-img {
+        margin-right: 10px;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+      }
+
+      .video-title {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.video-list {
+  margin-top: 2rem;
+
+  .video-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    p {
+      margin-right: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    display: grid;
+    column-gap: 15px;
+    row-gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    max-height: 190px;
+
+    li {
+      padding: 0;
+      margin: 0;
+
+      // padding: 15px;
+      label {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        border-radius: var(--radius);
+        background: var(--disabled);
+
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
   }
 }

@@ -160,7 +160,7 @@
 
     &.switch {
       width: 38px;
-      border-radius: 11px;
+      border-radius: 50px;
       background: #e8e9eb;
       border: 0;
       position: relative;
@@ -181,11 +181,14 @@
       //     --ab: var(--dark);
       //   }
       // }
+
       &:hover {
         &:before {
           content: "Off";
           color: var(--white);
           position: absolute;
+          opacity: 1;
+          visibility: visible;
           background: #000;
           border-radius: var(--radius);
           right: -100%;
@@ -207,6 +210,13 @@
         //     --ab: var(--background);
         //   }
         // }
+        &:before {
+          content: '';
+          opacity: 0;
+          visibility: hidden;
+          transition: .1s ease;
+        }
+
         &:hover {
           &:before {
             content: "On";

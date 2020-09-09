@@ -27,21 +27,6 @@
       font-family: 'Helvetica', Arial, sans-serif;
       margin-left: 10px;
     }
-
-    #progressBar {
-      position: absolute;
-      z-index: -1;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      background: var(--blue);
-
-      span {
-        position: absolute;
-        right: 10px;
-        color: #fff;
-      }
-    }
   }
 
   #window-controls {
@@ -60,16 +45,13 @@
       user-select: none;
       cursor: pointer;
 
-      i {
-        font-size: 20px;
-        transition: 0.2s ease;
-        color: black;
-      }
-
-      &:hover {
-        i {
-          opacity: 0.6;
-        }
+      .icon {
+        width: 22px;
+        height: 22px;
+        stroke: #000;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
     }
 
@@ -87,7 +69,7 @@
       &:hover {
         background: #e6293f;
 
-        svg path {
+        .icon {
           stroke: #fff;
         }
       }

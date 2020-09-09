@@ -489,59 +489,77 @@ tbody {
   border-spacing: 0;
 }
 
-table {
+.history table {
   width: 100%;
   border-collapse: inherit;
   height: 100%;
   box-sizing: border-box;
 }
 
-table thead tr th {
+.history table thead tr th {
   text-align: left;
   padding: 15px;
   font-size: 14px;
 }
 
-table thead tr th:first-child {
-  width: 5%;
+.history table thead tr th:first-child {
+  width: 55px;
+  text-align: center;
 }
 
-table thead,
-table tbody tr {
+.history table thead tr th:last-child {
+  display: grid;
+  align-items: center;
+  column-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.history table thead tr th:last-child .icon {
+  stroke-width: 1;
+  stroke: #000;
+  fill: none;
+}
+
+.history table thead tr th:last-child .small {
+  background: var(--disabled);
+}
+
+.history table thead,
+.history table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
 
-table tbody {
+.history table tbody {
   display: block;
   height: 100%;
   overflow-y: auto;
 }
 
-table tbody tr td {
+.history table tbody tr td {
   padding: 10px 15px;
   opacity: 0.5;
 }
 
-table tbody tr td:first-child {
+.history table tbody tr td:first-child {
   opacity: 1;
   text-align: center;
-  width: 5%;
+  width: 55px;
 }
 
-table tbody tr td:last-child {
+.history table tbody tr td:last-child {
   display: grid;
   column-gap: 15px;
   grid-template-columns: 1fr 1fr;
 }
 
-table tbody tr td:last-child {
+.history table tbody tr td:last-child {
   opacity: 1;
 }
 
-table tbody tr td h4,
-table tbody tr td p {
+.history table tbody tr td h4,
+.history table tbody tr td p {
   font-size: 14px;
   margin: 0;
 }
@@ -1102,7 +1120,7 @@ table tbody tr td p {
   }
   input[type="checkbox"].switch {
     width: 38px;
-    border-radius: 11px;
+    border-radius: 50px;
     background: #e8e9eb;
     border: 0;
     position: relative;
@@ -1121,6 +1139,8 @@ table tbody tr td p {
     content: "Off";
     color: var(--white);
     position: absolute;
+    opacity: 1;
+    visibility: visible;
     background: #000;
     border-radius: var(--radius);
     right: -100%;
@@ -1134,6 +1154,12 @@ table tbody tr td p {
     --ab: var(--white);
     --x: 17px;
     background: var(--dark);
+  }
+  input[type="checkbox"].switch:checked:before {
+    content: '';
+    opacity: 0;
+    visibility: hidden;
+    transition: .1s ease;
   }
   input[type="checkbox"].switch:checked:hover:before {
     content: "On";
@@ -1519,7 +1545,7 @@ table tbody tr td p {
 }
 
 .content .tab-pannel.scroll {
-  height: calc(100vh - 40px);
+  height: calc(100vh - 48px);
   overflow-y: auto;
 }
 
@@ -1543,14 +1569,10 @@ table tbody tr td p {
   top: 0;
 }
 
-.searchbar {
-  border-radius: var(--radius);
-}
-
-.searchbar .input-main {
+.input-main {
   font-weight: normal;
   width: 100%;
-  min-width: 480px;
+  min-width: 400px;
   align-self: flex-start;
   padding: 0;
   font-size: 12px;
@@ -1567,12 +1589,12 @@ table tbody tr td p {
   border: 1px solid #ddd;
 }
 
-.searchbar .input-main:focus {
+.input-main:focus {
   border-color: var(--blue);
   box-shadow: 0 0 0 2px var(--blue);
 }
 
-.searchbar .input-main::placeholder {
+.input-main::placeholder {
   color: #444444;
 }
 
@@ -1903,6 +1925,92 @@ table tbody tr td p {
   display: block;
 }
 
+.video-found {
+  margin-top: 2rem;
+}
+
+.video-found .video-inner .video-thumbnail {
+  background-size: cover;
+  background-position: center;
+  width: 250px;
+  height: 150px;
+  position: relative;
+  border-radius: var(--radius);
+}
+
+.video-found .video-inner .video-thumbnail span {
+  font-weight: bold;
+  color: var(--white);
+  z-index: 999;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 10px;
+}
+
+.video-found .video-inner .artist-info {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.video-found .video-inner .artist-info .video-artist-img {
+  margin-right: 10px;
+}
+
+.video-found .video-inner .artist-info .video-artist-img img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.video-found .video-inner .artist-info .video-title {
+  font-weight: bold;
+}
+
+.video-list {
+  margin-top: 2rem;
+}
+
+.video-list .video-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.video-list .video-head p {
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.video-list ul {
+  display: grid;
+  column-gap: 15px;
+  row-gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-height: 190px;
+}
+
+.video-list ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.video-list ul li label {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  border-radius: var(--radius);
+  background: var(--disabled);
+}
+
+.video-list ul li label span {
+  margin-left: 10px;
+}
+
 #context-menu {
   position: fixed;
   z-index: 10000;
@@ -1973,21 +2081,6 @@ table tbody tr td p {
   margin-left: 10px;
 }
 
-#titlebar #window-title #progressBar {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  background: var(--blue);
-}
-
-#titlebar #window-title #progressBar span {
-  position: absolute;
-  right: 10px;
-  color: #fff;
-}
-
 #titlebar #window-controls {
   display: grid;
   grid-template-columns: repeat(2, 50px);
@@ -2006,14 +2099,13 @@ table tbody tr td p {
   cursor: pointer;
 }
 
-#titlebar #window-controls .button i {
-  font-size: 20px;
-  transition: 0.2s ease;
-  color: black;
-}
-
-#titlebar #window-controls .button:hover i {
-  opacity: 0.6;
+#titlebar #window-controls .button .icon {
+  width: 22px;
+  height: 22px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #titlebar #window-controls #min-button {
@@ -2032,7 +2124,7 @@ table tbody tr td p {
   background: #e6293f;
 }
 
-#titlebar #window-controls #close-button:hover svg path {
+#titlebar #window-controls #close-button:hover .icon {
   stroke: #fff;
 }
 

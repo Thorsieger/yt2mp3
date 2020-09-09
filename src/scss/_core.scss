@@ -107,65 +107,85 @@ tbody {
   border-spacing: 0;
 }
 
-table {
-  width: 100%;
-  border-collapse: inherit;
-  height: 100%;
-  box-sizing: border-box;
+.history {
+  table {
+    width: 100%;
+    border-collapse: inherit;
+    height: 100%;
+    box-sizing: border-box;
 
-  thead {
+    thead {
 
-    tr {
-      th {
-        text-align: left;
-        padding: 15px;
-        font-size: 14px;
+      tr {
+        th {
+          text-align: left;
+          padding: 15px;
+          font-size: 14px;
 
-        &:first-child {
-          width: 5%;
+          &:first-child {
+            width: 55px;
+            text-align: center;
+          }
+
+          &:last-child {
+            display: grid;
+            align-items: center;
+            column-gap: 15px;
+            grid-template-columns: 1fr 1fr;
+
+            .icon {
+              stroke-width: 1;
+              stroke: #000;
+              fill: none;
+            }
+
+            .small {
+              background: var(--disabled);
+            }
+          }
         }
       }
     }
-  }
 
-  thead,
-  tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
+    thead,
+    tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
 
-  tbody {
-    display: block;
-    height: 100%;
-    overflow-y: auto;
+    tbody {
+      display: block;
+      height: 100%;
+      overflow-y: auto;
 
-    tr {
+      tr {
 
-      td {
-        &:first-child {
-          opacity: 1;
-          text-align: center;
-          width: 5%;
-        }
+        td {
+          &:first-child {
+            opacity: 1;
+            text-align: center;
+            width: 55px;
+          }
 
-        &:last-child {
-          display: grid;
-          column-gap: 15px;
-          grid-template-columns: 1fr 1fr;
-        }
+          &:last-child {
+            display: grid;
+            column-gap: 15px;
+            grid-template-columns: 1fr 1fr;
+          }
 
-        padding: 10px 15px;
-        opacity: 0.5;
+          padding: 10px 15px;
+          opacity: 0.5;
 
-        &:last-child {
-          opacity: 1;
-        }
+          &:last-child {
+            opacity: 1;
+          }
 
-        h4,
-        p {
-          font-size: 14px;
-          margin: 0;
+          h4,
+          p {
+            font-size: 14px;
+            margin: 0;
+          }
         }
       }
     }

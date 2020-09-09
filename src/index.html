@@ -167,56 +167,98 @@
           </div>
           <div id="window-controls">
             <div class="button" id="min-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M0 0h24v24H0z" stroke="none" />
-                <path d="M5 12h14" />
-              </svg>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <line x1="19" y1="12" x2="5" y2="12"></line></svg>
             </div>
             <div class="button" id="close-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <line x1="19" y1="19" x2="5" y2="5"></line>
+                <line x1="19" y1="5" x2="5" y2="19"></line></svg>
             </div>
           </div>
         </div>
       </header>
       <!-- App content -->
       <div class="content block">
-        <section class="tab-pannel">
-          <div class="centered">
-            <div class="flex searchbar">
-              <input class="input-main" type="text" name="" id="playlist-id" placeholder="Give me a link" />
-              <button onclick="download()" class="btn btn-blue ml2 large" id="dl-button">
-                Télécharger
-              </button>
+        <section class="tab-pannel d-flex jce p1">
+        <!-- Search song -->
+        <div class="flex w-small">
+          <input class="input-main" type="text" name="" id="playlist-id" placeholder="Lien de la playlist YouTube" />
+          <button onclick="download()" class="btn btn-blue ml2 large" id="dl-button">
+            Télécharger
+          </button>
+        </div>
+        <!-- Sound found -->
+        <div class="video-found">
+          <div class="video-inner">
+            <div class="video-thumbnail" style="background-image: url('assets/img/video.jpg')">
+              <span>5+</span>
+            </div>
+            <div class="artist-info">
+              <div class="video-artist-img"><img src="assets/img/avatar.jpg" alt=""></div>
+              <div class="video-title">Scylla - Masque De Chair</div>
             </div>
           </div>
-            <!-- Ad banner -->
-  <div id="ad-banner" class="ad-banner">
-    <div class="ad-content">
-      <div class="close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="icon">
-          <path
-            d="M2.9 17.1C-1 13.2-1 6.8 2.9 2.9S13.1-1 17 2.9s3.9 10.2 0 14.1c-3.8 4-10.2 4-14.1.1zM8.6 10l-2.1 2.1c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l2.1-2.1 2.1 2.1c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L11.4 10l2.1-2.1c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L10 8.6 7.9 6.5c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4L8.6 10z"
-          /></svg>
-      </div>
-      <div class="ad-text">
-        <h2>Vous aimez udownload ?</h2>
-        <p>Soutenez nous en faisant un don, notre offre est gratuite et sans publicité notre seul financement c'est vous.</p>
-      </div>
-      <div class="ad-image">
-        <div class="input-with-btn" style="max-width: 33.3333%;">
-          <input type="number" step="0.50" placeholder="1" name="" id="">
-          <div class="dollar-sign">€</div>
         </div>
-        <a href="#" class="btn btn-paypal shadow-lg">Donner</a>
-      </div>
-    </div>
-  </div>
+        <!-- Found song -->
+        <div class="video-list">
+          <div class="video-head">
+            <p class="bold">Veuillez sélectionner les vidéos que vous souhaitez télécharger</p>
+            <input type="checkbox" name="" id="checkAll">
+            <label for="checkAll">Tout selectionner</label>
+          </div>
+          <ul>
+            <li>
+              <label for="song1">
+              <input type="checkbox" name="" id="song1">
+              <span>Song1</span></label>
+            </li>
+            <li>
+              <label for="song2">
+              <input type="checkbox" name="" id="song2">
+              <span>Song2</span></label>
+            </li>
+            <li>
+              <label for="song3">
+              <input type="checkbox" name="" id="song3">
+              <span>Song3</span></label>
+            </li>
+            <li>
+              <label for="song4">
+              <input type="checkbox" name="" id="song4">
+              <span>Song4</span></label>
+            </li>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="" id="song5">
+                <span>Song5</span></label>
+              </li>
+          </ul>
+        </div>
+        <!-- Ad banner -->
+        <div id="ad-banner" class="ad-banner hidden">
+          <div class="ad-content">
+            <div class="close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="icon">
+                <path
+                  d="M2.9 17.1C-1 13.2-1 6.8 2.9 2.9S13.1-1 17 2.9s3.9 10.2 0 14.1c-3.8 4-10.2 4-14.1.1zM8.6 10l-2.1 2.1c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l2.1-2.1 2.1 2.1c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L11.4 10l2.1-2.1c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L10 8.6 7.9 6.5c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4L8.6 10z"
+                /></svg>
+            </div>
+            <div class="ad-text">
+              <h2>Vous aimez udownload ?</h2>
+              <p>Soutenez nous en faisant un don, notre offre est gratuite et sans publicité notre seul financement c'est vous.</p>
+            </div>
+            <div class="ad-image">
+              <div class="input-with-btn" style="max-width: 33.3333%;">
+                <input type="number" step="0.50" placeholder="1" name="" id="">
+                <div class="dollar-sign">€</div>
+              </div>
+              <a href="#" class="btn btn-paypal shadow-lg">Donner</a>
+            </div>
+          </div>
+        </div>
         </section>
-        <section class="tab-pannel">
+        <section class="tab-pannel history">
           <table>
             <thead>
               <tr>
@@ -231,7 +273,12 @@
                   Date
                 </th>
                 <th>
-                  Action
+                  <span>Action</span>
+                  <span class="btn btn-default small">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"/>
+                      <path d="M18 15l-6-6l-6 6h12" transform="rotate(180 12 12)" />
+                    </svg>
                 </th>
               </tr>
             </thead>
@@ -248,7 +295,7 @@
                   <p>3.5Mb</p>
                 </td>
                 <td>
-                  <p>09 Septembre 2020</p>
+                  <p>09/09/2020</p>
                 </td>
                 <td>
                   <a href="#" class="btn btn-dark small">Ouvrir</a>
@@ -260,13 +307,13 @@
                   <input type="checkbox" name="tableItems" id="fl2">
                 </td>
                 <td>
-                  <p>File name.mp3</p>
+                  <p>Sample Song.mp3</p>
                 </td>
                 <td>
-                  <p>3.5Mb</p>
+                  <p>4.2Mb</p>
                 </td>
                 <td>
-                  <p>09 Septembre 2020</p>
+                  <p>15/10/2020</p>
                 </td>
                 <td>
                   <a href="#" class="btn btn-dark small">Ouvrir</a>
