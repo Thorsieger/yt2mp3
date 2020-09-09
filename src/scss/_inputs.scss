@@ -187,8 +187,6 @@
           content: "Off";
           color: var(--white);
           position: absolute;
-          opacity: 1;
-          visibility: visible;
           background: #000;
           border-radius: var(--radius);
           right: -100%;
@@ -210,12 +208,6 @@
         //     --ab: var(--background);
         //   }
         // }
-        &:before {
-          content: '';
-          opacity: 0;
-          visibility: hidden;
-          transition: .1s ease;
-        }
 
         &:hover {
           &:before {

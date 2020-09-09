@@ -180,7 +180,7 @@
       </header>
       <!-- App content -->
       <div class="content block">
-        <section class="tab-pannel d-flex jce p1">
+        <section class="tab-pannel jce p1">
         <!-- Search song -->
         <div class="flex w-small">
           <input class="input-main" type="text" name="" id="playlist-id" placeholder="Lien de la playlist YouTube" />
@@ -189,51 +189,81 @@
           </button>
         </div>
         <!-- Sound found -->
-        <div class="video-found">
-          <div class="video-inner">
-            <div class="video-thumbnail" style="background-image: url('assets/img/video.jpg')">
-              <span>5+</span>
-            </div>
-            <div class="artist-info">
-              <div class="video-artist-img"><img src="assets/img/avatar.jpg" alt=""></div>
-              <div class="video-title">Scylla - Masque De Chair</div>
+        <div class="flex mt2">
+          <div class="video-found">
+            <div class="video-inner">
+              <div class="video-thumbnail" style="background-image: url('assets/img/video.jpg')">
+                <div class="love">
+                  <svg class="icon" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19.57,5.44a4.91,4.91,0,0,1,0,6.93L12,20,4.43,12.37A4.91,4.91,0,0,1,7.87,4a4.9,4.9,0,0,1,3.44,1.44,4.46,4.46,0,0,1,.69.88,4.46,4.46,0,0,1,.69-.88,4.83,4.83,0,0,1,6.88,0Z"></path></svg></div>
+                <span>5+</span>
+              </div>
+              <div class="artist-info">
+                <div class="video-title">Zak Abel</div>
+                <span class="op-light">Love video music</span>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Found song -->
-        <div class="video-list">
-          <div class="video-head">
-            <p class="bold">Veuillez sélectionner les vidéos que vous souhaitez télécharger</p>
-            <input type="checkbox" name="" id="checkAll">
-            <label for="checkAll">Tout selectionner</label>
-          </div>
-          <ul>
-            <li>
-              <label for="song1">
-              <input type="checkbox" name="" id="song1">
-              <span>Song1</span></label>
-            </li>
-            <li>
-              <label for="song2">
-              <input type="checkbox" name="" id="song2">
-              <span>Song2</span></label>
-            </li>
-            <li>
-              <label for="song3">
-              <input type="checkbox" name="" id="song3">
-              <span>Song3</span></label>
-            </li>
-            <li>
-              <label for="song4">
-              <input type="checkbox" name="" id="song4">
-              <span>Song4</span></label>
-            </li>
+          <!-- Found song -->
+          <div class="video-list">
+            <div class="video-head">
+              <p class="bold">Veuillez sélectionner les vidéos que vous souhaitez télécharger</p>
+              <input type="checkbox" name="" onClick="toggleAll(this)" id="checkAll">
+              <label for="checkAll">Tout selectionner</label>
+            </div>
+            <ul>
+              <li>
+                <label for="song1">
+                <input type="checkbox" name="videoNames" id="song1">
+                <span>Song1</span></label>
+              </li>
+              <li>
+                <label for="song2">
+                <input type="checkbox" name="videoNames" id="song2">
+                <span>Song2</span></label>
+              </li>
+              <li>
+                <label for="song3">
+                <input type="checkbox" name="videoNames" id="song3">
+                <span>Song3</span></label>
+              </li>
+              <li>
+                <label for="song4">
+                <input type="checkbox" name="videoNames" id="song4">
+                <span>Song4</span></label>
+              </li>
               <li>
                 <label for="song5">
-                <input type="checkbox" name="" id="song5">
+                <input type="checkbox" name="videoNames" id="song5">
                 <span>Song5</span></label>
               </li>
-          </ul>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="videoNames" id="song5">
+                <span>Song5</span></label>
+              </li>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="videoNames" id="song5">
+                <span>Song5</span></label>
+              </li>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="videoNames" id="song5">
+                <span>Song5</span></label>
+              </li>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="videoNames" id="song5">
+                <span>Song5</span></label>
+              </li>
+              <li>
+                <label for="song5">
+                <input type="checkbox" name="videoNames" id="song5">
+                <span>Song5</span></label>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- Ad banner -->
         <div id="ad-banner" class="ad-banner hidden">

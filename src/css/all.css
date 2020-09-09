@@ -1139,8 +1139,6 @@ tbody {
     content: "Off";
     color: var(--white);
     position: absolute;
-    opacity: 1;
-    visibility: visible;
     background: #000;
     border-radius: var(--radius);
     right: -100%;
@@ -1154,12 +1152,6 @@ tbody {
     --ab: var(--white);
     --x: 17px;
     background: var(--dark);
-  }
-  input[type="checkbox"].switch:checked:before {
-    content: '';
-    opacity: 0;
-    visibility: hidden;
-    transition: .1s ease;
   }
   input[type="checkbox"].switch:checked:hover:before {
     content: "On";
@@ -1803,7 +1795,7 @@ tbody {
 }
 
 .ad-banner .ad-content .ad-text p {
-  opacity: .9;
+  opacity: 0.9;
   color: var(--white);
   font-size: 16px;
   margin-bottom: 0;
@@ -1926,16 +1918,35 @@ tbody {
 }
 
 .video-found {
-  margin-top: 2rem;
+  margin-right: 2rem;
 }
 
 .video-found .video-inner .video-thumbnail {
   background-size: cover;
   background-position: center;
-  width: 250px;
+  width: 150px;
   height: 150px;
   position: relative;
   border-radius: var(--radius);
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-found .video-inner .video-thumbnail .love {
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.video-found .video-inner .video-thumbnail:hover .love {
+  fill: #fff;
+  stroke: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .video-found .video-inner .video-thumbnail span {
@@ -1943,39 +1954,30 @@ tbody {
   color: var(--white);
   z-index: 999;
   position: absolute;
-  left: 10px;
-  bottom: 10px;
-  padding: 10px;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
 }
 
 .video-found .video-inner .artist-info {
-  display: flex;
-  align-items: center;
+  display: block;
   margin-top: 15px;
-}
-
-.video-found .video-inner .artist-info .video-artist-img {
-  margin-right: 10px;
-}
-
-.video-found .video-inner .artist-info .video-artist-img img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
 }
 
 .video-found .video-inner .artist-info .video-title {
   font-weight: bold;
+  color: var(--tcolor);
+  margin-bottom: 5px;
 }
 
 .video-list {
-  margin-top: 2rem;
+  width: 100%;
 }
 
 .video-list .video-head {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 15px;
 }
 
 .video-list .video-head p {
@@ -1989,7 +1991,9 @@ tbody {
   row-gap: 15px;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  max-height: 190px;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 15px;
 }
 
 .video-list ul li {

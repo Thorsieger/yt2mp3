@@ -91,6 +91,12 @@ function toggle(source) {
   }
 }
 
+function toggleAll(source) {
+  checkboxes = document.getElementsByName('videoNames');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
 // let element = document.getElementById('logInNow');
 
 // function toggle () {
