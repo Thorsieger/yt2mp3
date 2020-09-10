@@ -682,7 +682,7 @@ tbody {
 }
 
 .notif-app .item.error p {
-  color: white;
+  color: var(--white);
 }
 
 .card {
@@ -1670,11 +1670,11 @@ tbody {
 }
 
 .sidebar-app .nav-item {
-  padding: 13px;
+  padding: 16px;
   margin: 0;
   border: 0;
   background: transparent;
-  color: white;
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1693,7 +1693,7 @@ tbody {
 }
 
 .sidebar-app .nav-item .icon.icon-notif:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   display: block;
@@ -1714,8 +1714,8 @@ tbody {
 }
 
 .sidebar-app .nav-item .line {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   fill: none;
   opacity: 0.4;
   stroke-linecap: round;
@@ -1830,7 +1830,7 @@ tbody {
   line-height: 1.5;
 }
 
-.ad-banner .ad-content .ad-image .input-with-btn input[type="number"] {
+.ad-banner .ad-content .ad-image .input-with-btn input[type='number'] {
   border: none;
   outline: none;
   box-sizing: border-box;
@@ -1846,11 +1846,11 @@ tbody {
   width: 100%;
 }
 
-.ad-banner .ad-content .ad-image .input-with-btn input[type="number"]::placeholder {
+.ad-banner .ad-content .ad-image .input-with-btn input[type='number']::placeholder {
   color: #acafb7;
 }
 
-.ad-banner .ad-content .ad-image .input-with-btn input[type="number"] ::-webkit-outer-spin-button, .ad-banner .ad-content .ad-image .input-with-btn input[type="number"]::-webkit-inner-spin-button {
+.ad-banner .ad-content .ad-image .input-with-btn input[type='number'] ::-webkit-outer-spin-button, .ad-banner .ad-content .ad-image .input-with-btn input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -1936,17 +1936,9 @@ tbody {
 
 .video-found .video-inner .video-thumbnail .love {
   opacity: 0;
-  transition: opacity .25s ease;
-}
-
-.video-found .video-inner .video-thumbnail:hover .love {
+  transition: 0.12s ease;
   fill: #fff;
   stroke: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1;
-  cursor: pointer;
-  opacity: 1;
 }
 
 .video-found .video-inner .video-thumbnail span {
@@ -2035,7 +2027,7 @@ tbody {
   font-size: 14px;
   cursor: pointer;
   border-radius: var(--radius);
-  color: white;
+  color: var(--white);
   display: flex;
   align-items: center;
 }
@@ -2484,7 +2476,7 @@ a {
 .p-tooltip .tooltip-icon {
   width: 20px;
   height: 20px;
-  stroke: white;
+  stroke: var(--white);
 }
 
 .p-tooltip.pd-small .p-tooltip-content {

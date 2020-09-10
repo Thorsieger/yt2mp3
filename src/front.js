@@ -120,7 +120,8 @@ function toggleAll(source) {
 function initTabNav() {
   const tabMenu = document.querySelectorAll('.sidebar-app .nav-item')
   const tabContent = document.querySelectorAll('.content section')
-
+  var newTitle = document.querySelector("body > div.container > aside > div > a.nav-item.active").dataset.title
+  document.getElementById('page-title').innerText = newTitle
   if (tabMenu.length && tabContent.length) {
       tabMenu[0].classList.add('active')
       tabContent[0].classList.add('active')

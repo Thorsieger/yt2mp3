@@ -184,11 +184,11 @@
   }
 
   .nav-item {
-    padding: 13px;
+    padding: 16px;
     margin: 0;
     border: 0;
     background: transparent;
-    color: white;
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -205,7 +205,7 @@
         position: relative;
 
         &:before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           display: block;
@@ -230,8 +230,8 @@
     }
 
     .line {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       fill: none;
       opacity: 0.4;
       stroke-linecap: round;
@@ -344,7 +344,7 @@
           line-height: 1.5;
         }
 
-        input[type="number"] {
+        input[type='number'] {
           border: none;
           outline: none;
           box-sizing: border-box;
@@ -461,20 +461,17 @@
 
       .love {
         opacity: 0;
-        transition: opacity .25s ease;
+        transition: 0.12s ease;
+        fill: #fff;
+        stroke: none;
       }
 
-      &:hover {
-        .love {
-          fill: #fff;
-          stroke: none;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-width: 1;
-          cursor: pointer;
-          opacity: 1;
-        }
-      }
+      // &:hover {
+      //   .love {
+      //     cursor: pointer;
+      //     opacity: 1;
+      //   }
+      // }
 
       span {
         font-weight: bold;
