@@ -1684,6 +1684,10 @@ tbody {
   position: relative;
 }
 
+.sidebar-app .nav-item:hover .line {
+  opacity: 1;
+}
+
 .sidebar-app .nav-item .icon {
   position: relative;
 }
@@ -1717,7 +1721,7 @@ tbody {
   width: 24px;
   height: 24px;
   fill: none;
-  opacity: 0.4;
+  opacity: 0.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill-rule: evenodd;
