@@ -23,10 +23,11 @@
   "license": "MIT",
   "dependencies": {
     "electron-reload": "^1.5.0",
-    "ffmpeg-static": "^4.2.6",
+    "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
+    "node-itunes-search": "^1.2.2",
     "ytdl-core": "^3.2.1",
-    "ytpl": "^0.2.0"
+    "ytpl": "^1.0.1"
   },
   "devDependencies": {
     "electron": "^9.2.0",

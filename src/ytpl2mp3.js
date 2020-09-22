@@ -1,16 +1,17 @@
-const fs = require('fs')
-const ytpl = require('ytpl')
-const ytdl = require('ytdl-core')
-const ffmpeg = require('fluent-ffmpeg')
-const { remote } = require('electron')
-const path = require('path')
+const fs = require('fs');
+const ytpl = require('ytpl');
+const ytdl = require('ytdl-core');
+const ffmpeg = require('fluent-ffmpeg');
+const { remote } = require('electron');
+const path = require('path');
+const itunesAPI = require("node-itunes-search");
 
-ytpl.do_warn_deprecate = false;
 
 var pathToFfmpeg = require('ffmpeg-static').replace(
   'app.asar',
   'app.asar.unpacked',
 )
+
 ffmpeg.setFfmpegPath(pathToFfmpeg)
 
 var startTime;
@@ -45,24 +46,24 @@ function download() {
   let link = document.getElementById('playlist-id').value
   format = document.querySelector('input[name="radio"]:checked').id;
 
-  ytpl.getPlaylistID(link, (err, playlistID) => {
-    if (err) {
-      try {
-        if (ytdl.getVideoID(link)) return download_track(link)
-      } catch (err) {
-        return afficher_err('Wrong link', err)
-      }
-    }
+  ytpl.getPlaylistID(link).then((playlistID) => {
 
-    ytpl(playlistID, { limit: Infinity }, function (err, playlist) {
-      if (err) return afficher_err(err.name, err.message)
+    ytpl(playlistID, { limit: Infinity }).then((playlist)=> {
       document.getElementById('text-out').innerHTML ='Téléchargement de la playlist : ' + playlist.title + '<br>'
-      document.getElementById('text-out').innerHTML +='Nombre de piste audio à télécharger : ' +playlist.total_items +'<br><br>'
+      document.getElementById('text-out').innerHTML +='Nombre de piste audio à télécharger : ' + playlist.total_items + '<br><br>'
       if (!fs.existsSync(chemin + '/' + playlist.title))
         fs.mkdirSync(chemin + '/' + playlist.title)
       dl_track_from_playlist(playlist, 0)
-    })
-  })
+    }).catch(err => {
+      return afficher_err(err.name, err.message);
+    });
+  }).catch(err => {
+    try {
+      if (ytdl.getVideoID(link)) return download_track(link)
+    } catch (error) {
+      return afficher_err('Wrong link', "Aucun fichier disponible au téléchargement")
+    }
+  });
 }
 
 const onProgress = (chunkLength, downloaded, total) => {
@@ -81,16 +82,42 @@ function download_track(link) {
   let stream = ytdl(link, { quality: 'highestaudio' })
   stream.on('progress', onProgress)
   stream.on('info', (info) => {
-    //document.getElementById('progressBar').classList.add('visible')
-    document.getElementById('text-out').innerHTML +="Téléchargement de : " + info.videoDetails.title;
-    let start = Date.now()
+  //document.getElementById('progressBar').classList.add('visible')
+  document.getElementById('text-out').innerHTML +="Téléchargement de : " + info.videoDetails.title;
+  let start = Date.now()
+    
+  const searchOptions = {
+    term: `${info.videoDetails.title}`,
+    limit: 1
+  };
+    
+  itunesAPI.searchItunes(searchOptions).then((result) => {
 
-    var metadata = [
-      `-metadata`,
-      `title=${info.videoDetails.title}  `,
-      `-metadata`,
-      `artist=${info.videoDetails.author.name}  `,
-    ]
+    var metadata;
+    if(result.resultCount == 0)
+    {
+      metadata = [
+        `-metadata`,
+        `title=${info.videoDetails.title}  `,
+        `-metadata`,
+        `artist=${info.videoDetails.author.name}  `,
+      ];
+    }
+    else
+    {
+      metadata = [
+        `-metadata`,
+        `title=${result.results[0].trackName}  `,
+        `-metadata`,
+        `artist=${result.results[0].artistName}  `,
+        `-metadata`,
+        `album=${result.results[0].collectionName}  `,
+        `-metadata`,
+        `date=${result.results[0].releaseDate}  `,
+        `-metadata`,
+        `genre=${result.results[0].kind}  `,
+      ];
+    }
 
     var fichier_out = `${chemin}/${info.videoDetails.title.replace(/\//g,'-')}.${format}`;
     if(process.platform == 'win32') fichier_out =`${chemin}/${info.videoDetails.title.replace(/\//g,'-').replace(/[\<\>\:\«\|\?\*\.]*/g,'')}.${format}`;
@@ -104,8 +131,9 @@ function download_track(link) {
       })
       .on('end', () => {
         afficher_notif(info.videoDetails.title, taille + 'MB')
-      })
-  })
+      });
+    });
+  });
 }
 
 function dl_track_from_playlist(playlist, element) {
@@ -116,34 +144,61 @@ function dl_track_from_playlist(playlist, element) {
   document.getElementById('text-out').innerHTML +="Téléchargement de : " + playlist.items[element].title;
   let start = Date.now()
 
-  var metadata = [
-    `-metadata`,
-    `title=${playlist.items[element].title}  `,
-    `-metadata`,
-    `artist=${playlist.items[element].author.name}  `,
-  ]
+  const searchOptions = {
+    term: `${playlist.items[element].title}`,
+    limit: 1
+  };
 
-  var fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-')}.${format}`;
-  if(process.platform == 'win32') fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-').replace(/[\<\>\:\«\|\?\*\.]*/g,'')}.${format}`;
-  
-  ffmpeg(stream)
-    .audioBitrate(128)
-    .outputOptions(metadata)
-    .save(fichier_out)
-    .on('error', function (err, stdout, stderr) {
-      afficher_err(info.videoDetails.title, err)
-      if (element < playlist.total_items - 1)
-        dl_track_from_playlist(playlist, ++element)
-      else
-        document.getElementById('text-out').innerHTML += `Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`
-    })
-    .on('end', () => {
-      afficher_notif(playlist.items[element].title, taille + ' MB')
-      if (element < playlist.total_items - 1)
-        dl_track_from_playlist(playlist, ++element)
-      else
-        document.getElementById('text-out',).innerHTML += `Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`
-    })
+  itunesAPI.searchItunes(searchOptions).then((result) => {
+
+    var metadata;
+    if(result.resultCount == 0)
+    {
+      metadata = [
+        `-metadata`,
+        `title=${playlist.items[element].title}  `,
+        `-metadata`,
+        `artist=${playlist.items[element].author.name}  `,
+      ];
+    }
+    else
+    {
+      metadata = [
+        `-metadata`,
+        `title=${result.results[0].trackName}  `,
+        `-metadata`,
+        `artist=${result.results[0].artistName}  `,
+        `-metadata`,
+        `album=${result.results[0].collectionName}  `,
+        `-metadata`,
+        `date=${result.results[0].releaseDate}  `,
+        `-metadata`,
+        `genre=${result.results[0].kind}  `,
+      ];
+    }
+
+    var fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-')}.${format}`;
+    if(process.platform == 'win32') fichier_out = `${chemin}/${playlist.title}/${playlist.items[element].title.replace(/\//g,'-').replace(/[\<\>\:\«\|\?\*\.]*/g,'')}.${format}`;
+    
+    ffmpeg(stream)
+      .audioBitrate(128)
+      .outputOptions(metadata)
+      .save(fichier_out)
+      .on('error', function (err, stdout, stderr) {
+        afficher_err(playlist.items[element].title, err)
+        if (element < playlist.total_items - 1)
+          dl_track_from_playlist(playlist, ++element)
+        else
+          document.getElementById('text-out').innerHTML += `Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`
+      })
+      .on('end', () => {
+        afficher_notif(playlist.items[element].title, taille + ' MB')
+        if (element < playlist.total_items - 1)
+          dl_track_from_playlist(playlist, ++element)
+        else
+          document.getElementById('text-out',).innerHTML += `Playlist téléchargée en ${(Date.now() - startTime) / 1000}s<br>`
+      });
+  });
 }
 
 function choose_path() {
