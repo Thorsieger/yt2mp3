@@ -27,9 +27,9 @@ window.onload = () => {
 
   if (setting.welcomeMsg) {
     document.getElementById('s3').checked = true
-    document.getElementById('intro').classList.remove('hidden')
+    document.getElementById('page').classList.add('active')
   } else {
-    document.getElementById('s3').checked = false
+		document.getElementById('s3').checked = false
   }
 
   if (setting.debug){

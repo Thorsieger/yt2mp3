@@ -1,78 +1,77 @@
 #titlebar {
-  display: flex;
-  position: relative;
-  height: 48px;
-  align-items: center;
-  justify-content: space-between;
-  // border-bottom: 1px solid #ececec;
+	display: flex;
+	position: relative;
+	height: 48px;
+	align-items: center;
+	justify-content: space-between;
+	// border-bottom: 1px solid #ececec;
 
-  #drag-region {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto 100px;
-    -webkit-app-region: drag;
-  }
+	#drag-region {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-columns: auto 120px;
+		-webkit-app-region: drag;
+	}
 
-  #window-title {
-    display: flex;
-    position: relative;
-    align-items: center;
-    overflow-x: hidden;
+	#window-title {
+		display: flex;
+		position: relative;
+		align-items: center;
+		overflow-x: hidden;
 
-    span {
-      color: var(--dark);
-      font-weight: normal;
-      font-size: 14px;
-      font-family: 'Helvetica', Arial, sans-serif;
-      margin-left: 10px;
-    }
-  }
+		span {
+			color: var(--dark);
+			font-weight: normal;
+			font-family: "SF Pro Display", Arial, sans-serif;
+			margin-left: 10px;
+		}
+	}
 
-  #window-controls {
-    display: grid;
-    grid-template-columns: repeat(2, 50px);
-    height: 100%;
-    -webkit-app-region: no-drag;
+	#window-controls {
+		display: grid;
+		grid-template-columns: repeat(2, 60px);
+		height: 100%;
+		-webkit-app-region: no-drag;
 
-    .button {
-      grid-row: 1 / span 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      user-select: none;
-      cursor: pointer;
+		.button {
+			grid-row: 1 / span 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			user-select: none;
+			cursor: pointer;
 
-      .icon {
-        width: 22px;
-        height: 22px;
-        stroke: #000;
-        fill: none;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-    }
+			.icon {
+				width: 22px;
+				height: 22px;
+				stroke: #000;
+				fill: none;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+		}
 
-    #min-button {
-      grid-column: 1;
+		#min-button {
+			grid-column: 1;
 
-      &:hover {
-        background: #eee;
-      }
-    }
+			&:hover {
+				background: #eee;
+			}
+		}
 
-    #close-button {
-      grid-column: 2;
+		#close-button {
+			grid-column: 2;
 
-      &:hover {
-        background: #e6293f;
+			&:hover {
+				background: #e6293f;
 
-        .icon {
-          stroke: #fff;
-        }
-      }
-    }
-  }
+				.icon {
+					stroke: #fff;
+				}
+			}
+		}
+	}
 }

@@ -8,10 +8,10 @@ document.getElementById('close-button').addEventListener('click', function() {
 
 document.getElementById('accepte-rule').addEventListener('click', function() {
   if (document.getElementById('c8').checked) {
-      document.getElementById('intro').classList.add('hidden')
+      document.getElementById('page').classList.add('active')
       document.getElementById('page').classList.remove('active')
   } else {
-      //changer la couleurs d'accepter les cgu en rouge ?
+		document.getElementById('page').classList.remove('active')
   }
 })
 

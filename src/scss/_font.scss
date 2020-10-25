@@ -1,11 +1,17 @@
 @font-face {
-  font-family: 'Helvetica';
-  src: url(../assets/fonts/Helvetica.woff2) format('woff2');
-  font-weight: normal;
+	font-family: "SF Pro Display";
+	src: url("font/SFProDisplay-Bold.woff2") format("woff2"),
+		url("font/SFProDisplay-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url(../assets/fonts/Helvetica-Bold.woff2) format('woff2');
-  font-weight: bold;
+	font-family: "SF Pro Display";
+	src: url("font/SFProDisplay-Regular.woff2") format("woff2"),
+		url("font/SFProDisplay-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
